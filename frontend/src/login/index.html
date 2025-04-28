@@ -1,0 +1,277 @@
+<!DOCTYPE html>      
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Stop</title>
+    <link rel="icon" type="image/png" href="../assets/images/logos/catLogo.jpg">
+    <link rel="stylesheet" href="../assets/scss/main.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384..." crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/10f31accb2.js" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+
+    <div class="d-flex flex-column min-vh-100"> 
+
+    <!-- Top Notice Bar -->
+    <div class="top-bar text-center text-white py-2">
+        Free Delivery Over €60 🚚
+    </div>
+
+    <div class="sticky-top shadow-sm">
+        <!-- Header -->
+        <header class=" py-3 bg-light">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+
+            
+            <img src="../assets/images/logos/catStopTransparent.png" alt="Logo" class="logo-img" >
+            
+            
+                <div class="d-flex align-items-center gap-3">
+                <form class="d-none d-lg-block me-3" style="width: 500px;">
+                    <input type="text" class="form-control" placeholder="Search products...">
+                </form>
+
+                <i class="fa-solid fa-magnifying-glass d-lg-none "></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <a href="#" class="text-decoration-none text-dark ms-3"><i class="fa-solid fa-user"></i> Login</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i id="bar" class="fa-solid fa-bars"></i></span>
+                </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-navbar ">
+            <div class="container">
+                <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Best Sellers</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Food
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">All Food</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Dry Cat Food</a></li>
+                        <li><a class="dropdown-item" href="#">Wet Cat Food</a></li>
+                        <li><a class="dropdown-item" href="#">Adult Cat Food</a></li>
+                        <li><a class="dropdown-item" href="#">Kitten Food</a></li>
+                        <li><a class="dropdown-item" href="#">Senior Cat Food</a></li>
+                        <li><a class="dropdown-item" href="#">Treats</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Felix</a></li>
+                        <li><a class="dropdown-item" href="#">Hills Science</a></li>
+                        <li><a class="dropdown-item" href="#">Roya Canin</a></li>
+                        <li><a class="dropdown-item" href="#">Purina</a></li>
+                        <li><a class="dropdown-item" href="#">Select Gold</a></li>
+                        <li><a class="dropdown-item" href="#">Whiskas</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Accessories
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">All Accessories</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Toys</a></li>
+                        <li><a class="dropdown-item" href="#">Beds</a></li>
+                        <li><a class="dropdown-item" href="#">Carriers</a></li>
+                        <li><a class="dropdown-item" href="#">Grooming</a></li>
+                        <li><a class="dropdown-item" href="#">Feeders & Bowls</a></li>
+                        <li><a class="dropdown-item" href="#">Beds</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Treats</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Kitten Care
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">All Kitten Care</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Kitten Food</a></li>
+                        <li><a class="dropdown-item" href="#">Kitten Milk & Supplements</a></li>
+                        <li><a class="dropdown-item" href="#">Kitten Accessories</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Health & Hygiene
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">All Health & Hygiene</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Cat Litter</a></li>
+                        <li><a class="dropdown-item" href="#">Litter Trays </a></li>
+                        <li><a class="dropdown-item" href="#">Cat Toilets </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Healthcare</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Scratchers & Furniture
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">All Scratchers & Furniture</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Scratching Poles</a></li>
+                        <li><a class="dropdown-item" href="#">Cat Hides</a></li>
+                        <li><a class="dropdown-item" href="#">Cat Trees</a></li>
+                        <li><a class="dropdown-item" href="#">Cat Furniture</a></li>
+                        </ul>
+                    </li>
+            
+                </div>
+                </div>
+            </nav>
+
+    </div>       
+
+            <main class="flex-grow-1 d-flex justify-content-center align-items-center my-5">
+
+                
+                <div class="container pt-5" style="max-width: 1000px;">
+                  
+                    <div class="row">
+              
+                      <div class="col-md-6 p-5 border-end">
+
+                        <div class="text-center mb-4">
+                          <img src="../assets/images/logos/catLogo.jpg" alt="Cat Stop Logo" class="img-fluid" style="width: 80px;">
+                          <h4 class="mt-3">Login to Cat Stop</h4>
+                        </div>
+              
+                        <form>
+                          <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                          </div>
+              
+                          <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                          </div>
+              
+                          <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="remember">
+                              <label class="form-check-label" for="remember">Remember me</label>
+                            </div>
+                            <a href="../forgotPassword/index.html" class="small text-decoration-none">Forgot password?</a>
+                          </div>
+              
+                          <button type="submit" class="btn btn-primary w-100 ">Login</button>
+                        </form>
+                      </div>
+              
+                      <div class="col-md-6 p-5 bg-light">
+                        <h5 class="fw-bold mb-3">New Customer?</h5>
+                        <p>Create an account with us and you'll be able to:</p>
+                        <ul class="list-unstyled">
+                          <li>✔️ Check out faster</li>
+                          <li>✔️ Save multiple shipping addresses</li>
+                          <li>✔️ Access your order history</li>
+                          <li>✔️ Track new orders</li>
+                        </ul>
+                        <a href="../registerAccount/index.html" class="btn btn-outline-primary mt-3">Create an Account</a>
+                      </div>
+              
+                    </div>
+                  
+                </div>
+              </main>
+            
+
+
+            <!-- Footer -->
+            <footer id="footer" class="text-light pt-5 pb-3">
+                <div class="container">
+                <div class="row">
+            
+                    <!-- Company Info -->
+                    <div class="col-lg-4 col-md-4 mb-4">
+                    <img src="../assets/images/logos/catStopTransparent.png" alt="The Meow Market Logo" class="mb-4" style="max-width: 200px;">
+                    <p class="text-light small">Your purr-fect partner in premium cat care.</p>
+                    <p class="text-light mb-1"><i class="fa-solid fa-location-dot me-2"></i>123 Cat Street, Dublin, Ireland</p>
+                    <p class="text-light mb-1"><i class="fa-solid fa-phone me-2"></i>01 456 7589</p>
+                    <p class="text-light"><i class="fa-solid fa-envelope me-2"></i>hello@catstop.ie</p>
+                    </div>
+            
+                    <!-- Quick Links -->
+                    <div class="col-lg-4 col-md-4 mb-4">
+                    <h6 class="text-uppercase mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Login</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Best Sellers</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Food</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Accessories</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Kitten Care</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Health & Hygiene</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Scratchers & Furniture</a></li>
+                    </ul>
+                    </div>
+            
+                    <!-- Shopping Info -->
+                    <div class="col-lg-4 col-md-4 mb-4">
+                    <h6 class="text-uppercase mb-3">Customers</h6>
+                    <ul class="list-unstyled card-logos">
+                        <li><a href="#" class="text-light text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Delivery & Returns</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Terms & Conditions</a></li>
+                        <img src="../assets/images/logos/cardLogos.png" alt="Visa, Mastercard, PayPal logos">
+                    </ul>
+                    </div> 
+            
+                    <!-- Social Media Icons -->
+                    <div class="col-12 text-center mt-3">
+                        <a href="https://www.facebook.com/" target="_blank" class="text-light me-3"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com/?hl=en" target="_blank" class="text-light me-3"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                        <a href="https://www.tiktok.com/explore" target="_blank" class="text-light"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+        
+                </div>
+            
+                <hr class="border-light">
+            
+                <div class="text-center small text-light">
+                    &copy; 2025 CAT STOP. All rights reserved.
+                </div>
+        
+                </div>
+            </footer>
+            
+            <!-- Back to Top Button -->
+            <button id="backToTop" class="btn btn-primary rounded-circle" title="Back to top">
+                <i class="fa-solid fa-chevron-up"></i>
+            </button>
+        
+            
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" 
+            integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
+        
+            <script src="../assets/js/main.js"></script>
+    </div>
+  </body>
+  </html>

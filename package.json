@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.2.3",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jquery": "^3.7.1",
+    "mysql2": "^3.14.0",
+    "stripe": "^18.0.0"
+  },
+  "name": "cat-accessories-shop",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev:api": "npm --workspace backend run dev",
+    "dev:ui": "npm --workspace frontend start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

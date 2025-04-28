@@ -1,0 +1,16 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+"scripts": {
+  "sass": "sass src/assets/scss/main.scss src/assets/css/main.css --watch"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "sass": "^1.87.0"
+  },
+  "description": ""
+}
