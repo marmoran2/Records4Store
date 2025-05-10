@@ -1,0 +1,21 @@
+// BEM: .btn, modifiers: --primary, --secondary
+.btn {
+    display: inline-block;
+    font-family: inherit;
+    padding: $space-2 $space-3;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-align: center;
+  
+    &--primary {
+      background: $color-primary;
+      color: $color-white;
+    }
+  
+    &--secondary {
+      background: $color-secondary;
+      color: $color-black;
+    }
+  }
+  

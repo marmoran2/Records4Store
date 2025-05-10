@@ -1,0 +1,11 @@
+// Home page specific
+.home-hero {
+    background: url('../images/hero.jpg') no-repeat center/cover;
+    padding: $space-5 0;
+    text-align: center;
+  
+    &__title {
+      font-size: $font-size-h1;
+      color: $color-white;
+    }
+  }

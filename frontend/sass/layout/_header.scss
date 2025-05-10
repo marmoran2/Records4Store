@@ -1,0 +1,10 @@
+.header {
+    background: $color-primary;
+    color: $color-white;
+    padding: $space-3 0;
+  
+    &__logo {
+      font-size: $font-size-h2;
+    }
+  }
+  

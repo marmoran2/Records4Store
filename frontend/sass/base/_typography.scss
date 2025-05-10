@@ -1,0 +1,22 @@
+body {
+    font-family: $font-sans;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $color-black;
+    background: $color-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-bottom: $space-3;
+  }
+  
+  a {
+    color: $color-primary;
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  

@@ -1,0 +1,20 @@
+// Media‑query mixin
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == small {
+      @media (max-width: 600px) { @content; }
+    }
+    @else if $breakpoint == medium {
+      @media (max-width: 900px) { @content; }
+    }
+    // add more as needed
+  }
+  
+  // Clearfix
+  @mixin clearfix {
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+  

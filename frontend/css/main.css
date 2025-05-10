@@ -1,0 +1,22 @@
+/* Error: Module loop: this module is already being loaded.
+ *   ,--> frontend/sass/abstracts/_typography.scss
+ * 2 | @use '../abstracts/typography' as type;
+ *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ new load
+ *   '
+ *   ,--> frontend/sass/main.scss
+ * 5 | @use './abstracts/typography' as type;
+ *   | ===================================== original load
+ *   '
+ *   frontend/sass/abstracts/_typography.scss 2:1  @use
+ *   frontend/sass/main.scss 5:1                   root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Module loop: this module is already being loaded.\a   \250c \2500 \2500 > frontend/sass/abstracts/_typography.scss\a 2 \2502  @use '../abstracts/typography' as type;\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ new load\a   \2575 \a   \250c \2500 \2500 > frontend/sass/main.scss\a 5 \2502  @use './abstracts/typography' as type;\a   \2502  \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501  original load\a   \2575 \a   frontend/sass/abstracts/_typography.scss 2:1  @use\a   frontend/sass/main.scss 5:1                   root stylesheet";
+}

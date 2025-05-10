@@ -1,0 +1,16 @@
+// base/_typography.scss
+@use '../abstracts/typography' as type;
+@use '../abstracts/colors'     as colors;
+@use '../abstracts/spacing'    as space;
+
+body {
+  font-family: type.$font-sans;
+  font-size: type.$font-size-base;
+  line-height: type.$line-height-base;
+  color: colors.$color-black;
+  background: colors.$color-white;
+}
+
+h1, h2, h3 {
+  margin-bottom: space.$space-3;
+}

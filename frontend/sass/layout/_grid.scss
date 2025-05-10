@@ -1,0 +1,20 @@
+// Simple flex‑grid
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 $space-3;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -#{$space-2};
+  
+    & > .col {
+      padding: 0 $space-2;
+      flex: 1;
+    }
+  }
+  

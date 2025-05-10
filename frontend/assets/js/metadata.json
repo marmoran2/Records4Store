@@ -1,0 +1,342 @@
+[
+  {
+    "index": 1,
+    "artistName": "Reptant",
+    "trackName": "Ectoplastic",
+    "collectionName": "Freq Accident - EP",
+    "releaseYear": 2019,
+    "trackTimeSeconds": 417,
+    "recordLabel": "Freq Accident - EP",
+    "genre": "Breakbeat"
+  },
+  {
+    "index": 2,
+    "artistName": "DMX Krew",
+    "trackName": "Overseer",
+    "collectionName": "Overseer - EP",
+    "releaseYear": 2021,
+    "trackTimeSeconds": 256,
+    "recordLabel": "Overseer - EP",
+    "genre": "Electronic"
+  },
+  {
+    "index": 3,
+    "artistName": "Exium",
+    "trackName": "Expect Nothing (2018 Mix)",
+    "collectionName": "Expect Nothing (Remixes)",
+    "releaseYear": 2018,
+    "trackTimeSeconds": 361,
+    "recordLabel": "Expect Nothing (Remixes)",
+    "genre": "Techno"
+  },
+  {
+    "index": 4,
+    "artistName": "Mono Junk",
+    "trackName": "Another Acid",
+    "collectionName": "A-Sides - EP",
+    "releaseYear": 2016,
+    "trackTimeSeconds": 390,
+    "recordLabel": "A-Sides - EP",
+    "genre": "Dance"
+  },
+  {
+    "index": 5,
+    "artistName": "Oall Hates",
+    "trackName": "Tranceporter (Fade Remix)",
+    "collectionName": "Tranceporter: The Remixes",
+    "releaseYear": 2021,
+    "trackTimeSeconds": 400,
+    "recordLabel": "Tranceporter: The Remixes",
+    "genre": "Techno"
+  },
+  {
+    "index": 6,
+    "artistName": "Radial",
+    "trackName": "Revolver (Oscar Mulero)",
+    "collectionName": "Prrukcomp2013",
+    "releaseYear": 2008,
+    "trackTimeSeconds": 314,
+    "recordLabel": "Prrukcomp2013",
+    "genre": "Electronic"
+  },
+  {
+    "index": 7,
+    "artistName": "Alstroemeria Records",
+    "trackName": "Nitro (SDB Remix)",
+    "collectionName": "DANCEFLOOR COMBAT",
+    "releaseYear": 2007,
+    "trackTimeSeconds": 335,
+    "recordLabel": "DANCEFLOOR COMBAT",
+    "genre": "Dance"
+  },
+  {
+    "index": 8,
+    "artistName": "The Subjective",
+    "trackName": "Tremmer (Remastered 2022)",
+    "collectionName": "Tremmer / Critical - Single",
+    "releaseYear": 2022,
+    "trackTimeSeconds": 419,
+    "recordLabel": "Tremmer / Critical - Single",
+    "genre": "Techno"
+  },
+  {
+    "index": 9,
+    "artistName": "Exium",
+    "trackName": "96.1 Mhz (2019 Mix)",
+    "collectionName": "XX Part 1",
+    "releaseYear": 2019,
+    "trackTimeSeconds": 356,
+    "recordLabel": "XX Part 1",
+    "genre": "Techno"
+  },
+  {
+    "index": 10,
+    "artistName": "Sedvs & Peel",
+    "trackName": "Still On",
+    "collectionName": "Free Base Chakra - EP",
+    "releaseYear": 2018,
+    "trackTimeSeconds": 408,
+    "recordLabel": "Free Base Chakra - EP",
+    "genre": "Dance"
+  },
+  {
+    "index": 11,
+    "artistName": "Chontane",
+    "trackName": "In Roots",
+    "collectionName": "Sycamore",
+    "releaseYear": 2022,
+    "trackTimeSeconds": 358,
+    "recordLabel": "Sycamore",
+    "genre": "Electronic"
+  },
+  {
+    "index": 12,
+    "artistName": "Stef Mendesidis",
+    "trackName": "Magma",
+    "collectionName": "The World of Monnom Black III",
+    "releaseYear": 2023,
+    "trackTimeSeconds": 350,
+    "recordLabel": "The World of Monnom Black III",
+    "genre": "Electronic"
+  },
+  {
+    "index": 13,
+    "artistName": "Maxx Rossi",
+    "trackName": "Pulse Shaper (Mixed)",
+    "collectionName": "Global Underground #44: Amelie Lens - Antwerp (DJ Mix)",
+    "releaseYear": 2022,
+    "trackTimeSeconds": 264,
+    "recordLabel": "Global Underground #44: Amelie Lens - Antwerp (DJ Mix)",
+    "genre": "Dance"
+  },
+  {
+    "index": 14,
+    "artistName": "Sacramental",
+    "trackName": "Angels Trumpet (Ravedigger Edit)",
+    "collectionName": "Bad Blood - EP",
+    "releaseYear": 2016,
+    "trackTimeSeconds": 408,
+    "recordLabel": "Bad Blood - EP",
+    "genre": "Dance"
+  },
+  {
+    "index": 15,
+    "artistName": "PROXYMA (FR)",
+    "trackName": "Strategic Love",
+    "collectionName": "The Writer B",
+    "releaseYear": 2021,
+    "trackTimeSeconds": 392,
+    "recordLabel": "The Writer B",
+    "genre": "Electronic"
+  },
+  {
+    "index": 16,
+    "artistName": "Dubfire",
+    "trackName": "Escape (Glaskin Remix) [Mixed]",
+    "collectionName": "Hotflush Tapes 02 (DJ Mix)",
+    "releaseYear": 2024,
+    "trackTimeSeconds": 223,
+    "recordLabel": "Hotflush Tapes 02 (DJ Mix)",
+    "genre": "Electronic"
+  },
+  {
+    "index": 17,
+    "artistName": "Wachita China",
+    "trackName": "D1e and Repeat (Sansibar Suelo Mix)",
+    "collectionName": "D1e and Repeat - EP",
+    "releaseYear": 2021,
+    "trackTimeSeconds": 283,
+    "recordLabel": "D1e and Repeat - EP",
+    "genre": "Electronica"
+  },
+  {
+    "index": 18,
+    "artistName": "Alaev",
+    "trackName": "Light as a Feather (feat. Julia Biel) [Joe Hertz Remix]",
+    "collectionName": "Light as a Feather (feat. Julia Biel) - EP",
+    "releaseYear": 2013,
+    "trackTimeSeconds": 286,
+    "recordLabel": "Light as a Feather (feat. Julia Biel) - EP",
+    "genre": "Electronic"
+  },
+  {
+    "index": 19,
+    "artistName": "Funk Assault",
+    "trackName": "Pre - Gig Selfie",
+    "collectionName": "Minimum One Post a Week - EP",
+    "releaseYear": 2023,
+    "trackTimeSeconds": 286,
+    "recordLabel": "Minimum One Post a Week - EP",
+    "genre": "Electronic"
+  },
+  {
+    "index": 20,
+    "artistName": "Karenz & Mython",
+    "trackName": "Assembly (feat. Pesante) [Mixed]",
+    "collectionName": "Elevator Music: Miss Twink USA (DJ Mix)",
+    "releaseYear": 2023,
+    "trackTimeSeconds": 100,
+    "recordLabel": "Elevator Music: Miss Twink USA (DJ Mix)",
+    "genre": "Techno"
+  },
+  {
+    "index": 21,
+    "artistName": "Cult",
+    "trackName": "Keep Steppin'",
+    "collectionName": "Killer Tracks Chapter 2",
+    "releaseYear": 2023,
+    "trackTimeSeconds": 339,
+    "recordLabel": "Killer Tracks Chapter 2",
+    "genre": "Techno"
+  },
+  {
+    "index": 22,
+    "artistName": "Aerobicon",
+    "trackName": "Stealth Bells (Invexis Remix)",
+    "collectionName": "Rebels 2025",
+    "releaseYear": 2024,
+    "trackTimeSeconds": 334,
+    "recordLabel": "Rebels 2025",
+    "genre": "Techno"
+  },
+  {
+    "index": 23,
+    "artistName": "Cleric",
+    "trackName": "Saber",
+    "collectionName": "Validation Machine - EP",
+    "releaseYear": 2023,
+    "trackTimeSeconds": 297,
+    "recordLabel": "Validation Machine - EP",
+    "genre": "Electronic"
+  },
+  {
+    "index": 24,
+    "artistName": "Progression UK",
+    "trackName": "Holding a Wolf by the Ears (Ténèbre '99 Remix)",
+    "collectionName": "Holding a Wolf by the Ears - EP",
+    "releaseYear": 2019,
+    "trackTimeSeconds": 416,
+    "recordLabel": "Holding a Wolf by the Ears - EP",
+    "genre": "Techno"
+  },
+  {
+    "index": 25,
+    "artistName": "Cyan85",
+    "trackName": "Chase Your Mind",
+    "collectionName": "Bay of Sampieri - EP",
+    "releaseYear": 2019,
+    "trackTimeSeconds": 226,
+    "recordLabel": "Bay of Sampieri - EP",
+    "genre": "Electronic"
+  },
+  {
+    "index": 26,
+    "artistName": "Mike Parker",
+    "trackName": "Voiceprint: Voice Two (2019 Remaster)",
+    "collectionName": "Voiceprint  20th Anniversary Edition - Single",
+    "releaseYear": 2019,
+    "trackTimeSeconds": 338,
+    "recordLabel": "Voiceprint  20th Anniversary Edition - Single",
+    "genre": "Dance"
+  },
+  {
+    "index": 27,
+    "artistName": "Anodyne",
+    "trackName": "The Art of Fire",
+    "collectionName": "Fractured - EP",
+    "releaseYear": 2014,
+    "trackTimeSeconds": 342,
+    "recordLabel": "Fractured - EP",
+    "genre": "Electronic"
+  },
+  {
+    "index": 28,
+    "artistName": "Chlär",
+    "trackName": "Night Genesis",
+    "collectionName": "Optimized Grooves",
+    "releaseYear": 2022,
+    "trackTimeSeconds": 366,
+    "recordLabel": "Optimized Grooves",
+    "genre": "Electronic"
+  },
+  {
+    "index": 29,
+    "artistName": "Surgeon",
+    "trackName": "Convenience Trap, Pt. 2",
+    "collectionName": "Convenience Trap - EP",
+    "releaseYear": 2017,
+    "trackTimeSeconds": 422,
+    "recordLabel": "Convenience Trap - EP",
+    "genre": "Electronic"
+  },
+  {
+    "index": 30,
+    "artistName": "Tim Tama",
+    "trackName": "Physical Education",
+    "collectionName": "Bromance Vol I - EP",
+    "releaseYear": 2020,
+    "trackTimeSeconds": 383,
+    "recordLabel": "Bromance Vol I - EP",
+    "genre": "Techno"
+  },
+  {
+    "index": 31,
+    "artistName": "Mr. Dé",
+    "trackName": "Electric Soul-X2 (Instrumental)",
+    "collectionName": "Electric Soul - EP",
+    "releaseYear": 2000,
+    "trackTimeSeconds": 243,
+    "recordLabel": "Electric Soul - EP",
+    "genre": "Electronic"
+  },
+  {
+    "index": 32,
+    "artistName": "Groove Connektion 2",
+    "trackName": "Club Lonely (Serious Danger Mix)",
+    "collectionName": "Club Lonely - EP",
+    "releaseYear": 1998,
+    "trackTimeSeconds": 414,
+    "recordLabel": "Club Lonely - EP",
+    "genre": "Electronic"
+  },
+  {
+    "index": 33,
+    "artistName": "Arctor",
+    "trackName": "Soulless (Fear-E Remix)",
+    "collectionName": "Soulless Remixes - EP",
+    "releaseYear": 2022,
+    "trackTimeSeconds": 332,
+    "recordLabel": "Soulless Remixes - EP",
+    "genre": "Techno"
+  },
+  {
+    "index": 34,
+    "artistName": "Rene Wise",
+    "trackName": "Changa",
+    "collectionName": "Pleasure Note - EP",
+    "releaseYear": 2021,
+    "trackTimeSeconds": 332,
+    "recordLabel": "Pleasure Note - EP",
+    "genre": "Techno"
+  }
+]

@@ -1,0 +1,20 @@
+// Spacing scale
+$spacer: 1rem !default; // base unit
+$space-0: 0;
+$space-1: $spacer * .25;
+$space-2: $spacer * .5;
+$space-3: $spacer;
+$space-4: $spacer * 1.5;
+$space-5: $spacer * 3;
+
+// Margin/padding helpers (optional)
+@mixin u-margin($size) {
+  margin: map-get((
+    0: $space-0,
+    1: $space-1,
+    2: $space-2,
+    3: $space-3,
+    4: $space-4,
+    5: $space-5
+  ), $size);
+}

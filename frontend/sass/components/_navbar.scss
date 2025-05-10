@@ -1,0 +1,36 @@
+.navbar {
+    @include clearfix;
+    background: $color-white;
+    border-bottom: 1px solid lighten($color-black, 90%);
+    padding: $space-2 0;
+  
+    &__brand {
+      float: left;
+      font-size: $font-size-h3;
+    }
+  
+    &__menu {
+      float: right;
+      list-style: none;
+  
+      &-item {
+        display: inline-block;
+        margin-left: $space-3;
+      }
+    }
+  }
+  
+  // components/_navbar.scss
+
+// Bottom bar overrides
+#bottomBar {
+    background-color: #ff5757 !important; // override bg-primary
+  }
+  
+  // Middle bar search width
+  #middleBar {
+    .form-control {
+      max-width: 300px; // or whatever width you prefer
+      width: 100%;
+    }
+  }

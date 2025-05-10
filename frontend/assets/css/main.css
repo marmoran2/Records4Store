@@ -10981,4 +10981,14 @@ button:hover {
   padding: 0;
 }
 
+body {
+  font-family: sans-serif;
+}
+.card {
+  transition: transform .2s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
 /*# sourceMappingURL=main.css.map */
