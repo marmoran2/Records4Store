@@ -1,26 +1,33 @@
-// main.scss
 
-// Abstracts (namespaced)
-@use './abstracts/colors'     as colors;
-@use './abstracts/typography' as type;
-@use './abstracts/spacing'    as space;
-@use './abstracts/mixins'     as mixin;
+
+@use "bootstrap/scss/bootstrap" as bs;
+
+// Abstracts
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+@use 'abstracts/typography';
 
 // Base
-@use './base/reset';
-@use './base/typography'      as baseType;
+@use "base/reset";
+@use "base/typography" as BaseType;
+@use "base/transitions";
 
 // Layout
-@use './layout/grid';
-@use './layout/header';
-@use './layout/footer';
+@use "layout/header";
+@use "layout/grid";
+@use "layout/footer";
+@use "layout/container";
 
-// Components
-@use './components/button';
-@use './components/card';
-@use './components/navbar';
-@use './components/form';
+// Components (each imports bs itself)
+@use "components/navbar";
+@use "components/button";
+@use "components/card";
+@use "components/carousel";
+@use "components/form";
+@use "components/product";
+@use "components/hero";
+@use "components/page_bg";
 
 // Pages
-@use './pages/home';
-@use './pages/catalog';
+@use "pages/home";
+@use "pages/catalog";

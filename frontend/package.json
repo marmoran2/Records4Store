@@ -1,22 +1,24 @@
 {
   "name": "frontend",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css":  "sass --quiet-deps --load-path=node_modules --load-path=sass sass/main.scss css/main.css",
+    "watch:css":  "sass --watch --quiet-deps --load-path=node_modules --load-path=sass sass/main.scss:css/main.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.9.0",
-    "bootstrap": "^5.2.3"
+    "bootstrap": "^5.3.6"
   },
   "devDependencies": {
-    "sass": "^1.87.0"
-  },
-  "description": ""
+    "sass": "^1.88.0"
+  }
 }

@@ -1,36 +1,55 @@
-.navbar {
-    @include clearfix;
-    background: $color-white;
-    border-bottom: 1px solid lighten($color-black, 90%);
-    padding: $space-2 0;
-  
-    &__brand {
-      float: left;
-      font-size: $font-size-h3;
-    }
-  
-    &__menu {
-      float: right;
-      list-style: none;
-  
-      &-item {
-        display: inline-block;
-        margin-left: $space-3;
-      }
-    }
-  }
-  
-  // components/_navbar.scss
+@use "../abstracts/variables" as *;
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
+@use "sass:map";
 
-// Bottom bar overrides
-#bottomBar {
-    background-color: #ff5757 !important; // override bg-primary
-  }
-  
-  // Middle bar search width
-  #middleBar {
-    .form-control {
-      max-width: 300px; // or whatever width you prefer
-      width: 100%;
+
+// Scroll-triggered animation for middle bar
+#middleBar {
+  position: sticky;
+  top: 0;
+  z-index: map.get(vars.$z-index, z-navtop); // Or use 1000+
+  background-color: white; // Required for sticky to not appear transparent over content
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); // Optional visual cue
+
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    .material-icons {
+      font-size: 1.8rem;
     }
   }
+  
+  &.show-toggle {
+    .menu-toggle {
+      display: block;
+    }
+    .logo {
+      transform: scale(0.9);
+      transition: transform 0.2s ease;
+    }
+  }
+}
+
+// Expand / collapse logic for bottom bar
+#bottomBar {
+  transition: all 0.3s ease;
+  overflow: visible;
+  position: relative;
+  z-index: map.get(vars.$z-index, z-nav);
+
+  &.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+  }
+
+  &.expanded {
+    max-height: 200px; // adjust if necessary
+    opacity: 1;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+  }
+}

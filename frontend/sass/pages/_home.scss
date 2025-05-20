@@ -1,11 +1,10 @@
-// Home page specific
-.home-hero {
-    background: url('../images/hero.jpg') no-repeat center/cover;
-    padding: $space-5 0;
-    text-align: center;
-  
-    &__title {
-      font-size: $font-size-h1;
-      color: $color-white;
-    }
-  }
+@use '../abstracts/variables' as vars;
+@use 'sass:map';
+
+.section-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: map.get(vars.$colors, dark);
+}

@@ -1,20 +1,36 @@
-// Media‑query mixin
+@use "../abstracts/variables" as *;
+
+// --------------------------------------------------
+// Mixins
+// Use only when Bootstrap utilities are insufficient
+// --------------------------------------------------
+
+// Typography shortcut
+@mixin font-size($size) {
+  font-size: $size;
+  line-height: 1.5;
+}
+
+// Responsive visibility (example)
+@mixin hidden-mobile {
+  @media (max-width: 575.98px) {
+    display: none !important;
+  }
+}
+
+@mixin show-desktop {
+  @media (min-width: 768px) {
+    display: block !important;
+  }
+}
+
+// Custom media query helper
 @mixin respond-to($breakpoint) {
-    @if $breakpoint == small {
-      @media (max-width: 600px) { @content; }
+  @if map-has-key($container-max-widths, $breakpoint) {
+    @media (min-width: map-get($container-max-widths, $breakpoint)) {
+      @content;
     }
-    @else if $breakpoint == medium {
-      @media (max-width: 900px) { @content; }
-    }
-    // add more as needed
+  } @else {
+    @warn "No value found for breakpoint `#{$breakpoint}`.";
   }
-  
-  // Clearfix
-  @mixin clearfix {
-    &::after {
-      content: '';
-      display: table;
-      clear: both;
-    }
-  }
-  
+}
