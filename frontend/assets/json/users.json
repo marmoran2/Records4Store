@@ -1,7 +1,15 @@
 [
     {
       "email": "test@example.com",
-      "password": "password123"
+      "password": "password123",
+      "firstName": "Terry",
+      "lastName": "Jefferson",
+      "username": "tjeffers12",
+      "addressLine1": "123 Main St",
+      "city": "Dublin",
+      "country": "Ireland",
+      "createdAt": "2024-10-01",
+      "lastOrder": "2025-03-21"
     },
     {
       "email": "demo@vinylstore.com",

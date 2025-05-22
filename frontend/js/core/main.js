@@ -13,3 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setupPageTransitions();
   }
 });
+
+
+localStorage.setItem(
+  'cartItems',
+  JSON.stringify([
+    { productIndex: 13, quantity: 2 },
+    { productIndex: 5, quantity: 1 }
+  ])
+);

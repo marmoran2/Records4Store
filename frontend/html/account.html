@@ -1,0 +1,79 @@
+<!-- File: frontend/html/account.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Account | 4TTF Records</title>
+
+  <!-- Styles -->
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Scripts -->
+  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="../js/pages/account.js"></script>
+</head>
+
+<body>
+  <nav id="middleBar"></nav>
+  <nav id="bottomBar"></nav>
+
+  <main class="page-container account-profile">
+    <div class="account-wrapper">
+      <!-- Left Summary -->
+      <aside class="account-summary">
+        <div class="avatar-placeholder">
+          <i class="material-icons">account_circle</i>
+        </div>
+        <h2 id="summaryName">Welcome</h2>
+        <p id="summaryEmail" class="text-muted small"></p>
+        <hr />
+        <ul class="action-list">
+          <li><i class="bi bi-key"></i> <a href="#">Change Password</a></li>
+          <li><i class="bi bi-envelope-exclamation"></i> <a href="#">Request Email Change</a></li>
+          <li><i class="bi bi-geo-alt"></i> <a href="#">Add / Change Address</a></li>
+          <li><i class="bi bi-toggle2-off"></i> <a href="#">Manage Marketing Preferences</a></li>
+          <li><i class="bi bi-chat-right-dots"></i> <a href="#">Contact Support</a></li>
+          <li><i class="bi bi-person-x"></i> <a href="#">Delete Account</a></li>
+        </ul>
+        <button class="btn btn-outline-danger w-100 mt-3" id="logoutBtn">Logout</button>
+      </aside>
+
+      <!-- Right Detail View -->
+      <section class="account-details">
+        <h3>Account Details</h3>
+        <div class="detail-group">
+          <label>Email</label>
+          <p id="detailEmail"></p>
+        </div>
+        <div class="detail-group">
+          <label>Username</label>
+          <p id="detailUsername"></p>
+        </div>
+        <div class="detail-group">
+          <label>First Name</label>
+          <p id="detailFirstName"></p>
+        </div>
+        <div class="detail-group">
+          <label>Last Name</label>
+          <p id="detailLastName"></p>
+        </div>
+        <div class="detail-group">
+          <label>Address</label>
+          <p id="detailAddress" class="text-muted">No address saved</p>
+        </div>
+        <div class="detail-group">
+          <label>Account Created</label>
+          <p id="detailCreated"></p>
+        </div>
+        <div class="detail-group">
+          <label>Last Order</label>
+          <p id="detailLastOrder" class="text-muted">No orders found</p>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
