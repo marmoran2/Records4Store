@@ -101,6 +101,25 @@ Spacing, shadows, breakpoints centralized
 
 Fonts default to Etna Sans
 
+- Extended semantic color palette: `$color-info`, `$color-warning`, `$color-success`, `$color-danger`, `$color-highlight`, `$color-link`, `$color-focus-outline`
+- Utility colors for UI: `$color-surface`, `$color-elevated`, `$color-background-alt`
+- Merged custom theme colors into `$theme-colors` using `map.merge`
+- Additional spacing variables: `$spacer-xs`, `$spacer-sm`, `$spacer-md`, `$spacer-lg`, `$spacer-xl`
+- Aliases for layout spacing: `$section-spacing`, `$component-spacing`
+- Standard shadow/elevation tokens: `$shadow-sm`, `$shadow-md`, `$shadow-lg`
+
+- Alternate font stacks defined for fallback and thematic variation:
+  - `$font-family-alt-1`: 'Barlow'
+  - `$font-family-alt-2`: 'DM Sans'
+  - `$font-family-alt-3`: 'Manrope'
+  - `$font-family-alt-4`: 'IBM Plex Sans'
+  - `$font-family-alt-5`: 'Inter'
+- Monospaced font stack for code blocks: `$font-family-mono`: 'JetBrains Mono'
+- Additional typography scale variables for larger headings:
+  - `$font-size-xl`, `$font-size-xxl`, `$font-size-xxxl`
+- Line height helpers: `$line-height-compact`, `$line-height-relaxed`
+- New font weights: `$font-weight-extra-bold`, `$font-weight-black`
+
 🧩 Component Notes
 _product.scss
 .product-container, .product-container__image, .product-details

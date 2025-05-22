@@ -1,3 +1,5 @@
+// File: js/pages/product-grid.js
+
 $(function () {
   let allProducts = [];
 
@@ -39,10 +41,20 @@ $(function () {
     });
   }
 
+  // Read query param to preselect filter
+  function applyQueryFilter() {
+    const params = new URLSearchParams(window.location.search);
+    const preGenre = params.get('category');
+    if (preGenre) {
+      $('#genreFilter').val(preGenre);
+    }
+  }
+
   fetchProducts()
     .then(data => {
       allProducts = data;
       populateFilters();
+      applyQueryFilter();
       renderGrid();
     })
     .catch(err => {
@@ -51,7 +63,6 @@ $(function () {
     });
 
   $('#genreFilter, #yearFilter').on('change', renderGrid);
-
   $('#resetFilters').on('click', () => {
     $('#genreFilter, #yearFilter').val('');
     renderGrid();

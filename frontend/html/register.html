@@ -1,0 +1,105 @@
+<!-- File: frontend/html/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register | 4TTF Records</title>
+
+  <!-- Styles -->
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- Scripts -->
+  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="../js/components/form-validation.js"></script>
+  <script type="module" src="../js/pages/register.js"></script>
+</head>
+
+<body>
+  <nav id="middleBar"></nav>
+  <nav id="bottomBar"></nav>
+
+  <main class="auth-container page-container register-flow">
+    <div class="step-indicator">
+      <span class="step active">1</span>
+      <span class="step">2</span>
+      <span class="step">3</span>
+    </div>
+
+    <form id="registerForm" novalidate>
+      <!-- Step 1: Email -->
+      <section class="form-step active" data-step="1">
+        <h2 class="auth-heading">Step 1: Enter Email</h2>
+        <div class="mb-3">
+          <label for="regEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="regEmail" required />
+          <div class="invalid-feedback">Enter a valid email.</div>
+        </div>
+        <div class="text-danger d-none" id="emailExistsError">Email is already registered. <a href="forgot-password.html">Forgot Password?</a></div>
+        <button type="button" class="btn btn-primary w-100" id="toStep2">Continue</button>
+      </section>
+
+      <!-- Step 2: Details -->
+      <section class="form-step" data-step="2">
+        <h2 class="auth-heading">Step 2: Your Details</h2>
+
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstName" required />
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" required />
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" required />
+          <div class="strength-meter" id="strengthMeter"></div>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" required />
+          <div class="invalid-feedback">Passwords must match.</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Shipping Address (optional)</label>
+          <input class="form-control mb-2" placeholder="Address Line 1" />
+          <input class="form-control mb-2" placeholder="Address Line 2" />
+          <input class="form-control mb-2" placeholder="City" />
+          <input class="form-control" placeholder="Country" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Contact Preferences</label><br />
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="promoEmails" />
+            <label class="form-check-label" for="promoEmails">Email me promotions</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="newsUpdates" />
+            <label class="form-check-label" for="newsUpdates">Email me updates</label>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary w-100" id="toStep3">Register</button>
+      </section>
+
+      <!-- Step 3: Confirmation -->
+      <section class="form-step" data-step="3">
+        <h2 class="auth-heading">Account Created</h2>
+        <p class="text-center">
+          Please check your email to activate your account.<br />
+          Redirecting to login...
+        </p>
+      </section>
+    </form>
+  </main>
+</body>
+</html>

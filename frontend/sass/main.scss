@@ -28,6 +28,10 @@
 @use "components/hero";
 @use "components/page_bg";
 
+
 // Pages
 @use "pages/home";
 @use "pages/catalog";
+@use "pages/product-view";
+@use "pages/auth";
+@use "pages/forgot-password";

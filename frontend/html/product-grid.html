@@ -1,0 +1,57 @@
+<!-- File: frontend/html/product-grid.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Browse Products | 4TTF Records</title>
+
+  <!-- Styles -->
+  <link href="../css/main.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Scripts -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script defer src="../js/components/footer.js"></script>
+  <script defer src="../js/components/navbar.js"></script>
+  <script defer src="../js/components/product-card.js"></script>
+  <script defer src="../js/pages/product-grid.js"></script>
+</head>
+
+<body>
+  <nav id="middleBar"></nav>
+  <nav id="bottomBar"></nav>
+
+  <main class="page-container product-grid-page">
+    <!-- Filters -->
+    <section class="product-grid-controls">
+      <div class="filters row align-items-end">
+        <div class="col-md-3 mb-2">
+          <label for="genreFilter" class="form-label">Genre</label>
+          <select id="genreFilter" class="form-select">
+            <option value="">All Genres</option>
+          </select>
+        </div>
+        <div class="col-md-3 mb-2">
+          <label for="yearFilter" class="form-label">Year</label>
+          <select id="yearFilter" class="form-select">
+            <option value="">All Years</option>
+          </select>
+        </div>
+        <div class="col-md-2 mb-2">
+          <button id="resetFilters" class="btn btn-outline-secondary w-100">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="product-grid-wrapper mt-4">
+      <div id="productGrid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <!-- JS fills this -->
+      </div>
+    </section>
+  </main>
+</body>
+</html>

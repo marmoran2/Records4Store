@@ -12,13 +12,60 @@
   background-color: white; // Required for sticky to not appear transparent over content
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); // Optional visual cue
 
-  .menu-toggle {
-    display: none;
-    cursor: pointer;
-    .material-icons {
-      font-size: 1.8rem;
+
+.navbar-middle.show-toggle {
+  .navbar-toggler {
+    display: inline-flex;
+  }
+
+  .navbar-middle.show-toggle {
+    .logo {
+      transform: scale(0.9);
+      transition: transform 0.2s ease;
     }
   }
+}
+
+
+
+.navbar-toggler.scroll-visible {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  z-index: 1050;
+  cursor: pointer;
+
+  .navbar-toggler-icon {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+
+.navbar-middle .navbar-toggler {
+  display: none;
+
+  &.scroll-visible {
+    display: inline-flex !important; // <- override Bootstrap
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Prevent Bootstrap media query hiding it
+@media (min-width: 992px) {
+  .navbar-middle .navbar-toggler.scroll-visible {
+    display: inline-flex !important;
+  }
+}
   
   &.show-toggle {
     .menu-toggle {
@@ -31,25 +78,60 @@
   }
 }
 
-// Expand / collapse logic for bottom bar
-#bottomBar {
-  transition: all 0.3s ease;
-  overflow: visible;
-  position: relative;
-  z-index: map.get(vars.$z-index, z-nav);
 
-  &.collapsed {
-    max-height: 0;
-    opacity: 0;
-    padding: 0;
+
+.mega-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: $color-surface;
+  z-index: map.get($z-index, z-overlay);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), padding 0.3s ease;
+
+  &.open {
+    display: block;
+    max-height: 70vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
-  &.expanded {
-    max-height: 200px; // adjust if necessary
-    opacity: 1;
+  .mega-menu.open + .navbar .dropdown-menu {
+    display: none !important;
   }
 
-  .dropdown-menu {
-    position: absolute;
+  .mega-menu__content {
+    animation: fadeIn 0.5s ease;
   }
+
+  .category-image-cards {
+    .category-card {
+      text-align: center;
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+      span {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      &:hover img {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

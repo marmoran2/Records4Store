@@ -34,3 +34,18 @@
     @warn "No value found for breakpoint `#{$breakpoint}`.";
   }
 }
+
+// abstracts/_mixins.scss
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}

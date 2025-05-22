@@ -51,3 +51,43 @@ $letter-spacing-wide: 0.05em;
 $text-align-center: center;
 $text-align-left: left;
 $text-align-right: right;
+
+// ========================
+// FONT STACK EXTENSIONS
+// ========================
+
+// Primary: Etna Sans (already in use)
+$font-family-primary: 'Etna Sans', sans-serif;
+
+// Alternate options
+$font-family-alt-1: 'Barlow', sans-serif;         // clean, slightly futuristic
+$font-family-alt-2: 'DM Sans', sans-serif;        // modern, readable
+$font-family-alt-3: 'Manrope', sans-serif;        // geometric, minimal
+$font-family-alt-4: 'IBM Plex Sans', sans-serif;  // strong professional
+$font-family-alt-5: 'Inter', sans-serif;          // neutral, versatile
+
+// Optional monospace (for pre/code blocks if needed)
+$font-family-mono: 'JetBrains Mono', monospace;
+
+
+// ========================
+// TYPOGRAPHY SCALE EXTENSIONS
+// ========================
+
+$font-size-xl: 2rem;   // 32px
+$font-size-xxl: 2.5rem; // 40px
+$font-size-xxxl: 3rem; // 48px+
+
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+
+$line-height-compact: 1.2;
+$line-height-relaxed: 1.75;
+
+// These are optional variables to be used in large headers or hero sections
+
+.hero-title {
+  font-size: $font-size-xxxl;
+  font-family: $font-family-alt-3;
+  line-height: $line-height-compact;
+}
