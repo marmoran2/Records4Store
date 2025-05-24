@@ -13,6 +13,8 @@
 
   <!-- Scripts -->
   <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="../js/core/main.js"></script>
+  <script type="module" src="../js/components/navbar.js"></script>
   <script type="module" src="../js/pages/account.js"></script>
 </head>
 
@@ -72,6 +74,9 @@
           <label>Last Order</label>
           <p id="detailLastOrder" class="text-muted">No orders found</p>
         </div>
+        <a href="userorders.html" class="btn btn-outline-primary w-100 mt-2">
+          <i class="bi bi-receipt-cutoff me-2"></i> View Order History
+        </a>
       </section>
     </div>
   </main>

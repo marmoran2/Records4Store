@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | 4TTF Records</title>
+  <link href="../css/main.css" rel="stylesheet" />
+  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <script type="module" src="../js/core/main.js"></script>
+  <script defer src="../js/pages/contact.js"></script>
+    <script type="module" src="../js/components/navbar.js"></script>
+</head>
+
+<body>
+  <nav id="middleBar"></nav>
+  <nav id="bottomBar"></nav>
+
+  <main class="page-container contact-page">
+    <h2 class="text-center">Contact Us</h2>
+
+    <form id="contactForm" class="form-card">
+      <div class="mb-3">
+        <label for="enquiryType" class="form-label">Enquiry Type</label>
+        <select id="enquiryType" name="enquiryType" class="form-select" required>
+          <option>Order Status</option>
+          <option>Refunds and Returns</option>
+          <option>Update Account</option>
+          <option>Promotional</option>
+          <option>General</option>
+          <option>Issue with Order</option>
+          <option>Issues Ordering</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" id="fullName" name="fullName" class="form-control" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" id="email" name="email" class="form-control" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="subject" class="form-label">Subject</label>
+        <input type="text" id="subject" name="subject" class="form-control" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="message" class="form-label">Message <small id="charCount" class="text-muted">0/1000</small></label>
+        <textarea id="message" name="message" class="form-control" rows="5" maxlength="1000" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" id="phone" name="phone" class="form-control" />
+      </div>
+
+      <div class="mb-4">
+        <label for="preferredContact" class="form-label">Preferred Contact Method</label>
+        <select id="preferredContact" name="preferredContact" class="form-select">
+          <option>Email</option>
+          <option>Phone</option>
+          <option>Either</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Send Message</button>
+    </form>
+  </main>
+</body>
+</html>

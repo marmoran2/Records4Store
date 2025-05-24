@@ -6,12 +6,12 @@ export function fillHeroCarousel() {
     if (!heroInner) return;
   
     const titles = [
-      "The Rise of Indie Vinyl",
-      "Limited Edition Drop",
-      "Behind the Pressing Plant",
-      "Soundtracks You Missed",
-      "Vinyl Tips for Collectors",
-      "Deep Cuts & Hidden Gems"
+      "Vinculum release mixed VA with Skee Mask, VRIL, and their home crew",
+      "Robert Hood gifts vinylists a new repress of his timeless Minimal Nation",
+      "Jeff Mills rolls back the years with remixes of Berlin on Tresor",
+      "AFX Ambient Works Vol. 3 finally available on vinyl",
+      "Dax J's final Monnom Black release",
+      "Delsin releases new Sunil Sharpe heavy hitters",
     ];
   
     // Generate slides

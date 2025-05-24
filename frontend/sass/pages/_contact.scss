@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as *;
+
+.contact-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 2rem;
+
+  h2 {
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .form-card {
+    background: $color-light;
+    border: 1px solid $color-border;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.03);
+
+    .form-label {
+      font-weight: 500;
+    }
+
+    .form-control,
+    .form-select {
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+    }
+
+    #charCount {
+      float: right;
+      font-size: 0.75rem;
+    }
+  }
+
+  .alert {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+}

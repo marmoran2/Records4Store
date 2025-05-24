@@ -1,0 +1,60 @@
+@use "../abstracts/variables" as *;
+
+.search-page {
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .search-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .filters {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .results-grid {
+      flex: 3;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+
+      .product-card {
+        border: 1px solid $color-border;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        background: $color-light;
+        transition: 0.2s ease;
+        text-decoration: none;
+
+        &:hover {
+          box-shadow: 0 0 0 3px $color-primary;
+        }
+
+        img {
+          width: 100%;
+          object-fit: cover;
+          aspect-ratio: 1 / 1;
+        }
+
+        .card-body {
+          padding: 0.75rem;
+          h5 {
+            margin: 0;
+            font-size: 1.1rem;
+          }
+          p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}

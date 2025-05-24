@@ -37,21 +37,23 @@ function renderMiddleBar() {
   nav.innerHTML = `
     <div class="navbar-container d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
-          <button class="navbar-toggler me-3" type="button" aria-label="Toggle navigation">
-            <span class="material-icons icon-menu">menu</span>
-            <span class="material-icons icon-close d-none">close</span>
-          </button>
-        <a href="/" class="logo-container">
-          <img src="../assets/images/logo_.png" alt="Site Logo" class="logo" />
+        <button class="navbar-toggler me-3" type="button" aria-label="Toggle navigation">
+          <span class="material-icons icon-menu">menu</span>
+          <span class="material-icons icon-close d-none">close</span>
+        </button>
+        <a href="../html/index.html" class="logo-container">
+            <img src="../assets/images/logos/logo.svg" alt="Site Logo" class="logo logo-animate" />  
         </a>
       </div>
-      <form class="flex-grow-1 mx-3 d-none d-md-block">
-        <input class="form-control" type="search" placeholder="Search records…" aria-label="Search">
+
+      <form class="flex-grow-1 mx-3 d-none d-md-block" action="search.html" method="GET">
+        <input class="form-control" type="search" name="query" placeholder="Search records…" aria-label="Search">
       </form>
+
       <div class="d-flex align-items-center">
-        <a href="#" class="me-3"><span class="material-icons">favorite</span></a>
-        <a href="#" class="me-3"><span class="material-icons">account_circle</span></a>
-        <a href="#"><span class="material-icons">shopping_cart</span></a>
+        <a href="../html/wishlist.html" class="me-3" title="Wishlist"><span class="material-icons">favorite</span></a>
+        <a href="../html/account.html" class="me-3" title="Account"><span class="material-icons">account_circle</span></a>
+        <a href="../html/cart.html" title="Cart"><span class="material-icons">shopping_cart</span></a>
       </div>
     </div>
   `;
@@ -67,28 +69,44 @@ function renderBottomBar() {
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#prodNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-center" id="prodNav">
+      <div class="navbar-links collapse navbar-collapse justify-content-center" id="prodNav">
         <ul class="navbar-nav">
-          ${productNav.map(item =>
-            item.dropdown
-              ? `<li class="nav-item ${item.name === 'Genres' ? 'mega-trigger' : 'dropdown'}">
-                   <a class="nav-link dropdown-toggle text-light" href="#" ${item.name !== 'Genres' ? 'data-bs-toggle="dropdown"' : ''}>${item.name}</a>
-                   ${item.name !== 'Genres'
-                     ? `<ul class="dropdown-menu">
-                          ${item.items.map(i => `<li><a class="dropdown-item" href="#">${i}</a></li>`).join('')}
-                        </ul>`
-                     : ''}
-                 </li>`
-              : `<li class="nav-item">
-                   <a class="nav-link text-light" href="${item.href}">${item.name}</a>
-                 </li>`
-          ).join('')}
+          <li class="nav-item">
+            <a class="nav-link text-light" href="pre-orders.html">Pre-Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="new-releases.html">New Arrivals</a>
+          </li>
+          <li class="nav-item mega-trigger">
+            <a class="nav-link dropdown-toggle text-light" href="#">Catalog</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">Sale</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item sale-link" data-sale="under-10" href="#">Under €10</a></li>
+              <li><a class="dropdown-item sale-link" data-sale="2for1" href="#">2 for 1</a></li>
+              <li><a class="dropdown-item sale-link" data-sale="final-stock" href="#">Final Stock</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">Help</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="about.html">About Us</a></li>
+              <li><a class="dropdown-item" href="returns.html">Returns</a></li>
+              <li><a class="dropdown-item" href="faq.html">FAQs</a></li>
+              <li><a class="dropdown-item" href="delivery.html">Delivery</a></li>
+              <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+            </ul>
+
+          </li>
+          <a class="nav-link text-light" href="#" data-bs-toggle="dropdown">Account</a>
+            <a class="nav-link text-light" href="#" data-bs-toggle="dropdown">Wishlist</a>
+              <a class="nav-link text-light" href="#" data-bs-toggle="dropdown">Cart</a>
         </ul>
       </div>
     </div>
   `;
 
-  // Inject Mega Menu
   const megaMenu = document.createElement('div');
   megaMenu.id = 'megaCategoryMenu';
   megaMenu.className = 'mega-menu';
@@ -98,19 +116,19 @@ function renderBottomBar() {
         <div class="col-md-4">
           <h6 class="text-uppercase">Genres</h6>
           <ul class="list-unstyled">
-            ${categoriesData.genres.map(i => `<li><a href="#" class="dropdown-item">${i}</a></li>`).join('')}
+            ${categoriesData.genres.map(i => `<li><a href="#" class="dropdown-item genre-link" data-genre="${i}">${i}</a></li>`).join('')}
           </ul>
         </div>
         <div class="col-md-4">
           <h6 class="text-uppercase">Styles</h6>
           <ul class="list-unstyled">
-            ${categoriesData.styles.map(i => `<li><a href="#" class="dropdown-item">${i}</a></li>`).join('')}
+            ${categoriesData.styles.map(i => `<li><a href="#" class="dropdown-item style-link" data-style="${i}">${i}</a></li>`).join('')}
           </ul>
         </div>
         <div class="col-md-4">
           <h6 class="text-uppercase">Era</h6>
           <ul class="list-unstyled">
-            ${categoriesData.era.map(i => `<li><a href="#" class="dropdown-item">${i}</a></li>`).join('')}
+            ${categoriesData.era.map(i => `<li><a href="#" class="dropdown-item era-link" data-era="${i}">${i}</a></li>`).join('')}
           </ul>
         </div>
       </div>
@@ -118,18 +136,52 @@ function renderBottomBar() {
         <div class="col">
           <div class="category-image-cards d-flex flex-wrap gap-3 justify-content-center">
             <div class="category-card">
-              <img src="../assets/images/background.png" alt="Techno">
+              <img src="../assets/images/background.png" alt="Techno" />
               <span>Techno</span>
             </div>
-            <!-- Add more image cards -->
+                        <div class="category-card">
+              <img src="../assets/images/background.png" alt="Techno" />
+              <span>Breaks</span>
+            </div>
+                        <div class="category-card">
+              <img src="../assets/images/background.png" alt="Techno" />
+              <span>House</span>
+            </div>
+                        <div class="category-card">
+              <img src="../assets/images/background.png" alt="Techno" />
+              <span>Ambient</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   `;
   nav.appendChild(megaMenu);
-}
 
+  // Filters to search page
+  document.addEventListener('click', (e) => {
+    if (e.target.matches('.genre-link')) {
+      e.preventDefault();
+      const value = e.target.dataset.genre;
+      window.location.href = `search.html?genre=${encodeURIComponent(value)}`;
+    }
+    if (e.target.matches('.style-link')) {
+      e.preventDefault();
+      const value = e.target.dataset.style;
+      window.location.href = `search.html?style=${encodeURIComponent(value)}`;
+    }
+    if (e.target.matches('.era-link')) {
+      e.preventDefault();
+      const value = e.target.dataset.era;
+      window.location.href = `search.html?era=${encodeURIComponent(value)}`;
+    }
+    if (e.target.matches('.sale-link')) {
+      e.preventDefault();
+      const value = e.target.dataset.sale;
+      window.location.href = `search.html?sale=${encodeURIComponent(value)}`;
+    }
+  });
+}
 // --- Scroll & Navbar Behavior ---
 function setupScrollBehavior() {
   const middleBar = document.getElementById('middleBar');
@@ -194,7 +246,7 @@ function setupScrollBehavior() {
 // --- Event Bindings ---
 function setupMegaMenuBehavior() {
   const megaMenu = document.getElementById('megaCategoryMenu');
-  const genresItem = Array.from(document.querySelectorAll('a.nav-link')).find(el => el.textContent.trim() === 'Genres');
+  const genresItem = Array.from(document.querySelectorAll('a.nav-link')).find(el => el.textContent.trim() === 'Catalog');
 
   if (!megaMenu || !genresItem) return;
 
@@ -210,7 +262,7 @@ function setupMegaMenuBehavior() {
 
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('mouseenter', () => {
-      const isGenres = link.textContent.trim() === 'Genres';
+      const isGenres = link.textContent.trim() === 'Catalog';
       if (!isGenres && megaMenu.classList.contains('open')) {
         megaMenu.classList.remove('open');
       }

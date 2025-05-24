@@ -38,7 +38,7 @@
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at 30% 40%, rgba(255, 180, 160, 0.3), transparent 60%),
-                  radial-gradient(circle at 70% 60%, rgba(255, 210, 100, 0.2), transparent 60%);
+      radial-gradient(circle at 70% 60%, rgba(255, 210, 100, 0.2), transparent 60%);
       animation: bgDrift 30s infinite alternate ease-in-out;
       z-index: map.get($z-index, z-background);
       pointer-events: none;

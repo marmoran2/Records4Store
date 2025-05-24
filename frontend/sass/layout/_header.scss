@@ -27,6 +27,7 @@
   transform: translateY(0);
   z-index: map.get($z-index, z-nav);
   }
+  
   .dropdown-menu {
     background-color: $light;
     color: $color-text-dark;

@@ -1,0 +1,22 @@
+[
+    {
+      "question": "How can I track my order?",
+      "answer": "Once your order ships, we'll send a tracking link to your email. You can also check your order status in your account."
+    },
+    {
+      "question": "Can I return a record if I change my mind?",
+      "answer": "Yes, returns are accepted within 14 days of delivery if the record is unopened and in original condition."
+    },
+    {
+      "question": "What payment methods do you accept?",
+      "answer": "We accept all major credit cards, PayPal, and 4TTF gift cards."
+    },
+    {
+      "question": "Do you ship internationally?",
+      "answer": "Yes, we ship worldwide. Delivery times and fees vary by destination and are calculated at checkout."
+    },
+    {
+      "question": "How do I update my account information?",
+      "answer": "Login to your account, go to 'Account Settings', and update your email, password, or address."
+    }
+  ]

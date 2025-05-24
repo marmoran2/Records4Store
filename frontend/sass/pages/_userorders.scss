@@ -1,0 +1,88 @@
+@use "../abstracts/variables" as *;
+
+.order-history {
+  h2 {
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .order-card {
+    border: 1px solid $color-border;
+    background-color: $color-light;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      font-size: 0.85rem;
+      padding: 0.25rem 0.75rem;
+    }
+  }
+  .order-header .badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: $color-muted;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  .order-details {
+    border-top: 1px dashed $color-border;
+    padding-top: 1rem;
+
+    .order-items-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .order-item {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        img {
+          width: 64px;
+          height: 64px;
+          object-fit: cover;
+          border-radius: 0.5rem;
+          border: 1px solid $color-border;
+        }
+
+        div {
+          font-size: 0.9rem;
+
+          strong {
+            display: block;
+            font-weight: 600;
+          }
+
+          small {
+            color: $color-muted;
+          }
+
+          span {
+            display: block;
+            margin-top: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}

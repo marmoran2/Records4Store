@@ -1,0 +1,44 @@
+@use "../abstracts/variables" as *;
+
+.faq-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 2rem;
+
+  h2 {
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .faq-list {
+    .faq-item {
+      border-bottom: 1px solid $color-border;
+      padding: 1rem 0;
+
+      .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 0;
+        color: $color-dark;
+
+        i {
+          font-size: 1rem;
+          color: $color-muted;
+        }
+      }
+
+      .faq-answer {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: $color-muted;
+      }
+    }
+  }
+}

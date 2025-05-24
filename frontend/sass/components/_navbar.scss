@@ -12,7 +12,6 @@
   background-color: white; // Required for sticky to not appear transparent over content
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); // Optional visual cue
 
-
 .navbar-middle.show-toggle {
   .navbar-toggler {
     display: inline-flex;
@@ -25,8 +24,6 @@
     }
   }
 }
-
-
 
 .navbar-toggler.scroll-visible {
   display: inline-flex !important;
@@ -48,7 +45,6 @@
     background-position: center;
   }
 }
-
 
 .navbar-middle .navbar-toggler {
   display: none;
@@ -78,7 +74,26 @@
   }
 }
 
+@keyframes flickerIn {
+  0%   { opacity: 0; filter: brightness(200%); }
+  10%  { opacity: 0.2; filter: brightness(300%); }
+  15%  { opacity: 0; filter: brightness(150%); }
+  20%  { opacity: 0.4; filter: brightness(350%); }
+  25%  { opacity: 0; filter: brightness(100%); }
+  30%  { opacity: 0.6; filter: brightness(400%); }
+  40%  { opacity: 0.3; filter: brightness(180%); }
+  50%  { opacity: 0.7; filter: brightness(220%); }
+  60%  { opacity: 0.5; filter: brightness(150%); }
+  70%  { opacity: 0.9; filter: brightness(120%); }
+  80%  { opacity: 0.6; filter: brightness(300%); }
+  90%  { opacity: 0.95; filter: brightness(150%); }
+  100% { opacity: 1; filter: brightness(100%); }
+}
 
+.logo-animate {
+  opacity: 0;
+  animation: flickerIn 1.5s linear forwards;
+}
 
 .mega-menu {
   display: none;
@@ -86,7 +101,7 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: $color-surface;
+  background-color: $color-secondaryalt;
   z-index: map.get($z-index, z-overlay);
   max-height: 0;
   overflow: hidden;
@@ -105,27 +120,60 @@
 
   .mega-menu__content {
     animation: fadeIn 0.5s ease;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  .category-image-cards {
-    .category-card {
-      text-align: center;
-      img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 0.5rem;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
+    .row {
+      justify-content: center;
+
+      .col-md-4 {
+        text-align: left;
+        padding-left: 6rem;
+        padding-right: 6rem;
+
+        h6 {
+          margin-bottom: 0.5rem;
+        }
+
+        ul {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+
+          li {
+            margin-bottom: 0.5rem;
+          }
+        }
       }
-      span {
-        display: block;
-        margin-top: 0.5rem;
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-      &:hover img {
-        transform: scale(1.05);
+    }
+
+    .category-image-cards {
+      margin-top: 2.5rem;
+      gap: 2rem !important;
+
+      .category-card {
+        text-align: center;
+
+        img {
+          width: 200px;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 0.5rem;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s;
+        }
+
+        span {
+          display: block;
+          margin-top: 0.5rem;
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
       }
     }
   }

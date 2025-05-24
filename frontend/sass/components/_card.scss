@@ -2,8 +2,8 @@
 @use 'sass:map';
 
 .card {
-  border: none;
-  border-radius: 0;
+  border: red;
+  border-radius: 1;
   background-color: map.get(vars.$colors, light);
   transition: transform 0.3s ease;
 
