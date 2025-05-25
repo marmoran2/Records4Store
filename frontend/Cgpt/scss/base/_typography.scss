@@ -1,0 +1,35 @@
+@use "../abstracts/typography" as typo;
+@use "../abstracts/variables" as vars;
+
+body {
+  font-family: vars.$font-base;
+  font-size: vars.$font-size-base;
+  color: vars.$color-text-dark;
+}
+
+h1, h2, h3 {
+  font-family: vars.$font-heading;
+}
+
+h1 { font-size: typo.$font-size-4xl; }
+h2 { font-size: typo.$font-size-3xl; }
+h3 { font-size: typo.$font-size-2xl; }
+h4 { font-size: typo.$font-size-xl; }
+h5 { font-size: typo.$font-size-lg; }
+h6 { font-size: typo.$font-size-md; }
+
+p {
+  margin-bottom: 1rem;
+  font-size: typo.$font-size-base;
+  line-height: typo.$line-height-base;
+  letter-spacing: typo.$letter-spacing-normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

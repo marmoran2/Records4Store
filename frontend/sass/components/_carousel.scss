@@ -4,6 +4,19 @@
 @use "sass:map";
 
 
+.card-grid-carousel {
+  max-width: 100%;
+  margin: 0 auto;
+
+  .carousel-inner {
+    padding: map.get($spacings, sm);
+  }
+
+  .carousel-item {
+    transition: transform 0.6s ease;
+  }
+}
+
 .carousel-inner {
   display: flex;
   flex-wrap: nowrap;
@@ -45,4 +58,11 @@
   .carousel-item {
     scroll-snap-align: start;
   }
+}
+
+.carousel-scroll {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+
 }

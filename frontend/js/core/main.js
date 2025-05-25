@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+loadCarouselSection('featuredCarousel', 0, 9);     // Adjust range if needed
+loadCarouselSection('upcomingCarousel', 9, 18);   
 
 localStorage.setItem(
   'cartItems',

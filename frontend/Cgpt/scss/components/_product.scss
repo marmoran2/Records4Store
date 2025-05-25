@@ -1,0 +1,87 @@
+@use "../abstracts/variables" as colors;
+@use "../abstracts/variables" as spacing;
+@use "../abstracts/variables" as *;
+@use "../abstracts/variables" as vars;
+@use "sass:map";
+
+.product-details > * {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  .product-details > *:nth-child(1) { animation-delay: 0.2s; }
+  .product-details > *:nth-child(2) { animation-delay: 0.3s; }
+  .product-details > *:nth-child(3) { animation-delay: 0.1s; }
+  .product-details > *:nth-child(4) { animation-delay: 0.5s; }
+  .product-details > *:nth-child(5) { animation-delay: 0.8s; }
+  .product-details > *:nth-child(6) { animation-delay: 0.9s; }
+  .product-details > *:nth-child(7) { animation-delay: 0.6s; }
+  .product-details > *:nth-child(8) { animation-delay: 0.7s; }
+
+  .product-container {
+    background-color: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 12px 40px rgba(255, 150, 150, 0.2), 0 8px 20px rgba(0, 0, 0, 0.05);
+    max-width: 960px;
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    
+    z-index: map.get($z-index, z-content);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      transform: translateY(0);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    &:focus-within {
+        transform : translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+  
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+
+  img {
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+    max-width: 300px;
+    height: auto;
+    &:hover {
+        transform: scale(1.03);
+      }
+  }
+
+  .product-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: map.get(spacing.$spacings, sm);
+  }
+}
+
+.product-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-block: map.get(spacing.$spacings, xl);
+}
+
+// Animation
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

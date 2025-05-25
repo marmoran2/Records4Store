@@ -1,5 +1,7 @@
 // File: js/pages/product-grid.js
 
+import { renderProductCard } from '../components/product-card.js';
+
 $(function () {
   let allProducts = [];
 
@@ -36,9 +38,8 @@ $(function () {
       return;
     }
 
-    filtered.forEach(p => {
-      $grid.append(renderProductCard(p));
-    });
+    const html = filtered.map(p => renderProductCard(p)).join('');
+    $grid.append(html);
   }
 
   // Read query param to preselect filter

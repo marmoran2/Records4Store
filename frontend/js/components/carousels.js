@@ -1,5 +1,5 @@
 import { loadProductMetadata, transformMetaToCarouselItem } from '../core/product-data.js';
-
+import { renderProductCard } from './product-card.js';
 
 export function fillHeroCarousel() {
     const heroInner = document.querySelector('.hero .carousel-inner');
@@ -45,44 +45,40 @@ export function fillHeroCarousel() {
     });
   }
 
- export function fillCarousel(id, items, perSlide = 3) {
-    const container = document.querySelector(`#${id} .carousel-inner`);
-    if (!container) return;
-  
-    container.innerHTML = '';
-  
-    for (let i = 0; i < items.length; i += perSlide) {
-      const chunk = items.slice(i, i + perSlide);
-      const slide = document.createElement('div');
-      slide.className = `carousel-item ${i === 0 ? 'active' : ''} card-grid-item`;
-  
-  
-      slide.innerHTML = `
-        <div class="row row-cols-1 row-cols-md-${perSlide} g-4">
-          ${chunk.map(product => `
-            <div class="col">
-              <div class="card h-100">
-                <img src="${product.img}" class="card-img-top" alt="${product.title}">
-                <div class="card-body text-center">
-                  <h5 class="card-title">${product.title}</h5>
-                  <a href="${product.link}" class="btn btn-sm btn-custom">View</a>
-                </div>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      `;
-  
-      container.appendChild(slide);
-    }
-  }
+export function fillCarousel(id, items, perSlide = 4) {
+  const container = document.querySelector(`#${id} .carousel-inner`);
+  if (!container) return;
+  container.innerHTML = '';
 
-  export async function loadCarouselSection(id, rangeStart, rangeEnd) {
+  for (let i = 0; i < items.length; i += perSlide) {
+    const chunk = items.slice(i, i + perSlide);
+    const slide = document.createElement('div');
+    slide.className = `carousel-item ${i === 0 ? 'active' : ''}`;
+
+    slide.innerHTML = `
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-${perSlide} g-3">
+        ${chunk
+          .map(
+            (product) => `
+            <div class="col d-flex">
+              ${renderProductCard(product)}
+            </div>
+          `
+          )
+          .join('')}
+      </div>
+    `;
+
+    container.appendChild(slide);
+  }
+}
+
+export async function loadCarouselSection(id, rangeStart, rangeEnd) {
     try {
       const metadata = await loadProductMetadata();
-      const items = metadata.slice(rangeStart, rangeEnd).map(transformMetaToCarouselItem);
+      const items = metadata.slice(rangeStart, rangeEnd);
       fillCarousel(id, items);
     } catch (err) {
       console.error(`Error loading carousel "${id}":`, err);
     }
-  }
+}

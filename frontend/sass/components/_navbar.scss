@@ -4,6 +4,32 @@
 @use "sass:map";
 
 
+.nav-icon-link {
+  position: relative;
+  display: inline-block;
+
+  .material-icons {
+    font-size: 24px;
+  }
+
+  .cart-count-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(40%, -40%);
+    background-color: red;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    line-height: 1;
+    border-radius: 50%;
+    min-width: 1.1rem;
+    padding: 2px 5px;
+    text-align: center;
+    display: inline-block;
+  }
+}
+
 // Scroll-triggered animation for middle bar
 #middleBar {
   position: sticky;

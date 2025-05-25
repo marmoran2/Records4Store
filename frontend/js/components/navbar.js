@@ -1,3 +1,28 @@
+import { getCartCount } from '../services/cartService.js';
+
+export function updateCartCount() {
+  const count = getCartCount();
+  const el = document.getElementById('cartCount');
+  if (!el) return;
+
+  if (count > 0) {
+    el.textContent = count;
+    el.style.display = 'inline-block';
+  } else {
+    el.textContent = '';
+    el.style.display = 'none';
+  }
+}
+console.log("Cart count updated:", getCartCount);
+
+document.addEventListener('DOMContentLoaded', () => {
+  localStorage.setItem('cartItems', JSON.stringify([
+    { index: 3, quantity: 2 }
+  ]));
+  updateCartCount();
+});
+
+document.addEventListener('DOMContentLoaded', updateCartCount);
 // --- Navigation Data ---
 const productNav = [
   { name: 'New Releases', href: '#' },
@@ -28,6 +53,8 @@ const categoriesData = {
   era: ['70s', '80s', '90s', '00s', '10s', 'Detroit', 'Chicago', 'New Age']
 };
 
+
+
 // --- Render Navbar Sections ---
 function renderMiddleBar() {
   const nav = document.getElementById('middleBar');
@@ -53,7 +80,10 @@ function renderMiddleBar() {
       <div class="d-flex align-items-center">
         <a href="../html/wishlist.html" class="me-3" title="Wishlist"><span class="material-icons">favorite</span></a>
         <a href="../html/account.html" class="me-3" title="Account"><span class="material-icons">account_circle</span></a>
-        <a href="../html/cart.html" title="Cart"><span class="material-icons">shopping_cart</span></a>
+          <a href="../html/cart.html" title="Cart" class="nav-icon-link">
+            <span class="material-icons">shopping_cart</span>
+            <span id="cartCount" class="cart-count-badge"></span>
+          </a>
       </div>
     </div>
   `;

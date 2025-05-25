@@ -1,4 +1,4 @@
-// File: frontend/js/pages/account-settings.js
+import { markInvalid, clearValidation } from '../components/form-validation.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const user = JSON.parse(localStorage.getItem('authUser'));
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       // Simulated form submit
       form.addEventListener('submit', e => {
         e.preventDefault();
-  
+
         const updatedUser = {
           ...currentUser,
           firstName: $('#firstName').val(),
@@ -46,7 +46,19 @@ document.addEventListener('DOMContentLoaded', async () => {
           promoEmails: $('#promoEmails').is(':checked'),
           newsUpdates: $('#newsUpdates').is(':checked')
         };
-  
+        let valid = true;
+        const requiredFields = ['#firstName', '#lastName', '#username'];
+
+        requiredFields.forEach(id => {
+          const input = document.querySelector(id);
+          clearValidation(input);
+          if (!input.value.trim()) {
+            markInvalid(input);
+            valid = false;
+          }
+        });
+
+        if (!valid) return;
         console.log('[SIMULATED SAVE]', updatedUser);
   
         alert('Your changes have been saved (simulated).');

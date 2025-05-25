@@ -1,51 +1,66 @@
-function renderProductCard(product) {
+export function renderProductCard(product, options = {}) {
+  const {
+    showAddToCart = false,
+    showWishlist = false,
+    onAddToCart = null,
+    onWishlistToggle = null
+  } = options;
+
+  const wishlistIcon = showWishlist
+    ? `<button class="wishlist-btn btn btn-link p-0" data-index="${product.index}" aria-label="Toggle Wishlist">
+         <i class="bi bi-heart${isInWishlist(product.index) ? '-fill text-danger' : ''}"></i>
+       </button>`
+    : '';
+
+  const addToCartBtn = showAddToCart
+    ? `<button class="btn btn-sm btn-outline-primary add-to-cart-btn mt-2" data-index="${product.index}">
+         <i class="bi bi-cart"></i> Add to Cart
+       </button>`
+    : '';
+
   return `
-    <div class="product-card card mb-4" style="width: 18rem;">
-      <img src="../assets/images/album_artworks/artwork-${product.index}-600.webp" class="card-img-top" alt="${product.trackName} artwork">
-      <div class="card-body">
-        <h5 class="card-title">${product.trackName}</h5>
-        <p class="card-text text-muted">${product.artistName}</p>
-        <p class="card-text">${product.genre} · ${product.releaseYear}</p>
-        <a href="product.html?index=${product.index}" class="btn btn-primary" data-transition="product">View</a>
-      </div>
+    <div class="product-card" data-index="${product.index}">
+      <a href="product.html?index=${product.index}">
+        <img src="../assets/images/album_artworks/artwork-${product.index}-600.webp" alt="${product.trackName}" />
+        <div class="product-card__body">
+          <h5>${product.trackName}</h5>
+          <p>${product.artistName}</p>
+          <p class="text-muted">${product.genre} · ${product.releaseYear}</p>
+        </div>
+      </a>
+      ${(showAddToCart || showWishlist)
+        ? `<div class="product-card__actions d-flex justify-content-between align-items-center mt-2 px-2">
+             ${wishlistIcon}
+             ${addToCartBtn}
+           </div>`
+        : ''}
     </div>
   `;
 }
-function getWishlist() {
-  return JSON.parse(localStorage.getItem('wishlist')) || [];
+
+function isInWishlist(index) {
+  const wishlist = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+  return wishlist.includes(index);
 }
 
-function saveWishlist(items) {
-  localStorage.setItem('wishlist', JSON.stringify(items));
-}
-
-function toggleWishlist(productIndex, button) {
-  let wishlist = getWishlist();
-  const index = wishlist.findIndex(item => item.productIndex === productIndex);
-
-  if (index > -1) {
-    wishlist.splice(index, 1);
-    button.classList.remove('text-danger');
-    button.innerHTML = '<i class="bi bi-heart"></i>';
-  } else {
-    wishlist.push({ productIndex });
-    button.classList.add('text-danger');
-    button.innerHTML = '<i class="bi bi-heart-fill"></i>';
+export function bindProductCardEvents({ onAddToCart, onWishlistToggle }) {
+  if (typeof onAddToCart === 'function') {
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const index = parseInt(btn.dataset.index, 10);
+        onAddToCart(index);
+      });
+    });
   }
 
-  saveWishlist(wishlist);
-}
-function renderWishlistIcons() {
-  const wishlist = getWishlist();
-  document.querySelectorAll('[data-wishlist-btn]').forEach(btn => {
-    const index = parseInt(btn.dataset.index, 10);
-    const isSaved = wishlist.some(item => item.productIndex === index);
-    btn.innerHTML = isSaved ? '<i class="bi bi-heart-fill"></i>' : '<i class="bi bi-heart"></i>';
-    btn.classList.toggle('text-danger', isSaved);
-
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      toggleWishlist(index, btn);
+  if (typeof onWishlistToggle === 'function') {
+    document.querySelectorAll('.wishlist-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const index = parseInt(btn.dataset.index, 10);
+        onWishlistToggle(index, btn);
+      });
     });
-  });
+  }
 }

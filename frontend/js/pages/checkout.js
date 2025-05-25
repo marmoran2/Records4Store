@@ -1,4 +1,5 @@
 // File: js/pages/checkout.js
+import { getCartItems, saveCartItems } from '../services/cartService.js';
 
 let currentStep = 1;
 let user = null;
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function renderConfirmation() {
-    const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const cart = getCartItems();
     const delivery = {
       name: $('#deliveryName').val(),
       phone: $('#deliveryPhone').val(),
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('orders', JSON.stringify(existing));
   
         // Clear cart
-        localStorage.removeItem('cartItems');
+        saveCartItems([]);
       });
   }
   
@@ -174,7 +175,7 @@ if (user?.email) {
   });
 
   function renderCartSummary() {
-    const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+  const cart = getCartItems();
   
     if (!cart.length) {
       $('#paymentCartSummary').html('<p class="text-danger">Cart is empty.</p>');

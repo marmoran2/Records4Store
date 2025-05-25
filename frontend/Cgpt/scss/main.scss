@@ -1,0 +1,47 @@
+
+
+@use "bootstrap/scss/bootstrap" as bs;
+
+// Abstracts
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+@use 'abstracts/typography';
+
+// Base
+@use "base/reset";
+@use "base/typography" as BaseType;
+@use "base/transitions";
+
+// Layout
+@use "layout/header";
+@use "layout/grid";
+@use "layout/footer";
+@use "layout/container";
+
+// Components (each imports bs itself)
+@use "components/navbar";
+@use "components/button";
+@use "components/card";
+@use "components/carousel";
+@use "components/form";
+@use "components/product";
+@use "components/hero";
+@use "components/page_bg";
+
+
+// Pages
+@use "pages/home";
+@use "pages/catalog";
+@use "pages/product-view";
+@use "pages/auth";
+@use "pages/forgot-password";
+@use "pages/account";
+@use "pages/account-settings";
+@use "pages/cart";
+@use "pages/checkout";
+@use "pages/search";
+@use "pages/wishlist";
+@use "pages/userorders";
+@use "pages/contact";
+@use "pages/faq";
+@use "pages/error";

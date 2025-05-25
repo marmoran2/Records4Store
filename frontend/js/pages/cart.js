@@ -1,6 +1,12 @@
 // File: frontend/js/pages/cart.js
 
-import { getCartItems, saveCartItems, addToCart, removeFromCart } from '../services/cartService.js';
+import {
+  getCartItems,
+  addToCart,
+  removeFromCart,
+  updateQuantity,
+  clearCart
+} from '../services/cartService.js';
 
 // Runs when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', async () => {
@@ -81,10 +87,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       minus.addEventListener('click', () => {
         const currentQuantity = Number(quantityDisplay.textContent);
         if (currentQuantity > 1) {
-          saveCartItems(cart.map(item => {
-            if (item.productIndex === index) item.quantity--;
-            return item;
-          }));
+updateQuantity(index, Number(quantityDisplay.textContent) - 1);
           quantityDisplay.textContent = currentQuantity - 1;
         } else {
           removeFromCart(index);
@@ -119,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Empty cart action
   document.getElementById('emptyCart').addEventListener('click', () => {
-    saveCartItems([]);
+clearCart();
     container.innerHTML = `<p class="text-muted">Your cart is empty.</p>`;
     document.getElementById('checkoutBtn').disabled = true;
   });

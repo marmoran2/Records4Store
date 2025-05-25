@@ -1,16 +1,15 @@
-import { getWishlistItems, toggleWishlist, removeFromCart, addToCart } from '../services/cartService.js';
+import {
+  getWishlistItems,
+  toggleWishlist,
+  addToCart
+} from '../services/cartService.js';
+
+import {
+  renderProductCard,
+  bindProductCardEvents
+} from '../components/product-card.js';
 
 const $results = document.getElementById('resultsContainer');
-
-window.removeFromWishlist = function (productIndex) {
-  toggleWishlist(productIndex);
-  renderWishlist();
-};
-
-window.addToCart = function (productIndex) {
-  addToCart(productIndex);
-  alert('Added to cart');
-};
 
 function renderWishlist() {
   const wishlist = getWishlistItems();
@@ -27,34 +26,28 @@ function renderWishlist() {
     .then(res => res.json())
     .then(data => {
       const html = wishlist.map((productIndex) => {
-        const p = data.find(p => p.index === productIndex);
-        if (!p) return '';
-
-        return `
-          <div class="product-card">
-            <a href="product.html?index=${p.index}">
-              <img src="../assets/images/album_artworks/artwork-${p.index}-600.webp" alt="${p.trackName}" />
-              <div class="card-body">
-                <h5>${p.trackName}</h5>
-                <p>${p.artistName}</p>
-                <p class="text-muted small">${p.genre} · ${p.releaseYear}</p>
-              </div>
-            </a>
-            <div class="d-flex justify-content-between align-items-center p-2">
-              <button class="btn btn-sm btn-outline-danger" onclick="removeFromWishlist(${p.index})">
-                <i class="bi bi-heart-fill"></i> Remove
-              </button>
-              <button class="btn btn-sm btn-outline-primary" onclick="addToCart(${p.index})">
-                <i class="bi bi-cart"></i> Add to Cart
-              </button>
-            </div>
-          </div>
-        `;
+        const product = data.find(p => p.index === productIndex);
+        if (!product) return '';
+        return renderProductCard(product, {
+          showAddToCart: true,
+          showWishlist: true
+        });
       }).join('');
 
       $results.innerHTML = html;
+
+      // Attach wishlist & cart logic after DOM render
+      bindProductCardEvents({
+        onAddToCart: (index) => {
+          addToCart(index);
+          alert('Added to cart');
+        },
+        onWishlistToggle: (index) => {
+          toggleWishlist(index);
+          renderWishlist(); // refresh UI after toggle
+        }
+      });
     });
 }
 
-// Initialize wishlist rendering
 renderWishlist();

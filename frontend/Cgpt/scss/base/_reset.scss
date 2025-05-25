@@ -1,0 +1,14 @@
+// -------------------------------------------
+// base/_reset.scss
+// -------------------------------------------
+// CSS reset and base HTML tag styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }

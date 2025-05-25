@@ -1,0 +1,83 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as *;
+@use "sass:map";
+
+.hero {
+  position: relative;
+  max-height: 40vh;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: map.get($z-index, z-hero);
+  object-position: center, center;
+
+  .carousel-item {
+    position: relative;
+  }
+
+  .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-inner {
+    height: 100%;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: map.get(vars.$z-index, z-overlay);
+    background-color: rgba(map.get(vars.$colors, black), 0.5);
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    color: map.get(vars.$colors, white);
+    max-width: 80%;
+
+    &__title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0;
+      color: map.get(vars.$colors, white);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @media (min-width: 768px) {
+      bottom: 3rem;
+      left: 3rem;
+
+      &__title {
+        font-size: 2.25rem;
+      }
+    }
+  }
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: map.get(vars.$z-index, nav);
+  width: 3rem;
+  height: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+
+  span {
+    background-size: 100% 100%;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.7));
+  }
+
+  @media (max-width: 576px) {
+    width: 2rem;
+    height: 2rem;
+  }
+}

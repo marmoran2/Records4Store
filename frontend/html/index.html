@@ -15,7 +15,7 @@
   <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script defer src="../js/components/footer.js"></script>
   <script type="module" src="../js/core/main.js"></script>
-  <script defer src="../js/components/navbar.js"></script>
+  <script type="module" defer src="../js/components/navbar.js"></script>
 </head>
 
 <body>
@@ -43,7 +43,9 @@
   <section class="card-grid-carousel">
     <div class="page-container">
       <h2 class="section-heading">Featured Releases</h2>
+
       <div id="featuredCarousel" class="carousel slide card-grid-carousel">
+              <div class="row row-cols-1 row-cols-md-3 g-4"></div>
         <div class="carousel-inner card-grid-container"></div>
         <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon"></span>
@@ -51,6 +53,7 @@
         <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon"></span>
         </button>
+      </div>
       </div>
     </div>
   </section>

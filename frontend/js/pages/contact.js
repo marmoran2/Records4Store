@@ -1,4 +1,4 @@
-// contact.js — Contact Form Logic
+import { markInvalid, clearValidation } from '../components/form-validation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
@@ -29,21 +29,36 @@ document.addEventListener('DOMContentLoaded', () => {
         preferredContact: form.preferredContact.value
       };
   
-      // Validation
-      if (!data.fullName || !data.email || !data.subject || !data.message) {
-        alert('Please fill out all required fields.');
-        return;
+      let valid = true;
+      const fullNameInput = form.fullName;
+      const emailInput = form.email;
+      const subjectInput = form.subject;
+      const messageInput = form.message;
+
+      [fullNameInput, emailInput, subjectInput, messageInput].forEach(input => clearValidation(input));
+
+      if (!fullNameInput.value.trim()) {
+        markInvalid(fullNameInput);
+        valid = false;
       }
-  
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-        alert('Please enter a valid email address.');
-        return;
+      if (!subjectInput.value.trim()) {
+        markInvalid(subjectInput);
+        valid = false;
       }
-  
-      if (data.message.length > maxChars) {
-        alert(`Message cannot exceed ${maxChars} characters.`);
-        return;
+      if (!messageInput.value.trim()) {
+        markInvalid(messageInput);
+        valid = false;
       }
+      if (!isValidEmail(emailInput.value.trim())) {
+        markInvalid(emailInput);
+        valid = false;
+      }
+      if (messageInput.value.length > maxChars) {
+        markInvalid(messageInput, `Message cannot exceed ${maxChars} characters.`);
+        valid = false;
+      }
+
+      if (!valid) return;
   
       console.log('Simulated form submission:', data);
       form.innerHTML = `

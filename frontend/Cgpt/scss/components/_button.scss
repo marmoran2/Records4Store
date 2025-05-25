@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as colors;
+@use '../abstracts/variables' as vars;
+@use 'sass:map';
+
+.btn {
+  border-radius: 0;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(map.get(vars.$colors, primary), 0.5);
+  }
+}
+
+.btn-custom {
+  background-color: map.get(vars.$colors, primary);
+  color: map.get(vars.$colors, white);
+
+  &:hover {
+    background-color: darken(map.get(vars.$colors, primary), 10%);
+    color: map.get(vars.$colors, white);
+  }
+}
