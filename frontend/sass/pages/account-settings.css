@@ -1,0 +1,21 @@
+.account-settings {
+  max-width: 600px;
+  margin: 4rem auto;
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+.account-settings h2, .account-settings h4 {
+  font-weight: 600;
+}
+.account-settings .form-label {
+  font-weight: 500;
+}
+.account-settings .form-check {
+  margin-bottom: 0.75rem;
+}
+.account-settings button[type=submit] {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}/*# sourceMappingURL=account-settings.css.map */
