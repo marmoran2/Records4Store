@@ -1,139 +1,94 @@
+const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
-const axios = require('axios');
-const archiver = require('archiver');
 const sharp = require('sharp');
 
-const DISC_TOKEN = 'IOyzjbzOpxIfObmnfqwbvkPgtNtxRMYlebtpVxIp';
-const USER_AGENT = 'Records4Store/1.0 +https://github.com/marmoran2';
+const DISCOGS_TOKEN = process.env.API_KEY;
+const INPUT_FILE = 'release_ids_only.json';
+const OUTPUT_FILE = 'formatted-output.json';
+const ARTWORK_DIR = 'artwork';
 
-const releases = [
-  'Jeff Mills –- Waveform Transmission',
-];
+if (!fs.existsSync(ARTWORK_DIR)) fs.mkdirSync(ARTWORK_DIR);
 
-const tmpDir = path.join(__dirname, 'artwork_tmp');
-const metadata = [];
-let successCount = 0;
+const releaseIds = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf-8')).slice(0, 5);
+const results = [];
 
-// Axios instance for Discogs
-const discogs = axios.create({
-  baseURL: 'https://api.discogs.com/',
-  headers: {
-    'User-Agent': USER_AGENT
-  },
-  params: {
-    token: DISC_TOKEN
-  },
-  family: 4 // Force IPv4
-});
+const fetchReleaseData = async (releaseId, index) => {
+  const url = `https://api.discogs.com/releases/${releaseId}`;
+  console.log(`[${index}] Fetching release ID: ${releaseId}`);
 
-async function downloadBuffer(url) {
-  const res = await axios.get(url, {
-    responseType: 'arraybuffer',
-    family: 4
-  });
-  return Buffer.from(res.data);
-}
+  try {
+    const res = await axios.get(url, {
+      headers: {
+        'User-Agent': 'DiscogsFetcher/1.0',
+        'Authorization': `Discogs token=${DISCOGS_TOKEN}`
+      }
+    });
 
-async function processImage(buffer, index) {
-  const widths = [600, 300];
-  for (const w of widths) {
-    const pngName = `artwork-${index}-${w}.png`;
-    await sharp(buffer)
-      .resize(w)
-      .png()
-      .toFile(path.join(tmpDir, pngName));
+    const data = res.data;
+    const artworkURL = data.images?.[0]?.uri;
 
-    const webpName = `artwork-${index}-${w}.webp`;
-    await sharp(buffer)
-      .resize(w)
-      .webp()
-      .toFile(path.join(tmpDir, webpName));
-  }
-}
-
-async function searchDiscogs(term) {
-  const res = await discogs.get('/database/search', {
-    params: {
-      q: term,
-      type: 'release',
-      format: 'Vinyl',
-      per_page: 1
+    if (!artworkURL) {
+      console.warn(`[${index}] No artwork found. Skipping release.`);
+      return false;
     }
-  });
 
-  if (!res.data.results.length) throw new Error('No Discogs match');
-  return res.data.results[0];
-}
-
-async function getReleaseDetails(resourceUrl) {
-  const res = await axios.get(resourceUrl, {
-    headers: {
-      'User-Agent': USER_AGENT
-    },
-    params: {
-      token: DISC_TOKEN
-    },
-    family: 4
-  });
-
-  return res.data;
-}
-
-async function main() {
-  if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir);
-
-  console.log('🎧 Fetching release data from Discogs…\n');
-
-  for (const term of releases) {
+    // Download and convert to .webp
     try {
-      const match = await searchDiscogs(term);
-      const release = await getReleaseDetails(match.resource_url);
-      const image = release.images?.find(img => img.type === 'primary') || release.images?.[0];
-      if (!image) throw new Error('No artwork found');
-
-      const buffer = await downloadBuffer(image.uri);
-      successCount += 1;
-      await processImage(buffer, successCount);
-
-      metadata.push({
-        index: successCount,
-        title: release.title,
-        artists: release.artists?.map(a => a.name).join(', '),
-        year: release.year,
-        genres: release.genres,
-        styles: release.styles,
-        label: release.labels?.[0]?.name,
-        catalog_number: release.labels?.[0]?.catno,
-        country: release.country,
-        tracklist: release.tracklist?.map(t => ({
-          position: t.position,
-          title: t.title,
-          duration: t.duration
-        }))
+      const imgRes = await axios.get(artworkURL, {
+        responseType: 'arraybuffer',
+        headers: {
+          'User-Agent': 'Mozilla/5.0',
+          'Referer': 'https://www.discogs.com'
+        }
       });
 
-      console.log(`✅ [${successCount}] ${release.title}`);
-      await new Promise(res => setTimeout(res, 1000));
+      const imageWebpPath = path.join(ARTWORK_DIR, `${index}-productartwork.webp`);
+      await sharp(imgRes.data).toFormat('webp').toFile(imageWebpPath);
+      console.log(`[${index}] Artwork saved to ${imageWebpPath}`);
     } catch (err) {
-      console.warn(`❌ Failed "${term}": ${err.message}`);
-      await new Promise(res => setTimeout(res, 1000));
+      console.warn(`[${index}] Artwork download failed: ${err.message}`);
+      return false;
     }
+
+    const formatted = {
+      index,
+      release_id: releaseId,
+      title: data.title,
+      year: data.year,
+      artists: data.artists_sort,
+      label: data.labels?.[0]?.name || '',
+      catno: data.labels?.[0]?.catno || '',
+      country: data.country,
+      genres: data.genres || [],
+      styles: data.styles || [],
+      tracklist: (data.tracklist || []).map(t => ({
+        position: t.position,
+        title: t.title,
+        duration: t.duration
+      })),
+      artwork: `${index}-productartwork.webp`
+    };
+
+    results.push(formatted);
+    return true;
+
+  } catch (err) {
+    console.error(`[${index}] Metadata fetch failed: ${err.message}`);
+    return false;
+  }
+};
+
+(async () => {
+  let writeIndex = 1;
+
+  for (let i = 0; i < releaseIds.length; i++) {
+    const success = await fetchReleaseData(releaseIds[i], writeIndex);
+    writeIndex++; // Always increment index regardless of success to preserve sequence
+    await new Promise(r => setTimeout(r, 3000));
   }
 
-  fs.writeFileSync('metadata.json', JSON.stringify(metadata, null, 2));
-
-  const output = fs.createWriteStream('album_artwork.zip');
-  const archive = archiver('zip', { zlib: { level: 9 } });
-  archive.pipe(output);
-  archive.directory(tmpDir, false);
-  await archive.finalize();
-
-  console.log(`\nDone! ${successCount} releases processed.`);
-  console.log('→ album_artwork.zip');
-  console.log('→ metadata.json');
-
-  fs.rmSync(tmpDir, { recursive: true, force: true });
-}
-
-main().catch(console.error);
+  // Minified line-level JSON to keep file compact
+  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(results, null, 2));
+  console.log(`✅ Done. Saved ${results.length} formatted entries to ${OUTPUT_FILE}`);
+})();
