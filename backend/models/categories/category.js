@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.ENUM('genre', 'era', 'label', 'style', 'release type (LP/EP)'),
     slug: { type: DataTypes.STRING, unique: true },
     description: DataTypes.STRING,
-    sort_order: DataTypes.INTEGER,
     visible: DataTypes.BOOLEAN
   }, {
     sequelize,

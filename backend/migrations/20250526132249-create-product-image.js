@@ -20,15 +20,6 @@ module.exports = {
       url: {
         type: Sequelize.STRING
       },
-      alt_text: {
-        type: Sequelize.STRING
-      },
-      sort_order: {
-        type: Sequelize.INTEGER
-      },
-      is_thumbnail: {
-        type: Sequelize.BOOLEAN
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

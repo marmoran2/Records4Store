@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       Release.hasMany(models.Product, { foreignKey: 'release_id' });
       Release.belongsToMany(models.Artist, {
         through: models.ReleaseArtist,
-        foreignKey: 'release_id'
+        foreignKey: 'release_id',
+        otherKey: 'artist_id'
       });
     }
   }

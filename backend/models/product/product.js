@@ -39,7 +39,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    barcode: DataTypes.BIGINT,
     size_inches: DataTypes.ENUM('7', '10', '12'),
     total_weight: DataTypes.INTEGER,
     total_dimensions: DataTypes.DECIMAL,

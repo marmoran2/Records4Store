@@ -1,0 +1,466 @@
+[
+  {
+    "index": 1,
+    "release_id": 140886,
+    "title": "Angel  / You And Me (Remixes)",
+    "year": 1993,
+    "artists": "Metalheads",
+    "label": "Synthetic Records",
+    "catno": "SYNTH 007 R",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Drum n Bass",
+      "Jungle"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Angel (Internal Affair)",
+        "duration": ""
+      },
+      {
+        "position": "A2",
+        "title": "Angel (Instrumental Flight)",
+        "duration": ""
+      },
+      {
+        "position": "B1",
+        "title": "You And Me (The Sax Attack)",
+        "duration": ""
+      },
+      {
+        "position": "B2",
+        "title": "You And Me (Urban Soul)",
+        "duration": ""
+      }
+    ],
+    "artwork": "trance1-albumartwork.webp"
+  },
+  {
+    "index": 2,
+    "release_id": 11221,
+    "title": "Did You Hear Me?",
+    "year": 1998,
+    "artists": "Red Light District",
+    "label": "Additive",
+    "catno": "12AD 025",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Trance",
+      "Progressive Trance"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Did You Hear Me? (Phase I Mix)",
+        "duration": "8:05"
+      },
+      {
+        "position": "A2",
+        "title": "Did You Hear Me? (Phase III Mix)",
+        "duration": "4:55"
+      },
+      {
+        "position": "AA1",
+        "title": "Did You Hear Me? (Phase II Mix)",
+        "duration": "8:42"
+      }
+    ],
+    "artwork": "trance2-albumartwork.webp"
+  },
+  {
+    "index": 3,
+    "release_id": 122923,
+    "title": "The Ultimate",
+    "year": 1994,
+    "artists": "Brutal DeLuxe",
+    "label": "Trashcan Records",
+    "catno": "TRASH 607-5",
+    "country": "Netherlands",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Hardcore",
+      "Happy Hardcore"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "The Ultimate",
+        "duration": "4:00"
+      },
+      {
+        "position": "A2",
+        "title": "Lost Our Mind",
+        "duration": "3:44"
+      },
+      {
+        "position": "B1",
+        "title": "1212 And This Is The Hardcore",
+        "duration": "4:04"
+      },
+      {
+        "position": "B2",
+        "title": "Superior Race",
+        "duration": "4:15"
+      },
+      {
+        "position": "B3",
+        "title": "We Dominate",
+        "duration": "4:18"
+      }
+    ],
+    "artwork": "trance3-albumartwork.webp"
+  },
+  {
+    "index": 4,
+    "release_id": 22816,
+    "title": "Say Yes",
+    "year": 2001,
+    "artists": "Y-Tribe",
+    "label": "Northwest10 Records",
+    "catno": "NORTH-T-31",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "UK Garage"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Say Yes (Vocal)",
+        "duration": ""
+      },
+      {
+        "position": "B",
+        "title": "Say Yes (Underground)",
+        "duration": ""
+      }
+    ],
+    "artwork": "trance4-albumartwork.webp"
+  },
+  {
+    "index": 5,
+    "release_id": 3306,
+    "title": "Come In...",
+    "year": 1996,
+    "artists": "Woody McBride",
+    "label": "Bush",
+    "catno": "Bush 1030",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Techno",
+      "Acid"
+    ],
+    "tracklist": [
+      {
+        "position": "",
+        "title": "063",
+        "duration": ""
+      },
+      {
+        "position": "A1",
+        "title": "Lets get Freaky. Extended Version",
+        "duration": "7:55"
+      },
+      {
+        "position": "A2",
+        "title": "Teacher",
+        "duration": "6:01"
+      },
+      {
+        "position": "",
+        "title": "064",
+        "duration": ""
+      },
+      {
+        "position": "B1",
+        "title": "There's still time",
+        "duration": "5:15"
+      },
+      {
+        "position": "B2",
+        "title": "Wall Of Confusion",
+        "duration": "9:06"
+      }
+    ],
+    "artwork": "trance5-albumartwork.webp"
+  },
+  {
+    "index": 6,
+    "release_id": 52152,
+    "title": "Big Black Wax",
+    "year": 2003,
+    "artists": "BJ Duck",
+    "label": "Big Bear",
+    "catno": "BB009",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Dub",
+      "Deep House",
+      "Disco"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Big Black Wax",
+        "duration": ""
+      },
+      {
+        "position": "B1",
+        "title": "A Bear Needs Love Too",
+        "duration": ""
+      }
+    ],
+    "artwork": "trance6-albumartwork.webp"
+  },
+  {
+    "index": 7,
+    "release_id": 7240,
+    "title": "Dub Voyage",
+    "year": 2000,
+    "artists": "Twilight Circus Dub Sound System",
+    "label": "M Records",
+    "catno": "M RECORDS CD 190",
+    "country": "US",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Dub"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Acetate",
+        "duration": "4:25"
+      },
+      {
+        "position": "2",
+        "title": "Dub Voyage",
+        "duration": "3:26"
+      },
+      {
+        "position": "3",
+        "title": "Heavy",
+        "duration": "4:49"
+      },
+      {
+        "position": "4",
+        "title": "Wareika",
+        "duration": "4:21"
+      },
+      {
+        "position": "5",
+        "title": "Depth Charge",
+        "duration": "4:33"
+      },
+      {
+        "position": "6",
+        "title": "Fast",
+        "duration": "4:05"
+      },
+      {
+        "position": "7",
+        "title": "Blaster",
+        "duration": "3:18"
+      },
+      {
+        "position": "8",
+        "title": "K2000",
+        "duration": "3:28"
+      },
+      {
+        "position": "9",
+        "title": "Slicer",
+        "duration": "4:11"
+      },
+      {
+        "position": "10",
+        "title": "Silver",
+        "duration": "3:32"
+      },
+      {
+        "position": "11",
+        "title": "Massive",
+        "duration": "2:55"
+      }
+    ],
+    "artwork": "trance7-albumartwork.webp"
+  },
+  {
+    "index": 8,
+    "release_id": 103061,
+    "title": "GP02 - Eclectic",
+    "year": 2002,
+    "artists": "Gilles Peterson",
+    "label": "Trust The DJ",
+    "catno": "TTDJCS 022",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "House",
+      "Future Jazz",
+      "Latin"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "No Problem",
+        "duration": ""
+      },
+      {
+        "position": "2",
+        "title": "Finger",
+        "duration": ""
+      },
+      {
+        "position": "3",
+        "title": "Ritual",
+        "duration": ""
+      },
+      {
+        "position": "4",
+        "title": "Mouth",
+        "duration": ""
+      },
+      {
+        "position": "5",
+        "title": "Greed",
+        "duration": ""
+      },
+      {
+        "position": "6",
+        "title": "Carioca",
+        "duration": ""
+      },
+      {
+        "position": "7",
+        "title": "Good Life",
+        "duration": ""
+      },
+      {
+        "position": "8",
+        "title": "Abicah Soul",
+        "duration": ""
+      },
+      {
+        "position": "9",
+        "title": "Voltei Amour",
+        "duration": ""
+      },
+      {
+        "position": "10",
+        "title": "Between The Lines",
+        "duration": ""
+      },
+      {
+        "position": "11",
+        "title": "Still Waiting",
+        "duration": ""
+      },
+      {
+        "position": "12",
+        "title": "Let This",
+        "duration": ""
+      }
+    ],
+    "artwork": "trance8-albumartwork.webp"
+  },
+  {
+    "index": 9,
+    "release_id": 599331,
+    "title": "Saturday Night...",
+    "year": 2002,
+    "artists": "Scrapy",
+    "label": "Black Butcher Records",
+    "catno": "BBR 018",
+    "country": "Germany",
+    "genres": [
+      "Rock"
+    ],
+    "styles": [
+      "Ska"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Local Pub",
+        "duration": "3:02"
+      },
+      {
+        "position": "2",
+        "title": "Skinhead, Boots & Reggae",
+        "duration": "3:55"
+      },
+      {
+        "position": "3",
+        "title": "Red Eyes",
+        "duration": "3:31"
+      },
+      {
+        "position": "4",
+        "title": "Wrecked Up Misery",
+        "duration": "4:51"
+      },
+      {
+        "position": "5",
+        "title": "Into Bosses Hands Again",
+        "duration": "3:53"
+      },
+      {
+        "position": "6",
+        "title": "Skank N Roll",
+        "duration": "3:05"
+      },
+      {
+        "position": "7",
+        "title": "Booby Hatch",
+        "duration": "3:37"
+      },
+      {
+        "position": "8",
+        "title": "Saturday Night Drink Activists",
+        "duration": "3:18"
+      },
+      {
+        "position": "9",
+        "title": "Girl Of My Dreams",
+        "duration": "3:15"
+      },
+      {
+        "position": "10",
+        "title": "Suntimes",
+        "duration": "3:50"
+      },
+      {
+        "position": "11",
+        "title": "Streetpolitics",
+        "duration": "2:49"
+      },
+      {
+        "position": "12",
+        "title": "Where Did You Go? Where Are You Now?",
+        "duration": "4:05"
+      }
+    ],
+    "artwork": "trance9-albumartwork.webp"
+  }
+]

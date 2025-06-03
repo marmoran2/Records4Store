@@ -4,18 +4,43 @@ const path = require('path');
 const sharp = require('sharp');
 
 const DISCOGS_TOKEN = process.env.API_KEY;
-const INPUT_FILE = 'release_ids_only.json';
-const OUTPUT_FILE = 'formatted-output.json';
-const ARTWORK_DIR = 'artwork';
+const INPUT_FILE = 'releases_converted.json';
+const RELEASES_DIR = 'releases';
 
-if (!fs.existsSync(ARTWORK_DIR)) fs.mkdirSync(ARTWORK_DIR);
+// Ensure base directory exists
+if (!fs.existsSync(RELEASES_DIR)) fs.mkdirSync(RELEASES_DIR);
 
-const releaseIds = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf-8')).slice(0, 5);
-const results = [];
+// Read Discogs releases with genre info
+const releaseEntries = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf-8'));
 
-const fetchReleaseData = async (releaseId, index) => {
-  const url = `https://api.discogs.com/releases/${releaseId}`;
-  console.log(`[${index}] Fetching release ID: ${releaseId}`);
+// Prepopulate index map from existing genre folders
+const genreIndexMap = {};
+const genreFolders = fs.readdirSync(RELEASES_DIR).filter(folder =>
+  fs.statSync(path.join(RELEASES_DIR, folder)).isDirectory()
+);
+
+for (const genre of genreFolders) {
+  const genreJsonPath = path.join(RELEASES_DIR, genre, `${genre}.json`);
+  if (fs.existsSync(genreJsonPath)) {
+    const existing = JSON.parse(fs.readFileSync(genreJsonPath, 'utf8'));
+    genreIndexMap[genre] = existing.length + 1;
+  } else {
+    genreIndexMap[genre] = 1;
+  }
+}
+
+// Fetch + format function
+const fetchReleaseData = async (entry) => {
+  const { release_id, genre } = entry;
+  const url = `https://api.discogs.com/releases/${release_id}`;
+  const safeGenre = genre?.toLowerCase().replace(/\s+/g, '-') || 'uncategorized';
+  const genreDir = path.join(RELEASES_DIR, safeGenre);
+
+  // Skip if folder or base file not present
+  if (!fs.existsSync(genreDir)) {
+    console.warn(`[${release_id}] Genre folder missing: ${safeGenre}`);
+    return false;
+  }
 
   try {
     const res = await axios.get(url, {
@@ -27,13 +52,17 @@ const fetchReleaseData = async (releaseId, index) => {
 
     const data = res.data;
     const artworkURL = data.images?.[0]?.uri;
-
     if (!artworkURL) {
-      console.warn(`[${index}] No artwork found. Skipping release.`);
+      console.warn(`[${release_id}] No artwork. Skipping.`);
       return false;
     }
 
-    // Download and convert to .webp
+    // Prepare index for genre
+    const index = genreIndexMap[safeGenre] || 1;
+    const artworkFilename = `${safeGenre}${index}-albumartwork.webp`;
+    const imagePath = path.join(genreDir, artworkFilename);
+
+    // Download and convert image
     try {
       const imgRes = await axios.get(artworkURL, {
         responseType: 'arraybuffer',
@@ -43,17 +72,17 @@ const fetchReleaseData = async (releaseId, index) => {
         }
       });
 
-      const imageWebpPath = path.join(ARTWORK_DIR, `${index}-productartwork.webp`);
-      await sharp(imgRes.data).toFormat('webp').toFile(imageWebpPath);
-      console.log(`[${index}] Artwork saved to ${imageWebpPath}`);
+      await sharp(imgRes.data).toFormat('webp').toFile(imagePath);
+      console.log(`[${safeGenre} ${index}] Saved artwork to ${imagePath}`);
     } catch (err) {
-      console.warn(`[${index}] Artwork download failed: ${err.message}`);
+      console.warn(`[${safeGenre} ${index}] Image download failed: ${err.message}`);
       return false;
     }
 
+    // Build final entry
     const formatted = {
       index,
-      release_id: releaseId,
+      release_id,
       title: data.title,
       year: data.year,
       artists: data.artists_sort,
@@ -67,28 +96,32 @@ const fetchReleaseData = async (releaseId, index) => {
         title: t.title,
         duration: t.duration
       })),
-      artwork: `${index}-productartwork.webp`
+      artwork: artworkFilename
     };
 
-    results.push(formatted);
+    // Append to JSON
+    const genreJsonPath = path.join(genreDir, `${safeGenre}.json`);
+    const existing = fs.existsSync(genreJsonPath)
+      ? JSON.parse(fs.readFileSync(genreJsonPath, 'utf8'))
+      : [];
+
+    existing.push(formatted);
+    fs.writeFileSync(genreJsonPath, JSON.stringify(existing, null, 2));
+
+    genreIndexMap[safeGenre]++; // Bump index
     return true;
 
   } catch (err) {
-    console.error(`[${index}] Metadata fetch failed: ${err.message}`);
+    console.error(`[${release_id}] Metadata fetch failed: ${err.message}`);
     return false;
   }
 };
 
+// Main loop
 (async () => {
-  let writeIndex = 1;
-
-  for (let i = 0; i < releaseIds.length; i++) {
-    const success = await fetchReleaseData(releaseIds[i], writeIndex);
-    writeIndex++; // Always increment index regardless of success to preserve sequence
-    await new Promise(r => setTimeout(r, 3000));
+  for (let i = 0; i < releaseEntries.length; i++) {
+    await fetchReleaseData(releaseEntries[i]);
+    await new Promise(res => setTimeout(res, 3000));
   }
-
-  // Minified line-level JSON to keep file compact
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(results, null, 2));
-  console.log(`✅ Done. Saved ${results.length} formatted entries to ${OUTPUT_FILE}`);
+  console.log('✅ All releases processed.');
 })();

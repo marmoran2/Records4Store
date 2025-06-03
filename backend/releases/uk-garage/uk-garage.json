@@ -1,0 +1,352 @@
+[
+  {
+    "index": 1,
+    "release_id": 6970,
+    "title": "Will I Ever",
+    "year": 2000,
+    "artists": "Alice Deejay",
+    "label": "Positiva",
+    "catno": "CDTIVS-134",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Trance",
+      "Euro House"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Will I Ever (E-Craig Clubmix)",
+        "duration": "7:00"
+      },
+      {
+        "position": "2",
+        "title": "Will I Ever (Pronti & Kalmani Rmx)",
+        "duration": "6:19"
+      },
+      {
+        "position": "3",
+        "title": "Will I Ever (Dutchforce Rmx)",
+        "duration": "6:23"
+      }
+    ],
+    "artwork": "uk-garage1-albumartwork.webp"
+  },
+  {
+    "index": 2,
+    "release_id": 131678,
+    "title": "Let It All Be Sunshine",
+    "year": 1997,
+    "artists": "Solid Base",
+    "label": "Remixed Records",
+    "catno": "RRCDM100",
+    "country": "Sweden",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Euro House",
+      "Eurodance"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Let It All Be Sunshine (Original Version)",
+        "duration": "3:32"
+      },
+      {
+        "position": "2",
+        "title": "Let It All Be Sunshine (Extended Mix)",
+        "duration": "4:30"
+      },
+      {
+        "position": "3",
+        "title": "Let It All Be Sunshine (Alternative Club Mix)",
+        "duration": "4:04"
+      },
+      {
+        "position": "4",
+        "title": "Let It All Be Sunshine (Rico & Bear Happy House Mix)",
+        "duration": "6:07"
+      },
+      {
+        "position": "5",
+        "title": "Let It All Be Sunshine (Kosmic Remix)",
+        "duration": "6:15"
+      },
+      {
+        "position": "6",
+        "title": "Let It All Be Sunshine (Summer Mix)",
+        "duration": "3:31"
+      }
+    ],
+    "artwork": "uk-garage2-albumartwork.webp"
+  },
+  {
+    "index": 3,
+    "release_id": 13802,
+    "title": "Nok",
+    "year": 2000,
+    "artists": "Ulrich Troyer",
+    "label": "Mego",
+    "catno": "MEGO 039",
+    "country": "Austria",
+    "genres": [
+      "Electronic",
+      "Reggae"
+    ],
+    "styles": [
+      "Abstract",
+      "Noise",
+      "Experimental"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Nok 1",
+        "duration": "5:14"
+      },
+      {
+        "position": "2",
+        "title": "Nok 2",
+        "duration": "2:40"
+      },
+      {
+        "position": "3",
+        "title": "Nok 3",
+        "duration": "1:48"
+      },
+      {
+        "position": "4",
+        "title": "Nok 4",
+        "duration": "1:04"
+      },
+      {
+        "position": "5",
+        "title": "Nok 5",
+        "duration": "2:08"
+      },
+      {
+        "position": "6",
+        "title": "Nok 6",
+        "duration": "5:11"
+      }
+    ],
+    "artwork": "uk-garage3-albumartwork.webp"
+  },
+  {
+    "index": 4,
+    "release_id": 8308,
+    "title": "Parameter. Dva. E.P.",
+    "year": 2001,
+    "artists": "DJ Boss",
+    "label": "Kne' Deep",
+    "catno": "KD16",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Techno"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Wonder",
+        "duration": ""
+      },
+      {
+        "position": "A2",
+        "title": "Space Way",
+        "duration": ""
+      },
+      {
+        "position": "B1",
+        "title": "Axe Jump",
+        "duration": ""
+      },
+      {
+        "position": "B2",
+        "title": "Uvear",
+        "duration": ""
+      }
+    ],
+    "artwork": "uk-garage4-albumartwork.webp"
+  },
+  {
+    "index": 5,
+    "release_id": 2345233,
+    "title": "Love Tonight",
+    "year": 2010,
+    "artists": "Disco Boys, The",
+    "label": "Superstar Recordings",
+    "catno": "Super 4062",
+    "country": "Germany",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "House",
+      "Disco"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Love Tonight (Radio Edit)",
+        "duration": "3:18"
+      },
+      {
+        "position": "2",
+        "title": "Love Tonight (Original Extended)",
+        "duration": "5:54"
+      }
+    ],
+    "artwork": "uk-garage5-albumartwork.webp"
+  },
+  {
+    "index": 6,
+    "release_id": 1770375,
+    "title": "Songbook",
+    "year": 1995,
+    "artists": "Cassandra Wilson",
+    "label": "JMT",
+    "catno": "JMT 514 026-2",
+    "country": "Europe",
+    "genres": [
+      "Jazz"
+    ],
+    "styles": [
+      "Contemporary Jazz"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Let's Face The Music",
+        "duration": "2:29"
+      },
+      {
+        "position": "2",
+        "title": "Sweet Lorraine",
+        "duration": "5:34"
+      },
+      {
+        "position": "3",
+        "title": "Blue In Green",
+        "duration": "4:07"
+      },
+      {
+        "position": "4",
+        "title": "Baubles, Bangles And Beads",
+        "duration": "6:36"
+      },
+      {
+        "position": "5",
+        "title": "I'm Old Fashioned",
+        "duration": "3:09"
+      },
+      {
+        "position": "6",
+        "title": "Whirlwind Soldier",
+        "duration": "4:48"
+      },
+      {
+        "position": "7",
+        "title": "Little One I'll Miss You",
+        "duration": "4:33"
+      },
+      {
+        "position": "8",
+        "title": "Body And Soul",
+        "duration": "8:45"
+      },
+      {
+        "position": "9",
+        "title": "No Good Time Fairies",
+        "duration": "5:45"
+      },
+      {
+        "position": "10",
+        "title": "Autumn Nocturne",
+        "duration": "8:04"
+      }
+    ],
+    "artwork": "uk-garage6-albumartwork.webp"
+  },
+  {
+    "index": 7,
+    "release_id": 60870,
+    "title": "Ibiza Sunrise",
+    "year": 2002,
+    "artists": "Labworks",
+    "label": "EMT Design",
+    "catno": "EMTEP003",
+    "country": "Finland",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Trance"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Ibiza Sunrise (Pink Flood vs. Shane 54 Monster Mix)",
+        "duration": "9:50"
+      },
+      {
+        "position": "A2",
+        "title": "Ibiza Sunrise (Radio Mix)",
+        "duration": "3:53"
+      },
+      {
+        "position": "B1",
+        "title": "Ibiza Sunrise (The Scarab Remix)",
+        "duration": "7:38"
+      },
+      {
+        "position": "B2",
+        "title": "Ibiza Sunrise (Fluid in Motion Remix)",
+        "duration": "8:40"
+      }
+    ],
+    "artwork": "uk-garage7-albumartwork.webp"
+  },
+  {
+    "index": 8,
+    "release_id": 386986,
+    "title": "Calling Valkyrja",
+    "year": 1999,
+    "artists": "Krigstave",
+    "label": "Asgaard Recordings",
+    "catno": "AR01",
+    "country": "US",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Industrial",
+      "Noise",
+      "Ambient"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Crom...The Legacy Of Steel",
+        "duration": ""
+      },
+      {
+        "position": "A2",
+        "title": "Wage Krieg",
+        "duration": ""
+      },
+      {
+        "position": "B",
+        "title": "Natures Eternal Fascism",
+        "duration": ""
+      }
+    ],
+    "artwork": "uk-garage8-albumartwork.webp"
+  }
+]

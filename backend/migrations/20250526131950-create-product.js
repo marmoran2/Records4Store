@@ -24,9 +24,6 @@ module.exports = {
       product_tag: {
         type: Sequelize.STRING
       },
-      barcode: {
-        type: Sequelize.BIGINT
-      },
       size_inches: {
         type: Sequelize.ENUM('7','10','12')
       },

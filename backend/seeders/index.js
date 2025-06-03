@@ -1,8 +1,8 @@
 const sequelize = require('../models').sequelize;
 
-const seedUsers = require('./userseed');
-const seedProducts = require('./productseed');
-const seedOrders = require('./orderseed');
+const seedUsers = require('./userSeed');
+const seedProducts = require('./productSeed');
+const seedOrders = require('./orderSeed');
 
 (async () => {
   try {

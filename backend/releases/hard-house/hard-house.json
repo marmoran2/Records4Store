@@ -1,0 +1,240 @@
+[
+  {
+    "index": 1,
+    "release_id": 1465100,
+    "title": "Face Value",
+    "year": 1981,
+    "artists": "Phil Collins",
+    "label": "Atlantic",
+    "catno": "WEA 99 143",
+    "country": "Netherlands",
+    "genres": [
+      "Rock"
+    ],
+    "styles": [
+      "Pop Rock",
+      "Synth-pop"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "In The Air Tonight",
+        "duration": "5:32"
+      },
+      {
+        "position": "A2",
+        "title": "This Must Be Love",
+        "duration": "3:55"
+      },
+      {
+        "position": "A3",
+        "title": "Behind The Lines",
+        "duration": "3:53"
+      },
+      {
+        "position": "A4",
+        "title": "The Roof Is Leaking",
+        "duration": "3:16"
+      },
+      {
+        "position": "A5",
+        "title": "Droned",
+        "duration": "2:55"
+      },
+      {
+        "position": "A6",
+        "title": "Hand In Hand",
+        "duration": "5:12"
+      },
+      {
+        "position": "B1",
+        "title": "I Missed Again",
+        "duration": "3:41"
+      },
+      {
+        "position": "B2",
+        "title": "You Know What I Mean",
+        "duration": "2:33"
+      },
+      {
+        "position": "B3",
+        "title": "Thunder And Lightning",
+        "duration": "4:12"
+      },
+      {
+        "position": "B4",
+        "title": "I'm Not Moving",
+        "duration": "2:33"
+      },
+      {
+        "position": "B5",
+        "title": "If Leaving Me Is Easy",
+        "duration": "4:54"
+      },
+      {
+        "position": "B6",
+        "title": "Tomorrow Never Knows",
+        "duration": "4:46"
+      }
+    ],
+    "artwork": "hard-house1-albumartwork.webp"
+  },
+  {
+    "index": 2,
+    "release_id": 218412,
+    "title": "All I Want",
+    "year": 2003,
+    "artists": "Markus Gardeweg",
+    "label": "Radikal Records",
+    "catno": "RAD99170-1",
+    "country": "US",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Trance"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "All I Want (Voodoo & Serano Mix)",
+        "duration": "7:28"
+      },
+      {
+        "position": "A2",
+        "title": "All I Want (Fast Club Mix)",
+        "duration": "6:56"
+      },
+      {
+        "position": "B1",
+        "title": "All I Want (Original Mix)",
+        "duration": "6:19"
+      },
+      {
+        "position": "B2",
+        "title": "All I Want (Single Mix)",
+        "duration": "3:34"
+      }
+    ],
+    "artwork": "hard-house2-albumartwork.webp"
+  },
+  {
+    "index": 3,
+    "release_id": 165571,
+    "title": "I Think Of You",
+    "year": 1994,
+    "artists": "Mad (5)",
+    "label": "UCA Records",
+    "catno": "UCA 024-5",
+    "country": "Germany",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Eurodance"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "I Think Of You (Single Mix)",
+        "duration": "3:56"
+      },
+      {
+        "position": "2",
+        "title": "I Think Of You (Trance Mix)",
+        "duration": "5:09"
+      },
+      {
+        "position": "3",
+        "title": "I Think Of You (Dance Mix)",
+        "duration": "6:06"
+      },
+      {
+        "position": "4",
+        "title": "The B-Sides",
+        "duration": "6:04"
+      }
+    ],
+    "artwork": "hard-house3-albumartwork.webp"
+  },
+  {
+    "index": 4,
+    "release_id": 1465100,
+    "title": "Face Value",
+    "year": 1981,
+    "artists": "Phil Collins",
+    "label": "Atlantic",
+    "catno": "WEA 99 143",
+    "country": "Netherlands",
+    "genres": [
+      "Rock"
+    ],
+    "styles": [
+      "Pop Rock",
+      "Synth-pop"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "In The Air Tonight",
+        "duration": "5:32"
+      },
+      {
+        "position": "A2",
+        "title": "This Must Be Love",
+        "duration": "3:55"
+      },
+      {
+        "position": "A3",
+        "title": "Behind The Lines",
+        "duration": "3:53"
+      },
+      {
+        "position": "A4",
+        "title": "The Roof Is Leaking",
+        "duration": "3:16"
+      },
+      {
+        "position": "A5",
+        "title": "Droned",
+        "duration": "2:55"
+      },
+      {
+        "position": "A6",
+        "title": "Hand In Hand",
+        "duration": "5:12"
+      },
+      {
+        "position": "B1",
+        "title": "I Missed Again",
+        "duration": "3:41"
+      },
+      {
+        "position": "B2",
+        "title": "You Know What I Mean",
+        "duration": "2:33"
+      },
+      {
+        "position": "B3",
+        "title": "Thunder And Lightning",
+        "duration": "4:12"
+      },
+      {
+        "position": "B4",
+        "title": "I'm Not Moving",
+        "duration": "2:33"
+      },
+      {
+        "position": "B5",
+        "title": "If Leaving Me Is Easy",
+        "duration": "4:54"
+      },
+      {
+        "position": "B6",
+        "title": "Tomorrow Never Knows",
+        "duration": "4:46"
+      }
+    ],
+    "artwork": "hard-house4-albumartwork.webp"
+  }
+]

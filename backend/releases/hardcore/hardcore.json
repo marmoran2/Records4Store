@@ -1,0 +1,254 @@
+[
+  {
+    "index": 1,
+    "release_id": 997491,
+    "title": "Macha Magall / The Night I Crushed Your Face",
+    "year": 2007,
+    "artists": "Rita, The / Goat",
+    "label": "Deadline Recordings",
+    "catno": "none",
+    "country": "US",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Noise"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Macha Magall",
+        "duration": "30:04"
+      },
+      {
+        "position": "2",
+        "title": "The Night I Crushed Your Face",
+        "duration": "20:26"
+      }
+    ],
+    "artwork": "hardcore1-albumartwork.webp"
+  },
+  {
+    "index": 2,
+    "release_id": 1405461,
+    "title": "Hear Less / No Good Trying",
+    "year": 2008,
+    "artists": "Dälek vs. Ifwhen",
+    "label": "Claire's Echo",
+    "catno": "echo017",
+    "country": "US",
+    "genres": [
+      "Electronic",
+      "Rock"
+    ],
+    "styles": [
+      "Shoegaze",
+      "Experimental"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Hear Less",
+        "duration": ""
+      },
+      {
+        "position": "A2",
+        "title": "No Good Trying",
+        "duration": ""
+      },
+      {
+        "position": "B1",
+        "title": "No Good Trying (Deadverse Remix)",
+        "duration": ""
+      },
+      {
+        "position": "B2",
+        "title": "Hear Less (Deadverse Remix)",
+        "duration": ""
+      }
+    ],
+    "artwork": "hardcore2-albumartwork.webp"
+  },
+  {
+    "index": 3,
+    "release_id": 141489,
+    "title": "Governed By Shares",
+    "year": 1998,
+    "artists": "Lazarus",
+    "label": "Kemet",
+    "catno": "KM 18",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Drum n Bass",
+      "Jungle"
+    ],
+    "tracklist": [
+      {
+        "position": "",
+        "title": "This Side",
+        "duration": ""
+      },
+      {
+        "position": "A",
+        "title": "Governed By Shares",
+        "duration": ""
+      },
+      {
+        "position": "",
+        "title": "That Side",
+        "duration": ""
+      },
+      {
+        "position": "B",
+        "title": "Strong",
+        "duration": ""
+      }
+    ],
+    "artwork": "hardcore3-albumartwork.webp"
+  },
+  {
+    "index": 4,
+    "release_id": 225154,
+    "title": "Into The Dragon",
+    "year": 1988,
+    "artists": "Bomb The Bass",
+    "label": "Rhythm King",
+    "catno": "70646",
+    "country": "France",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "House",
+      "Breaks"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Beat Dis (7\" US Mix)",
+        "duration": "3:24"
+      },
+      {
+        "position": "A2",
+        "title": "Megablast",
+        "duration": "6:15"
+      },
+      {
+        "position": "A3",
+        "title": "On The Cut",
+        "duration": "3:30"
+      },
+      {
+        "position": "A4",
+        "title": "Don't Make Me Wait",
+        "duration": "3:44"
+      },
+      {
+        "position": "A5",
+        "title": "Dynamite Beats",
+        "duration": "0:30"
+      },
+      {
+        "position": "B1",
+        "title": "Megablast (Hip Hop On Precinct 13)",
+        "duration": "3:40"
+      },
+      {
+        "position": "B2",
+        "title": "Hey You!",
+        "duration": "3:00"
+      },
+      {
+        "position": "B3",
+        "title": "Shake It",
+        "duration": "4:30"
+      },
+      {
+        "position": "B4",
+        "title": "Say A Little Prayer",
+        "duration": "4:30"
+      },
+      {
+        "position": "B5",
+        "title": "Beat Dat (Freestyle Scratch Mix)",
+        "duration": "2:40"
+      }
+    ],
+    "artwork": "hardcore4-albumartwork.webp"
+  },
+  {
+    "index": 5,
+    "release_id": 59533,
+    "title": "True To Hip Hop",
+    "year": 1999,
+    "artists": "Aim Feat. AG & YZ",
+    "label": "Grand Central Records",
+    "catno": "GC121",
+    "country": "UK",
+    "genres": [
+      "Hip Hop"
+    ],
+    "styles": [],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "True To Hip Hop (Vocal)",
+        "duration": "4:20"
+      },
+      {
+        "position": "A2",
+        "title": "True To Hip Hop (Instrumental)",
+        "duration": "4:20"
+      },
+      {
+        "position": "A3",
+        "title": "True To Hip Hop (Acapella)",
+        "duration": "3:06"
+      },
+      {
+        "position": "AA1",
+        "title": "Ain't Got Time To Waste (Vocal)",
+        "duration": "4:05"
+      },
+      {
+        "position": "AA2",
+        "title": "Ain't Got Time To Waste (Instrumental With Vibes)",
+        "duration": "4:05"
+      }
+    ],
+    "artwork": "hardcore5-albumartwork.webp"
+  },
+  {
+    "index": 6,
+    "release_id": 1938963,
+    "title": "Got No Reason To Cry",
+    "year": 1966,
+    "artists": "Project X (14)",
+    "label": "Astor",
+    "catno": "A-7052",
+    "country": "Australia",
+    "genres": [
+      "Rock",
+      "Folk, World, & Country"
+    ],
+    "styles": [
+      "Folk Rock"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Got No Reason To Cry",
+        "duration": ""
+      },
+      {
+        "position": "B",
+        "title": "That Ain't Love",
+        "duration": "2:32"
+      }
+    ],
+    "artwork": "hardcore6-albumartwork.webp"
+  }
+]

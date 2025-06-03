@@ -1,0 +1,1037 @@
+[
+  {
+    "index": 1,
+    "release_id": 130,
+    "title": "Party Stomp / Feels So Good",
+    "year": 1999,
+    "artists": "Fresh Cool Juice",
+    "label": "i! Records",
+    "catno": "IR-166",
+    "country": "US",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "House",
+      "Deep House"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Party Stomp",
+        "duration": ""
+      },
+      {
+        "position": "B1",
+        "title": "Feels So Good",
+        "duration": ""
+      }
+    ],
+    "artwork": "electro1-albumartwork.webp"
+  },
+  {
+    "index": 2,
+    "release_id": 19130,
+    "title": "Ooh, I Love You",
+    "year": 1985,
+    "artists": "Rock Five",
+    "label": "Joey Boy Records",
+    "catno": "JB5001",
+    "country": "US",
+    "genres": [
+      "Electronic",
+      "Funk / Soul"
+    ],
+    "styles": [
+      "Neo Soul",
+      "Nu-Disco"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Ooh, I Love You",
+        "duration": "4:48"
+      },
+      {
+        "position": "B",
+        "title": "Ooh, I Love You (Instrumental)",
+        "duration": ""
+      }
+    ],
+    "artwork": "electro2-albumartwork.webp"
+  },
+  {
+    "index": 3,
+    "release_id": 82046,
+    "title": "Obstructed View",
+    "year": 2000,
+    "artists": "Mike Wade",
+    "label": "Archetype Records",
+    "catno": "ARCHETYPE001",
+    "country": "US",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Techno"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Crowd Control",
+        "duration": ""
+      },
+      {
+        "position": "A2",
+        "title": "Transfer Effect",
+        "duration": ""
+      },
+      {
+        "position": "B1",
+        "title": "Monkey",
+        "duration": ""
+      },
+      {
+        "position": "B2",
+        "title": "Relic",
+        "duration": ""
+      }
+    ],
+    "artwork": "electro3-albumartwork.webp"
+  },
+  {
+    "index": 4,
+    "release_id": 12033,
+    "title": "D'Arcangelo EP",
+    "year": 1996,
+    "artists": "D'Arcangelo",
+    "label": "Rephlex",
+    "catno": "Cat 039 EP",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Electro",
+      "Rhythmic Noise",
+      "IDM"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Somewhere In Time",
+        "duration": "6:35"
+      },
+      {
+        "position": "A2",
+        "title": "Ro-hn",
+        "duration": "5:08"
+      },
+      {
+        "position": "A3",
+        "title": "Skrakt",
+        "duration": "3:15"
+      },
+      {
+        "position": "B1",
+        "title": "Diagram XI",
+        "duration": "3:56"
+      },
+      {
+        "position": "B2",
+        "title": "Diagram VII - Milk Mx.",
+        "duration": "5:41"
+      },
+      {
+        "position": "B3",
+        "title": "Diagram VII - 80's Mx.",
+        "duration": "5:15"
+      }
+    ],
+    "artwork": "electro4-albumartwork.webp"
+  },
+  {
+    "index": 5,
+    "release_id": 34089,
+    "title": "Flammable",
+    "year": 1993,
+    "artists": "Johnny Jungle",
+    "label": "Suburban Base Records",
+    "catno": "SUBBASE 30",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Breakbeat",
+      "Hardcore",
+      "Jungle"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Flammable",
+        "duration": ""
+      },
+      {
+        "position": "B",
+        "title": "The Devoted Drummer",
+        "duration": ""
+      }
+    ],
+    "artwork": "electro5-albumartwork.webp"
+  },
+  {
+    "index": 6,
+    "release_id": 33704,
+    "title": "Rodéo Mécanique",
+    "year": 2002,
+    "artists": "Plastique De Rêve",
+    "label": "International Deejay Gigolo Records",
+    "catno": "Gigolo 91",
+    "country": "Germany",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Techno",
+      "Electro"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Rodéo Mécanique (Air Guitar Mx)",
+        "duration": ""
+      },
+      {
+        "position": "A2",
+        "title": "Rodéo Mécanique (Acid Worm Mx)",
+        "duration": ""
+      },
+      {
+        "position": "B1",
+        "title": "It Happened Then (Space Vocal Mx)",
+        "duration": ""
+      },
+      {
+        "position": "B2",
+        "title": "It Happened Then (Instrumental Loop Mx)",
+        "duration": ""
+      }
+    ],
+    "artwork": "electro6-albumartwork.webp"
+  },
+  {
+    "index": 7,
+    "release_id": 126296,
+    "title": "Daniel Poole • World Sound Systems",
+    "year": 1996,
+    "artists": "Various",
+    "label": "Truelove Label Collective",
+    "catno": "TLCDPCD001",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Techno",
+      "Acid",
+      "Goa Trance"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "The Flow (Jedi Knights Mix)",
+        "duration": "3:39"
+      },
+      {
+        "position": "2",
+        "title": "I'm Ready (Remix Version)",
+        "duration": "6:46"
+      },
+      {
+        "position": "3",
+        "title": "Renegade 303",
+        "duration": "3:07"
+      },
+      {
+        "position": "4",
+        "title": "Rok Da House (Slaughterhouse Mix)",
+        "duration": "5:37"
+      },
+      {
+        "position": "5",
+        "title": "Northern Lights",
+        "duration": "6:50"
+      },
+      {
+        "position": "6",
+        "title": "Skin Probe",
+        "duration": "5:25"
+      },
+      {
+        "position": "7",
+        "title": "Mahadeva",
+        "duration": "6:24"
+      },
+      {
+        "position": "8",
+        "title": "Whale",
+        "duration": "6:32"
+      },
+      {
+        "position": "9",
+        "title": "The Ultimate",
+        "duration": "4:39"
+      },
+      {
+        "position": "10",
+        "title": "Are Am Eye",
+        "duration": "3:51"
+      },
+      {
+        "position": "11",
+        "title": "Ambush (Mr. C Remix)",
+        "duration": "7:21"
+      },
+      {
+        "position": "12",
+        "title": "Mantra To The Buddha (Exclusive Hardfloor Dub Mix)",
+        "duration": "7:44"
+      },
+      {
+        "position": "13",
+        "title": "Wings Of Steel",
+        "duration": "4:23"
+      },
+      {
+        "position": "14",
+        "title": "Inter-Stella",
+        "duration": "3:26"
+      }
+    ],
+    "artwork": "electro7-albumartwork.webp"
+  },
+  {
+    "index": 8,
+    "release_id": 11154,
+    "title": "The City's Collapsing (But Not Tonight)",
+    "year": 2001,
+    "artists": "Zorn",
+    "label": "Lux Nigra",
+    "catno": "LNP 14",
+    "country": "Germany",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "IDM",
+      "Techno",
+      "Experimental"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Sputnik",
+        "duration": "4:51"
+      },
+      {
+        "position": "2",
+        "title": "Flicker",
+        "duration": "5:16"
+      },
+      {
+        "position": "3",
+        "title": "Serpentine",
+        "duration": "8:20"
+      },
+      {
+        "position": "4",
+        "title": "Schatten Und Staub",
+        "duration": "5:18"
+      },
+      {
+        "position": "5",
+        "title": "Deconsoled",
+        "duration": "5:30"
+      },
+      {
+        "position": "6",
+        "title": "Jacuzzi Suite",
+        "duration": "6:51"
+      },
+      {
+        "position": "7",
+        "title": "Rock The Boat",
+        "duration": "6:33"
+      },
+      {
+        "position": "8",
+        "title": "Nachtbus",
+        "duration": "5:46"
+      },
+      {
+        "position": "9",
+        "title": "The City's Collapsing (But Not Tonight)",
+        "duration": "6:46"
+      },
+      {
+        "position": "10",
+        "title": "Kopfleuchten",
+        "duration": "6:31"
+      },
+      {
+        "position": "11",
+        "title": "Michelle's Unblockable",
+        "duration": "4:11"
+      },
+      {
+        "position": "12",
+        "title": "Early Shift",
+        "duration": "6:51"
+      }
+    ],
+    "artwork": "electro8-albumartwork.webp"
+  },
+  {
+    "index": 9,
+    "release_id": 1454965,
+    "title": "Acidulle",
+    "year": 2008,
+    "artists": "Datashock",
+    "label": "Chocolate Monk",
+    "catno": "CHOC-183",
+    "country": "UK & Europe",
+    "genres": [
+      "Electronic",
+      "Folk, World, & Country",
+      "Rock"
+    ],
+    "styles": [
+      "Krautrock",
+      "Drone",
+      "Psychedelic Rock",
+      "Avantgarde",
+      "Experimental"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Frühling Im Mumintal",
+        "duration": "2:59"
+      },
+      {
+        "position": "2",
+        "title": "Orangina Rouge & Vodka",
+        "duration": "5:24"
+      },
+      {
+        "position": "3",
+        "title": "Hui Bui Fährt Geisterkarussel",
+        "duration": "6:51"
+      },
+      {
+        "position": "4",
+        "title": "Kraki Wandert Aus",
+        "duration": "11:34"
+      }
+    ],
+    "artwork": "electro9-albumartwork.webp"
+  },
+  {
+    "index": 10,
+    "release_id": 1982767,
+    "title": "Toxic Crusaders",
+    "year": 2009,
+    "artists": "Deastro",
+    "label": "Ghostly International",
+    "catno": "none",
+    "country": "US",
+    "genres": [
+      "Electronic",
+      "Pop",
+      "Rock"
+    ],
+    "styles": [
+      "Electro",
+      "Indie Rock"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Toxic Crusaders",
+        "duration": "3:39"
+      },
+      {
+        "position": "2",
+        "title": "Toxic Crusaders (Minotaur Shock Remix)",
+        "duration": "4:40"
+      }
+    ],
+    "artwork": "electro10-albumartwork.webp"
+  },
+  {
+    "index": 11,
+    "release_id": 2681117,
+    "title": "Live On The Next Wave 2",
+    "year": 2004,
+    "artists": "Mondo Grosso",
+    "label": "Real Eyes",
+    "catno": "AICL 1528-9",
+    "country": "Japan",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "House"
+    ],
+    "tracklist": [
+      {
+        "position": "1-1",
+        "title": "Blaze It Up",
+        "duration": "9:02"
+      },
+      {
+        "position": "1-2",
+        "title": "Shake Ya Body",
+        "duration": "10:39"
+      },
+      {
+        "position": "1-3",
+        "title": "(Karim Shaker, Simon Garcia) Discarga!",
+        "duration": "8:31"
+      },
+      {
+        "position": "1-4",
+        "title": "光",
+        "duration": ""
+      },
+      {
+        "position": "1-5",
+        "title": "(Earth, Wind & Fire) Blazilian Rhyme (Fearless Mix)",
+        "duration": "8:53"
+      },
+      {
+        "position": "1-6",
+        "title": "Shinin' (Mondo Grosso Remix)",
+        "duration": "11:34"
+      },
+      {
+        "position": "2-1",
+        "title": "Shake Ya Body (Tim Deluxe's Shake Ya Dub)",
+        "duration": "8:30"
+      },
+      {
+        "position": "2-2",
+        "title": "Fire & Ice (Switch Vocal Mix)",
+        "duration": "7:31"
+      },
+      {
+        "position": "2-3",
+        "title": "Motormouth (2020SoundSystem Remix)",
+        "duration": "7:15"
+      },
+      {
+        "position": "2-4",
+        "title": "光 (Live)",
+        "duration": "5:20"
+      },
+      {
+        "position": "2-5",
+        "title": "Dancefloor Combat (VJ)",
+        "duration": "5:08"
+      }
+    ],
+    "artwork": "electro11-albumartwork.webp"
+  },
+  {
+    "index": 12,
+    "release_id": 3654096,
+    "title": "Wild Side",
+    "year": 1976,
+    "artists": "John Cacavas And His Orchestra",
+    "label": "Chappell",
+    "catno": "LPC 1084",
+    "country": "UK",
+    "genres": [
+      "Pop",
+      "Classical",
+      "Stage & Screen"
+    ],
+    "styles": [],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "North Side",
+        "duration": ""
+      },
+      {
+        "position": "A2",
+        "title": "Fastback",
+        "duration": ""
+      },
+      {
+        "position": "A3",
+        "title": "A Matter Of Time",
+        "duration": ""
+      },
+      {
+        "position": "A4",
+        "title": "Cruising",
+        "duration": ""
+      },
+      {
+        "position": "A5",
+        "title": "Wilderness",
+        "duration": ""
+      },
+      {
+        "position": "A6",
+        "title": "Over The Top",
+        "duration": ""
+      },
+      {
+        "position": "A7",
+        "title": "Closing In",
+        "duration": ""
+      },
+      {
+        "position": "A8",
+        "title": "Action On The North Side",
+        "duration": ""
+      },
+      {
+        "position": "A9",
+        "title": "Colours Of Crime",
+        "duration": ""
+      },
+      {
+        "position": "A10",
+        "title": "Deep Blue",
+        "duration": ""
+      },
+      {
+        "position": "A11",
+        "title": "Retrospection",
+        "duration": ""
+      },
+      {
+        "position": "A12",
+        "title": "Appeasement",
+        "duration": ""
+      },
+      {
+        "position": "B1",
+        "title": "Sweet Danger Pt. 1",
+        "duration": ""
+      },
+      {
+        "position": "B2",
+        "title": "Forced Card",
+        "duration": ""
+      },
+      {
+        "position": "B3",
+        "title": "False Lead",
+        "duration": ""
+      },
+      {
+        "position": "B4",
+        "title": "Labyrinth",
+        "duration": ""
+      },
+      {
+        "position": "B5",
+        "title": "Sweet Danger Pt. 2",
+        "duration": ""
+      },
+      {
+        "position": "B6",
+        "title": "Outskirts",
+        "duration": ""
+      },
+      {
+        "position": "B7",
+        "title": "Winter Tones",
+        "duration": ""
+      },
+      {
+        "position": "B8",
+        "title": "Quandary",
+        "duration": ""
+      },
+      {
+        "position": "B9",
+        "title": "The Reprieve",
+        "duration": ""
+      },
+      {
+        "position": "B10",
+        "title": "A Brief Love",
+        "duration": ""
+      },
+      {
+        "position": "B11",
+        "title": "The Public Image",
+        "duration": ""
+      },
+      {
+        "position": "B12",
+        "title": "Wild Side Fugue",
+        "duration": ""
+      }
+    ],
+    "artwork": "electro12-albumartwork.webp"
+  },
+  {
+    "index": 13,
+    "release_id": 19426,
+    "title": "Mind Set To Cycle / Motorway One",
+    "year": 2000,
+    "artists": "FC Kahuna / Language Lab",
+    "label": "Kahuna Cuts",
+    "catno": "KCUTS016",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Techno",
+      "Electro"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Mind Set To Cycle",
+        "duration": ""
+      },
+      {
+        "position": "B",
+        "title": "Motorway One",
+        "duration": ""
+      }
+    ],
+    "artwork": "electro13-albumartwork.webp"
+  },
+  {
+    "index": 14,
+    "release_id": 386598,
+    "title": "Cassius 1999 EP",
+    "year": 1999,
+    "artists": "Cassius",
+    "label": "Virgin",
+    "catno": "VISA 4548",
+    "country": "France",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "House"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Cassius 99 Remix (Radio Edit)",
+        "duration": "3:35"
+      },
+      {
+        "position": "2",
+        "title": "Feeling For You",
+        "duration": "4:38"
+      },
+      {
+        "position": "3",
+        "title": "Somebody",
+        "duration": "4:56"
+      },
+      {
+        "position": "4",
+        "title": "La Mouche",
+        "duration": "4:40"
+      }
+    ],
+    "artwork": "electro14-albumartwork.webp"
+  },
+  {
+    "index": 15,
+    "release_id": 1267899,
+    "title": "Nærmere Kommer Du Ikke / Delt",
+    "year": 1994,
+    "artists": "Vinterhagen",
+    "label": "Vinterhagen Produksjoner",
+    "catno": "VINTER 003",
+    "country": "Norway",
+    "genres": [
+      "Rock"
+    ],
+    "styles": [
+      "New Wave",
+      "Indie Rock"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Nærmere Kommer Du Ikke",
+        "duration": "4:23"
+      },
+      {
+        "position": "2",
+        "title": "Delt",
+        "duration": "3:19"
+      },
+      {
+        "position": "3",
+        "title": "Leke Med Løv",
+        "duration": "2:57"
+      }
+    ],
+    "artwork": "electro15-albumartwork.webp"
+  },
+  {
+    "index": 16,
+    "release_id": 887030,
+    "title": "No More I Love You's",
+    "year": 1995,
+    "artists": "Jellyfish (3)",
+    "label": "Evidence (2)",
+    "catno": "EVI 002",
+    "country": "Italy",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Italodance"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "No More I Love You's (Max Mix)",
+        "duration": ""
+      },
+      {
+        "position": "A2",
+        "title": "No More I Love You's (Radio Mix)",
+        "duration": ""
+      },
+      {
+        "position": "B",
+        "title": "No More Words",
+        "duration": ""
+      }
+    ],
+    "artwork": "electro16-albumartwork.webp"
+  },
+  {
+    "index": 17,
+    "release_id": 1569198,
+    "title": "ChangesTwoBowie",
+    "year": 1981,
+    "artists": "David Bowie",
+    "label": "RCA Victor",
+    "catno": "PL-14202",
+    "country": "Spain",
+    "genres": [
+      "Rock"
+    ],
+    "styles": [
+      "Pop Rock",
+      "Glam"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Aladdin Sane (1913-1938-197?) / On Broadway",
+        "duration": "5:03"
+      },
+      {
+        "position": "A2",
+        "title": "Oh! You Pretty Things",
+        "duration": "3:10"
+      },
+      {
+        "position": "A3",
+        "title": "Starman",
+        "duration": "4:10"
+      },
+      {
+        "position": "A4",
+        "title": "1984",
+        "duration": "3:24"
+      },
+      {
+        "position": "A5",
+        "title": "Ashes To Ashes",
+        "duration": "3:35"
+      },
+      {
+        "position": "B1",
+        "title": "Sound And Vision",
+        "duration": "3:00"
+      },
+      {
+        "position": "B2",
+        "title": "Fashion",
+        "duration": "3:23"
+      },
+      {
+        "position": "B3",
+        "title": "Wild Is The Wind",
+        "duration": "5:58"
+      },
+      {
+        "position": "B4",
+        "title": "John I'm Only Dancing (Again) (1975)",
+        "duration": "6:39"
+      },
+      {
+        "position": "B5",
+        "title": "D.J.",
+        "duration": "3:20"
+      }
+    ],
+    "artwork": "electro17-albumartwork.webp"
+  },
+  {
+    "index": 18,
+    "release_id": 1739572,
+    "title": "Everlong",
+    "year": 1997,
+    "artists": "Foo Fighters",
+    "label": "Roswell Records",
+    "catno": "72438 92106 7 5",
+    "country": "Europe",
+    "genres": [
+      "Rock"
+    ],
+    "styles": [
+      "Pop Rock"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Everlong",
+        "duration": "4:10"
+      }
+    ],
+    "artwork": "electro18-albumartwork.webp"
+  },
+  {
+    "index": 19,
+    "release_id": 1503726,
+    "title": "The Best Of 80's - Vol. 4",
+    "year": 0,
+    "artists": "Various",
+    "label": "D.J. Mix Club",
+    "catno": "180 - 04",
+    "country": "Poland",
+    "genres": [
+      "Electronic",
+      "Rock"
+    ],
+    "styles": [
+      "Pop Rock",
+      "Italo-Disco",
+      "Disco",
+      "Soft Rock",
+      "Ambient",
+      "Synth-pop"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Owner Of The Lonely Heart",
+        "duration": "4:27"
+      },
+      {
+        "position": "A2",
+        "title": "Maid Of Orleans",
+        "duration": "4:08"
+      },
+      {
+        "position": "A3",
+        "title": "Stop",
+        "duration": "4:33"
+      },
+      {
+        "position": "B1",
+        "title": "Una Notte Speciale",
+        "duration": "4:13"
+      },
+      {
+        "position": "B2",
+        "title": "The Lady In Red",
+        "duration": "4:15"
+      },
+      {
+        "position": "B3",
+        "title": "I'll Find My Way Home",
+        "duration": "4:27"
+      }
+    ],
+    "artwork": "electro19-albumartwork.webp"
+  },
+  {
+    "index": 20,
+    "release_id": 19446,
+    "title": "Summer Affair",
+    "year": 1996,
+    "artists": "Gene Farris",
+    "label": "Relief Records",
+    "catno": "RR758",
+    "country": "US",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "House",
+      "Disco"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Summer Affair",
+        "duration": ""
+      },
+      {
+        "position": "AA1",
+        "title": "Open Your Mind",
+        "duration": ""
+      },
+      {
+        "position": "AA2",
+        "title": "Trippin' Again",
+        "duration": ""
+      }
+    ],
+    "artwork": "electro20-albumartwork.webp"
+  },
+  {
+    "index": 21,
+    "release_id": 430585,
+    "title": "Aurora / A State Of Mind",
+    "year": 2005,
+    "artists": "S.T.J.",
+    "label": "Dark-Noize Blue",
+    "catno": "DNB 2002-12",
+    "country": "Germany",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Trance"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Aurora",
+        "duration": "8:20"
+      },
+      {
+        "position": "B",
+        "title": "A State Of Mind",
+        "duration": "8:18"
+      }
+    ],
+    "artwork": "electro21-albumartwork.webp"
+  }
+]

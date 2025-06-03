@@ -29,9 +29,6 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      sort_order: {
-        type: Sequelize.INTEGER
-      },
       visible: {
         type: Sequelize.BOOLEAN,
         defaultValue: true

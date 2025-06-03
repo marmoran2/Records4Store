@@ -1,0 +1,403 @@
+[
+  {
+    "index": 1,
+    "release_id": 3440126,
+    "title": "Polly",
+    "year": 2012,
+    "artists": "Amanda Palmer, The Grand Theft Orchestra",
+    "label": "Not On Label (Amanda Palmer Self-released)",
+    "catno": "none",
+    "country": null,
+    "genres": [
+      "Rock"
+    ],
+    "styles": [
+      "Alternative Rock"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "Polly",
+        "duration": "3:40"
+      }
+    ],
+    "artwork": "breakbeat1-albumartwork.webp"
+  },
+  {
+    "index": 2,
+    "release_id": 1364027,
+    "title": "If I Could Be The One",
+    "year": 2000,
+    "artists": "Maxfield",
+    "label": "W Records (3)",
+    "catno": "DURCDS 013",
+    "country": "Sweden",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "House"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "If I Could Be The One ( Johan S Radio Mix)",
+        "duration": ""
+      },
+      {
+        "position": "2",
+        "title": "If I Could Be The One (Johan S Extended House Mix)",
+        "duration": ""
+      },
+      {
+        "position": "3",
+        "title": "If I Could Be The One (Charlie Crash Remix)",
+        "duration": ""
+      },
+      {
+        "position": "Video",
+        "title": "If I Could Be The One (Original Album Version)",
+        "duration": ""
+      }
+    ],
+    "artwork": "breakbeat2-albumartwork.webp"
+  },
+  {
+    "index": 3,
+    "release_id": 47693,
+    "title": "Love's Calling",
+    "year": 1985,
+    "artists": "Opus 10",
+    "label": "Pandisc",
+    "catno": "PD-012",
+    "country": "US",
+    "genres": [
+      "Electronic",
+      "Hip Hop"
+    ],
+    "styles": [
+      "Electro"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Love's Calling (Short Version)",
+        "duration": "4:00"
+      },
+      {
+        "position": "A2",
+        "title": "Love's Calling (Vocal Rap)",
+        "duration": "3:58"
+      },
+      {
+        "position": "B",
+        "title": "Love's Calling (Instrumental Dub)",
+        "duration": "6:54"
+      }
+    ],
+    "artwork": "breakbeat3-albumartwork.webp"
+  },
+  {
+    "index": 4,
+    "release_id": 532,
+    "title": "Snapshots",
+    "year": 1997,
+    "artists": "Elegia",
+    "label": "F Communications",
+    "catno": "F067CD",
+    "country": "France",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Deep House"
+    ],
+    "tracklist": [
+      {
+        "position": "1",
+        "title": "My F!amily!",
+        "duration": "6:10"
+      },
+      {
+        "position": "2",
+        "title": "Shampoo (Solo Melodica Mix)",
+        "duration": "5:50"
+      },
+      {
+        "position": "3",
+        "title": "Is It Serious ? (O.M.P Mix)",
+        "duration": "6:32"
+      },
+      {
+        "position": "4",
+        "title": "Way Form Two (Swallow)",
+        "duration": "5:33"
+      },
+      {
+        "position": "5",
+        "title": "Grid Two",
+        "duration": "6:42"
+      },
+      {
+        "position": "6",
+        "title": "Shampoo",
+        "duration": "5:50"
+      }
+    ],
+    "artwork": "breakbeat4-albumartwork.webp"
+  },
+  {
+    "index": 5,
+    "release_id": 51296,
+    "title": "Song To The Siren",
+    "year": 2002,
+    "artists": "Barraka",
+    "label": "Lost Language",
+    "catno": "LOST012R",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Progressive Trance"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Song To The Siren (Jean-Philippe's Dirty South Dub)",
+        "duration": "10:07"
+      },
+      {
+        "position": "B",
+        "title": "Song To The Siren (Max Graham Club Mix)",
+        "duration": "11:15"
+      }
+    ],
+    "artwork": "breakbeat5-albumartwork.webp"
+  },
+  {
+    "index": 6,
+    "release_id": 51296,
+    "title": "Song To The Siren",
+    "year": 2002,
+    "artists": "Barraka",
+    "label": "Lost Language",
+    "catno": "LOST012R",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Progressive Trance"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Song To The Siren (Jean-Philippe's Dirty South Dub)",
+        "duration": "10:07"
+      },
+      {
+        "position": "B",
+        "title": "Song To The Siren (Max Graham Club Mix)",
+        "duration": "11:15"
+      }
+    ],
+    "artwork": "breakbeat6-albumartwork.webp"
+  },
+  {
+    "index": 7,
+    "release_id": 12512,
+    "title": "Of The Matter",
+    "year": 1985,
+    "artists": "Wake, The",
+    "label": "Factory",
+    "catno": "FAC 113",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Synth-pop"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Of The Matter",
+        "duration": "2:54"
+      },
+      {
+        "position": "B",
+        "title": "Of The Matter",
+        "duration": "2:54"
+      }
+    ],
+    "artwork": "breakbeat7-albumartwork.webp"
+  },
+  {
+    "index": 8,
+    "release_id": 12512,
+    "title": "Of The Matter",
+    "year": 1985,
+    "artists": "Wake, The",
+    "label": "Factory",
+    "catno": "FAC 113",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Synth-pop"
+    ],
+    "tracklist": [
+      {
+        "position": "A",
+        "title": "Of The Matter",
+        "duration": "2:54"
+      },
+      {
+        "position": "B",
+        "title": "Of The Matter",
+        "duration": "2:54"
+      }
+    ],
+    "artwork": "breakbeat8-albumartwork.webp"
+  },
+  {
+    "index": 9,
+    "release_id": 115425,
+    "title": "The Collection",
+    "year": 1987,
+    "artists": "Tangerine Dream",
+    "label": "Castle Communications",
+    "catno": "CCSLP 161",
+    "country": "UK",
+    "genres": [
+      "Electronic"
+    ],
+    "styles": [
+      "Abstract",
+      "Ambient"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Genesis",
+        "duration": "6:00"
+      },
+      {
+        "position": "A2",
+        "title": "Circulation Of Events",
+        "duration": "5:49"
+      },
+      {
+        "position": "A3",
+        "title": "Fauni-Gena",
+        "duration": "10:43"
+      },
+      {
+        "position": "B1",
+        "title": "Alpha Centauri",
+        "duration": "22:00"
+      },
+      {
+        "position": "C1",
+        "title": "Fly And Collision Of Comas Sola",
+        "duration": "13:05"
+      },
+      {
+        "position": "C2",
+        "title": "Journey Through A Burning Brain",
+        "duration": "13:25"
+      },
+      {
+        "position": "D1",
+        "title": "(Zeit First Movement) Birth Of Liquid Plejades",
+        "duration": "20:00"
+      },
+      {
+        "position": "D2",
+        "title": "White Clouds",
+        "duration": "5:03"
+      }
+    ],
+    "artwork": "breakbeat9-albumartwork.webp"
+  },
+  {
+    "index": 10,
+    "release_id": 92680,
+    "title": "What Do You Know, Deutschland?",
+    "year": 1991,
+    "artists": "KMFDM",
+    "label": "Wax Trax! Records",
+    "catno": "WAX 7139",
+    "country": "US",
+    "genres": [
+      "Electronic",
+      "Rock",
+      "Funk / Soul"
+    ],
+    "styles": [
+      "Alternative Rock",
+      "Techno",
+      "Funk"
+    ],
+    "tracklist": [
+      {
+        "position": "A1",
+        "title": "Kickin' Ass",
+        "duration": "4:01"
+      },
+      {
+        "position": "A2",
+        "title": "Me I Funk",
+        "duration": "8:14"
+      },
+      {
+        "position": "A3",
+        "title": "What Do You Know?",
+        "duration": "6:25"
+      },
+      {
+        "position": "A4",
+        "title": "Conillon",
+        "duration": "5:50"
+      },
+      {
+        "position": "A5",
+        "title": "Itchy Bitchy",
+        "duration": "3:33"
+      },
+      {
+        "position": "B1",
+        "title": "Deutsche Schuld",
+        "duration": "4:45"
+      },
+      {
+        "position": "B2",
+        "title": "Sieg Sieg",
+        "duration": "5:33"
+      },
+      {
+        "position": "B3",
+        "title": "Positiv",
+        "duration": "3:25"
+      },
+      {
+        "position": "B4",
+        "title": "Lufthans",
+        "duration": "4:48"
+      },
+      {
+        "position": "B5",
+        "title": "Itchy Bitchy (Dance Version)",
+        "duration": "4:00"
+      },
+      {
+        "position": "B6",
+        "title": "The Unrestrained Use Of Excessive Force",
+        "duration": "7:03"
+      }
+    ],
+    "artwork": "breakbeat10-albumartwork.webp"
+  }
+]
