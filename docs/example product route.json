@@ -1,0 +1,100 @@
+ {
+  "product_id": 2,
+  "release_id": 753400,
+  "size_inches": "12",
+  "total_weight": 300,
+  "total_dimensions": "31",
+  "price": 14,
+  "stock_qty": "9",
+  "stock_updated_at": "2025-05-28T18:55:43.000Z",
+  "updated_at": "2025-05-28T18:55:43.000Z",
+  "ProductImages": [
+    {
+      "image_id": 2,
+      "product_id": 2,
+      "url": "ambient/ambient2-albumartwork.webp"
+    }
+  ],
+  "ProductViews": [],
+  "Categories": [
+    {
+      "category_id": 1,
+      "name": "ambient",
+      "ProductCategory": {
+        "product_id": 2,
+        "category_id": 1
+      }
+    }
+  ],
+  "Tags": [
+    {
+      "tag_id": 3,
+      "name": "Classical",
+      "ProductTag": {
+        "product_id": 2,
+        "tag_id": 3
+      }
+    }
+  ],
+  "Release": {
+    "release_id": 753400,
+    "label_id": null,
+    "catalog_number": "8 26 477",
+    "release_title": "Eine Kleine Nachtmusik G-Dur KV 525 / Serenata Notturna D-Dur KV 239 / Serenade F-Dur KV 101 / Notturno D-Dur KV 286",
+    "release_year": "1976",
+    "released_date": null,
+    "Label": null,
+    "Tracks": [
+      {
+        "track_id": 6,
+        "title": "Eine Kleine Nachtmusik G-Dur KV 525 Serenade Für Zwei Violinen, Viola, Violoncello Und Kontrabaß",
+        "track_number": 1,
+        "duration_secs": null,
+        "artist_id": 2,
+        "Artist": {
+          "artist_id": 2,
+          "artist_name": "Wolfgang Amadeus Mozart - Staatskapelle Dresden, Otmar Suitner"
+        }
+      },
+      {
+        "track_id": 7,
+        "title": "Serenata Notturna D-Dur KV 239 Für Zwei Streichorchester Und Pauken",
+        "track_number": 2,
+        "duration_secs": null,
+        "artist_id": 2,
+        "Artist": {
+          "artist_id": 2,
+          "artist_name": "Wolfgang Amadeus Mozart - Staatskapelle Dresden, Otmar Suitner"
+        }
+      },
+      {
+        "track_id": 8,
+        "title": "Serenade F-Dur KV 101 (250a) Für Zwei Violinen, Zwei Oboen, Flöte, Fagott, Zwei Hörner Und Baß",
+        "track_number": 3,
+        "duration_secs": null,
+        "artist_id": 2,
+        "Artist": {
+          "artist_id": 2,
+          "artist_name": "Wolfgang Amadeus Mozart - Staatskapelle Dresden, Otmar Suitner"
+        }
+      },
+      {
+        "track_id": 9,
+        "title": "Notturno D-Dur KV 286 (269a) Für Vier Orchester - Viermal Zwei Violinen, Viola, Baß Und Zwei Hörner",
+        "track_number": 4,
+        "duration_secs": null,
+        "artist_id": 2,
+        "Artist": {
+          "artist_id": 2,
+          "artist_name": "Wolfgang Amadeus Mozart - Staatskapelle Dresden, Otmar Suitner"
+        }
+      }
+    ],
+    "Artists": [
+      {
+        "artist_id": 2,
+        "artist_name": "Wolfgang Amadeus Mozart - Staatskapelle Dresden, Otmar Suitner"
+      }
+    ]
+  }
+}
