@@ -5,56 +5,59 @@ const {
   Product,
   ProductImage,
   ProductView,
-  Category,
   Tag,
+  ProductTag,
   Release,
   Label,
   Track,
-  Artist
+  Artist,
+  Genre
 } = require('../models');
 
 const productIncludes = [
   {
     model: ProductImage,
-    attributes: ['image_id', 'product_id', 'url']
+    as: 'images',
+    attributes: ['image_id', 'url', 'alt_text']
   },
-  ProductView,
   {
-    model: Category,
-    attributes: ['category_id', 'name']
+    model: ProductView,
+    as: 'views'
   },
   {
     model: Tag,
+    as: 'tags',
+    through: { attributes: [] },
     attributes: ['tag_id', 'name']
   },
   {
     model: Release,
-    attributes: [
-      'release_id',
-      'label_id',
-      'catalog_number',
-      'release_title',
-      'release_year',
-      'released_date'
-    ],
+    as: 'release',
+    attributes: ['release_id', 'catalog_number', 'release_title', 'released_date'],
     include: [
       {
         model: Label,
+        as: 'label',
         attributes: ['label_id', 'name']
       },
       {
+        model: Genre,
+        as: 'genre',
+        attributes: ['genre_id', 'name']
+      },
+      {
         model: Track,
-        attributes: ['track_id', 'title', 'track_number', 'duration_secs', 'artist_id'],
-        include: [
-          {
-            model: Artist,
-            attributes: ['artist_id', 'artist_name']
-          }
-        ]
+        as: 'tracks',
+        attributes: ['track_id', 'title', 'track_number', 'duration_secs', 'side'],
+        include: {
+          model: Artist,
+          as: 'artist',
+          attributes: ['artist_id', 'artist_name']
+        }
       },
       {
         model: Artist,
-        through: { attributes: [] },
+        as: 'artist',
         attributes: ['artist_id', 'artist_name']
       }
     ]

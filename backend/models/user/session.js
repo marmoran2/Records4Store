@@ -1,43 +1,41 @@
 'use strict';
-const { Model } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-  class Session extends Model {
-    static associate(models) {
-      Session.belongsTo(models.User, {
-        foreignKey: 'user_id'
-      });
-
-      Session.hasMany(models.CartItem, {
-        foreignKey: 'session_id'
-      });
-
-      Session.hasMany(models.ProductView, {
-        foreignKey: 'session_id'
-      });
-    }
-  }
-
-  Session.init({
+  const Session = sequelize.define('Session', {
     session_id: {
-      type: DataTypes.STRING,
-      primaryKey: true,
+      type: DataTypes.STRING(128),
+      primaryKey: true
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    expires_at: {
+      type: DataTypes.DATE,
       allowNull: false
     },
-    user_id: DataTypes.INTEGER,
-    created_at: DataTypes.DATE,
-    expires_at: DataTypes.DATE,
-    ip_address: DataTypes.STRING,
-    user_agent: DataTypes.TEXT,
-    is_valid: DataTypes.BOOLEAN,
-    device_type: DataTypes.ENUM('desktop', 'mobile', 'tablet', 'other'),
-    device_name: DataTypes.STRING
+    user_agent: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    ip_address: {
+      type: DataTypes.STRING(45),
+      allowNull: true
+    },
+    is_valid: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    }
   }, {
-    sequelize,
-    modelName: 'Session',
     tableName: 'Sessions',
     timestamps: false
   });
+
+Session.associate = function(models) {
+  Session.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+  Session.hasMany(models.CartItem, { foreignKey: 'session_id', as: 'cart_items' });
+  Session.hasMany(models.ProductView, { foreignKey: 'session_id', as: 'views' });
+};
 
   return Session;
 };

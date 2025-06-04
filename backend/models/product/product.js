@@ -1,35 +1,6 @@
 'use strict';
-const { Model } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-  class Product extends Model {
-    static associate(models) {
-      // Relationships
-      Product.belongsTo(models.Release, { foreignKey: 'release_id' });
-
-      Product.hasMany(models.ProductImage, { foreignKey: 'product_id' });
-      Product.hasMany(models.OrderLine, { foreignKey: 'product_id' });
-      Product.hasMany(models.CartItem, { foreignKey: 'product_id' });
-      Product.hasMany(models.Wishlist, { foreignKey: 'product_id' });
-      Product.hasMany(models.ProductView, { foreignKey: 'product_id' });
-
-      // M:N with Category
-      Product.belongsToMany(models.Category, {
-        through: models.ProductCategory,
-        foreignKey: 'product_id',
-        otherKey: 'category_id'
-      });
-
-      // M:N with Tag
-      Product.belongsToMany(models.Tag, {
-        through: models.ProductTag,
-        foreignKey: 'product_id',
-        otherKey: 'tag_id'
-      });
-    }
-  }
-
-  Product.init({
+  const Product = sequelize.define('Product', {
     product_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -39,25 +10,46 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    size_inches: DataTypes.ENUM('7', '10', '12'),
-    total_weight: DataTypes.INTEGER,
-    total_dimensions: DataTypes.DECIMAL,
+    size_inches: {
+      type: DataTypes.ENUM ('7', '10', '12'),
+      allowNull: true
+    },
+    total_weight: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    },
+    total_dimensions: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL,
       allowNull: false
     },
     stock_qty: {
-      type: DataTypes.DECIMAL,
-      defaultValue: 0
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
-    stock_updated_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    }
   }, {
-    sequelize,
-    modelName: 'Product',
     tableName: 'Products',
     timestamps: false
   });
+
+  Product.associate = function(models) {
+    Product.belongsTo(models.Release, { foreignKey: 'release_id', as: 'release' });
+    Product.hasMany(models.ProductImage, { foreignKey: 'product_id', as: 'images' });
+    Product.hasMany(models.ProductView, { foreignKey: 'product_id', as: 'views' });
+    Product.belongsToMany(models.Tag, {
+      through: models.ProductTag,
+      foreignKey: 'product_id',
+      otherKey: 'tag_id',
+      as: 'tags'
+    });
+  };
 
   return Product;
 };

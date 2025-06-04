@@ -1,34 +1,40 @@
 'use strict';
-const { Model } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-  class OrderConfirmation extends Model {
-    static associate(models) {
-      OrderConfirmation.belongsTo(models.Order, {
-        foreignKey: 'order_id'
-      });
-    }
-  }
-
-  OrderConfirmation.init({
+  const OrderConfirmation = sequelize.define('OrderConfirmation', {
     confirmation_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    order_id: DataTypes.BIGINT,
-    pdf_url: DataTypes.STRING,
+    order_id: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+      unique: true
+    },
+    pdf_url: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
     email_sent: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
       defaultValue: false
     },
-    issued_at: DataTypes.DATE
+    issued_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    }
   }, {
-    sequelize,
-    modelName: 'OrderConfirmation',
     tableName: 'OrderConfirmations',
     timestamps: false
   });
+
+  OrderConfirmation.associate = function(models) {
+    OrderConfirmation.belongsTo(models.Order, {
+      foreignKey: 'order_id',
+      as: 'order'
+    });
+  };
 
   return OrderConfirmation;
 };

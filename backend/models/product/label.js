@@ -1,26 +1,35 @@
 'use strict';
-const { Model } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-  class Label extends Model {
-    static associate(models) {
-      Label.hasMany(models.Release, { foreignKey: 'label_id' });
+  const Label = sequelize.define('Label', {
+    label_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    bio: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    website: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    country: {
+      type: DataTypes.STRING(255),
+      allowNull: true
     }
-  }
-
-  Label.init({
-    label_id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    name: DataTypes.STRING,
-    bio: DataTypes.TEXT,
-    website: DataTypes.STRING,
-    country: DataTypes.STRING,
-    founded_year: DataTypes.SMALLINT
   }, {
-    sequelize,
-    modelName: 'Label',
     tableName: 'Labels',
     timestamps: false
   });
+
+  Label.associate = function(models) {
+    Label.hasMany(models.Release, { foreignKey: 'label_id', as: 'releases' });
+  };
 
   return Label;
 };

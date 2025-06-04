@@ -1,51 +1,6 @@
 'use strict';
-const { Model } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    /**
-     * Associations
-     */
-    static associate(models) {
-      // One-to-Many: User → Address
-      User.hasMany(models.Address, {
-        foreignKey: 'user_id',
-        as: 'addresses'
-      });
-
-      // One-to-Many: User → Session
-      User.hasMany(models.Session, {
-        foreignKey: 'user_id',
-        as: 'sessions'
-      });
-
-      // One-to-Many: User → CartItem
-      User.hasMany(models.CartItem, {
-        foreignKey: 'user_id',
-        as: 'cartItems'
-      });
-
-      // One-to-Many: User → Wishlist
-      User.hasMany(models.Wishlist, {
-        foreignKey: 'user_id',
-        as: 'wishlist'
-      });
-
-      // One-to-Many: User → ProductView
-      User.hasMany(models.ProductView, {
-        foreignKey: 'user_id',
-        as: 'views'
-      });
-
-      // One-to-Many: User → Order
-      User.hasMany(models.Order, {
-        foreignKey: 'user_id',
-        as: 'orders'
-      });
-    }
-  }
-
-  User.init({
+  const User = sequelize.define('User', {
     user_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -61,29 +16,57 @@ module.exports = (sequelize, DataTypes) => {
     },
     is_guest: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
       defaultValue: true
     },
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    email_verified_at: DataTypes.DATE,
-    profile_photo_url: DataTypes.STRING,
-    phone_number: DataTypes.STRING,
+    user_role: {
+      type: DataTypes.ENUM ('Customer', 'Admin'),
+      allowNull: true,
+    },
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    profile_url: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    phone_number: {
+      type: DataTypes.STRING(150),
+      allowNull: true
+    },
     failed_login_attempts: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
+      allowNull: true
     },
-    locked_until: DataTypes.DATE,
+    locked_until: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
     created_at: {
       type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
+      allowNull: false
     },
-    last_login_at: DataTypes.DATE
+    last_login_at: {
+      type: DataTypes.DATE,
+      allowNull: true
+    }
   }, {
-    sequelize,
-    modelName: 'User',
     tableName: 'Users',
     timestamps: false
   });
+
+  User.associate = function(models) {
+    User.hasMany(models.Address, { foreignKey: 'user_id', as: 'addresses' });
+    User.hasMany(models.Wishlist, { foreignKey: 'user_id', as: 'wishlist' });
+    User.hasMany(models.ProductView, { foreignKey: 'user_id', as: 'views' });
+    User.hasMany(models.Session, { foreignKey: 'user_id', as: 'sessions' });
+    User.hasMany(models.Order, { foreignKey: 'user_id', as: 'orders' });
+  };
 
   return User;
 };

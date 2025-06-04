@@ -1,34 +1,36 @@
 'use strict';
-const { Model } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-  class OrderLine extends Model {
-    static associate(models) {
-      OrderLine.belongsTo(models.Order, {
-        foreignKey: 'order_id'
-      });
-      OrderLine.belongsTo(models.Product, {
-        foreignKey: 'product_id'
-      });
-    }
-  }
-
-  OrderLine.init({
+  const OrderLine = sequelize.define('OrderLine', {
     order_line_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    order_id: DataTypes.BIGINT,
-    product_id: DataTypes.INTEGER,
-    quantity: DataTypes.INTEGER,
-    unit_price: DataTypes.DECIMAL(10, 2)
+    order_id: {
+      type: DataTypes.BIGINT,
+      allowNull: false
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    unit_price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
+    }
   }, {
-    sequelize,
-    modelName: 'OrderLine',
     tableName: 'OrderLines',
     timestamps: false
   });
+
+  OrderLine.associate = function(models) {
+    OrderLine.belongsTo(models.Order, { foreignKey: 'order_id', as: 'order' });
+    OrderLine.belongsTo(models.Product, { foreignKey: 'product_id', as: 'product' });
+  };
 
   return OrderLine;
 };
