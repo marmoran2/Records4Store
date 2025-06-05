@@ -1,19 +1,16 @@
-const { OrderLine } = require('../models');
+const { OrderLine, Product, Order } = require('../models');
 
 exports.getLinesByOrderId = async (req, res) => {
   try {
-    const lines = await OrderLine.findAll({ where: { order_id: req.params.orderId } });
-    res.json(lines);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch order lines', details: error.message });
-  }
-};
+    const lines = await OrderLine.findAll({
+      where: { order_id: req.params.order_id },
+      include: [{ model: Product, as: 'product' }]
+    });
 
-exports.addOrderLine = async (req, res) => {
-  try {
-    const newLine = await OrderLine.create(req.body);
-    res.status(201).json(newLine);
-  } catch (error) {
-    res.status(400).json({ error: 'Failed to create order line', details: error.message });
+    if (!lines.length) return res.status(404).json({ error: 'No order lines found' });
+    res.json(lines);
+  } catch (err) {
+    console.error('❌ Error fetching order lines:', err);
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
