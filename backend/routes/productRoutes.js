@@ -1,100 +1,57 @@
+// routes/productRoutes.js
 const express = require('express');
 const router = express.Router();
+const productController = require('../controllers/product/productController');
+const artistController = require('../controllers/product/artistController');
+const tagController = require('../controllers/product/tagController');
+const genreController = require('../controllers/product/genreController');
+const releaseController = require('../controllers/product/releaseController');
+const labelController = require('../controllers/product/labelController');
+const productImageController = require('../controllers/product/productImageController');
+const productViewController = require('../controllers/product/productViewController');
 
-const {
-  Product,
-  ProductImage,
-  ProductView,
-  Tag,
-  ProductTag,
-  Release,
-  Label,
-  Track,
-  Artist,
-  Genre
-} = require('../models');
+// --------- PRODUCT Routes ------------
 
-const productIncludes = [
-  {
-    model: ProductImage,
-    as: 'images',
-    attributes: ['image_id', 'url', 'alt_text']
-  },
-  {
-    model: ProductView,
-    as: 'views'
-  },
-  {
-    model: Tag,
-    as: 'tags',
-    through: { attributes: [] },
-    attributes: ['tag_id', 'name']
-  },
-  {
-    model: Release,
-    as: 'release',
-    attributes: ['release_id', 'catalog_number', 'release_title', 'released_date'],
-    include: [
-      {
-        model: Label,
-        as: 'label',
-        attributes: ['label_id', 'name']
-      },
-      {
-        model: Genre,
-        as: 'genre',
-        attributes: ['genre_id', 'name']
-      },
-      {
-        model: Track,
-        as: 'tracks',
-        attributes: ['track_id', 'title', 'track_number', 'duration_secs', 'side'],
-        include: {
-          model: Artist,
-          as: 'artist',
-          attributes: ['artist_id', 'artist_name']
-        }
-      },
-      {
-        model: Artist,
-        as: 'artist',
-        attributes: ['artist_id', 'artist_name']
-      }
-    ]
-  }
-];
+router.get('/', productController.getAllProducts);
+router.get('/:id', productController.getProductById);
 
-// GET all products
-router.get('/', async (req, res) => {
-  try {
-    const products = await Product.findAll({
-      include: productIncludes,
-      order: [['product_id', 'ASC']]
-    });
+// --------- ProductImage Routes ------------
 
-    res.status(200).json(products);
-  } catch (error) {
-    console.error('❌ Error fetching products:', error);
-    res.status(500).json({ error: 'Failed to retrieve products' });
-  }
-});
+router.get('/images', productImageController.getAllImages);
+router.get('/images/:id', productImageController.getImageById);
 
-// GET product by ID
-router.get('/:id', async (req, res) => {
-  try {
-    const product = await Product.findByPk(req.params.id, {
-      include: productIncludes
-    });
+// --------- ARTIST Routes ------------
 
-    if (!product) {
-      return res.status(404).json({ error: 'Product not found' });
-    }
+router.get('/artists', artistController.getAllArtists);
+router.get('/artists/:id', artistController.getArtistById);
 
-    res.status(200).json(product);
-  } catch (error) {
-    console.error(`❌ Error fetching product ${req.params.id}:`, error);
-    res.status(500).json({ error: 'Failed to retrieve product' });
-  }
-});
+// --------- RELEASE Routes ------------
+router.get('/releases', releaseController.getAllReleases);
+router.get('/releases/:id', releaseController.getReleaseById);
+
+// --------- LABEL Routes ------------
+router.get('/labels', labelController.getAllLabels);
+router.get('/labels/:id', labelController.getLabelById);
+
+// --------- TAG Routes ------------
+
+router.get('/tags', tagController.getAllTags);
+router.get('/tags/:id', tagController.getTagById);
+
+// --------- GENRE Routes ------------
+
+router.get('/genres', genreController.getAllGenres);
+router.get('/genres/:id', genreController.getGenreById);
+
+// ─── Product Views ────────────────────────────────
+
+// Get all product views
+router.get('/views', productViewController.getAllViews);
+
+// Get all views for a specific product
+router.get('/:productId/views', productViewController.getViewsByProduct);
+
+// Log a view for a product
+router.post('/:productId/views', productViewController.logProductView);
 
 module.exports = router;
