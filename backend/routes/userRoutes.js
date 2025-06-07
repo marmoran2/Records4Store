@@ -1,36 +1,56 @@
 const express = require('express');
 const router = express.Router();
+
 const userController = require('../controllers/user/userController');
 const addressController = require('../controllers/user/addressController');
 const sessionController = require('../controllers/user/sessionController');
 const wishlistController = require('../controllers/user/wishlistController');
 const authController = require('../controllers/user/authController');
 
-// --------- USER ------------
-router.get('/', userController.getAllUsers);
-router.get('/:id', userController.getUserById);
-router.post('/', userController.createUser);
+// Middleware
+const setUserContext = require('../middleware/setUserContext');
+const requireLogin = require('../middleware/requireLogin');
+const requireGuestOrUserSession = require('../middleware/requireGuestOrUserSession');
 
-// ─── AUTH ─────────────────────────────
+router.get('/session', setUserContext, (req, res) => {
+  const user = res.locals.user;
 
-router.post('/login', authController.login);
-router.post('/logout', authController.logout);
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(401).json({ error: 'Not logged in' });
+  }
+});
 
-// ─── ADDRESS ─────────────────────────────
-router.get('/:userId/addresses', addressController.getAddressesByUser);
-router.post('/:userId/addresses', addressController.createAddress);
-router.get('/addresses/:id', addressController.getAddressById);
-router.delete('/addresses/:id', addressController.deleteAddress);
+// ─── USER CONTEXT ─────────────────────────────────────
+// Must be set on every request needing session/user context
+router.use(setUserContext);
 
-// ─── SESSION ─────────────────────────────
-router.get('/:userId/sessions', sessionController.getSessionsByUser);
-router.post('/:userId/sessions', sessionController.createSession);
-router.get('/sessions/:id', sessionController.getSessionById);
-router.patch('/sessions/:id', sessionController.invalidateSession);
+// ─── USER ─────────────────────────────────────────────
+router.get('/', requireLogin, userController.getAllUsers);
+router.get('/:id', requireLogin, userController.getUserById);
+router.post('/', userController.createUser); // registration
 
-// ─── WISHLIST ──────────────────────────────────────
-router.get('/:userId/wishlist', wishlistController.getWishlistByUser);
-router.post('/:userId/wishlist', wishlistController.addToWishlist);
-router.delete('/:userId/wishlist/:productId', wishlistController.removeFromWishlist);
+// ─── AUTH ─────────────────────────────────────────────
+router.post('/login', authController.login);     // Session created here
+router.post('/logout', authController.logout);   // Session invalidated
+
+// ─── SESSION ──────────────────────────────────────────
+router.get('/:userId/sessions', requireLogin, sessionController.getSessionsByUser);
+router.post('/:userId/sessions', requireLogin, sessionController.createSession);
+router.get('/sessions/:id', requireLogin, sessionController.getSessionById);
+router.patch('/sessions/:id', requireLogin, sessionController.invalidateSession);
+
+
+// ─── ADDRESS ──────────────────────────────────────────
+router.get('/:userId/addresses', requireLogin, addressController.getAddressesByUser);
+router.post('/:userId/addresses', requireLogin, addressController.createAddress);
+router.get('/addresses/:id', requireLogin, addressController.getAddressById);
+router.delete('/addresses/:id', requireLogin, addressController.deleteAddress);
+
+// ─── WISHLIST ─────────────────────────────────────────
+router.get('/:userId/wishlist', requireGuestOrUserSession, wishlistController.getWishlistByUser);
+router.post('/:userId/wishlist', requireGuestOrUserSession, wishlistController.addToWishlist);
+router.delete('/:userId/wishlist/:productId', requireGuestOrUserSession, wishlistController.removeFromWishlist);
 
 module.exports = router;

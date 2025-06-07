@@ -1,4 +1,4 @@
-import { loadProductMetadata, transformMetaToCarouselItem } from '../core/product-data.js';
+import { loadProductMetadata } from '../core/product-data.js';
 import { renderProductCard } from './product-card.js';
 
 export function fillHeroCarousel() {

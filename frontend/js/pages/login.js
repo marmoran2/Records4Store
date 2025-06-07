@@ -1,33 +1,45 @@
-
 import { isValidEmail, markInvalid, clearValidation } from '../components/form-validation.js';
+import { login } from '../core/api.js'; // uses apiPost('/users/login', ...)
+
+// SHA-256 hashing function (same as in register.js)
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('loginForm');
   const emailInput = document.getElementById('loginEmail');
   const passwordInput = document.getElementById('loginPassword');
   const errorBox = document.getElementById('loginError');
+  const toggleBtn = document.querySelector('.show-password-toggle');
 
   // Show/Hide Password
-  document.querySelector('.show-password-toggle').addEventListener('click', () => {
+  toggleBtn.addEventListener('click', () => {
     const type = passwordInput.type === 'password' ? 'text' : 'password';
     passwordInput.type = type;
+    toggleBtn.textContent = type === 'password' ? 'visibility' : 'visibility_off';
   });
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let isValid = true;
     errorBox.classList.add('d-none');
+    errorBox.textContent = 'Invalid email or password.';
 
     clearValidation(emailInput);
     clearValidation(passwordInput);
 
     const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
+    const password = passwordInput.value;
 
     if (!isValidEmail(email)) {
       markInvalid(emailInput);
       isValid = false;
     }
+
     if (password.length === 0) {
       markInvalid(passwordInput);
       isValid = false;
@@ -36,19 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!isValid) return;
 
     try {
-      const res = await fetch('../assets/json/users.json');
-      const users = await res.json();
-      const match = users.find(u => u.email === email && u.password === password);
+      const hashedPassword = await hashPassword(password);
+      const result = await login(email, hashedPassword); // backend expects hashed password
 
-      if (match) {
-        localStorage.setItem('authUser', JSON.stringify({ email }));
-        window.location.href = 'account.html';
-      } else {
-        errorBox.classList.remove('d-none');
-      }
+      // Save basic session info to localStorage (customize as needed)
+      localStorage.setItem('authUser', JSON.stringify({
+        user_id: result.user_id,
+        email: email
+      }));
+
+      window.location.href = 'account.html';
     } catch (err) {
       console.error('Login error:', err);
-      errorBox.textContent = 'Something went wrong. Try again later.';
+      errorBox.textContent = 'Invalid credentials or server error.';
       errorBox.classList.remove('d-none');
     }
   });

@@ -1,6 +1,19 @@
-// File: js/pages/register.js
+import {
+  isValidEmail,
+  isStrongPassword,
+  passwordsMatch,
+  markInvalid,
+  clearValidation
+} from '../components/form-validation.js';
+import { apiPost } from '../core/api.js';
 
-import { isValidEmail, isStrongPassword, passwordsMatch, markInvalid, clearValidation } from '../components/form-validation.js';
+// Quick SHA-256 hash using Web Crypto API
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const steps = document.querySelectorAll('.form-step');
@@ -14,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(`.form-step[data-step="${step}"]`).classList.add('active');
   }
 
-  // Step 1 validation
-  $('#toStep2').on('click', async () => {
+  $('#toStep2').on('click', () => {
     const emailInput = document.getElementById('regEmail');
     const email = emailInput.value.trim();
     const emailError = document.getElementById('emailExistsError');
@@ -28,56 +40,57 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const res = await fetch('../assets/json/users.json');
-    const users = await res.json();
-    const exists = users.some(u => u.email === email);
-    if (exists) {
-      emailError.classList.remove('d-none');
-      return;
-    }
-
     showStep(2);
   });
 
-  // Step 2 validation
-  $('#toStep3').on('click', () => {
-    const password = document.getElementById('password');
-    const confirmPassword = document.getElementById('confirmPassword');
+  $('#toStep3').on('click', async () => {
+    const email = document.getElementById('regEmail').value.trim();
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const username = document.getElementById('username').value.trim(); // not used but collected
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
 
-    let valid = true;
-
-    if (!isStrongPassword(password.value)) {
-      markInvalid(password, 'Password must be 8+ chars, use uppercase & symbol');
-      valid = false;
-    } else {
-      clearValidation(password);
+    if (!isStrongPassword(password)) {
+      markInvalid(document.getElementById('password'), 'Password must include uppercase, symbol, and be 8+ characters');
+      return;
     }
 
-    if (!passwordsMatch(password.value, confirmPassword.value)) {
-      markInvalid(confirmPassword, 'Passwords do not match.');
-      valid = false;
-    } else {
-      clearValidation(confirmPassword);
+    if (!passwordsMatch(password, confirmPassword)) {
+      markInvalid(document.getElementById('confirmPassword'), 'Passwords do not match.');
+      return;
     }
 
-    if (valid) {
-      // TODO: Save user to backend/local file here
-      // fetch('/api/register', { method: 'POST', body: JSON.stringify(newUser) })
+    const hashedPassword = await hashPassword(password);
 
+    const wantsPromo = document.getElementById('promoEmails').checked;
+    const wantsNews = document.getElementById('newsUpdates').checked;
+
+    const newUser = {
+      email,
+      password_hash: hashedPassword,
+      first_name: firstName,
+      last_name: lastName,
+      is_guest: false,
+      user_role: 'Customer'
+    };
+
+    try {
+      await apiPost('/users', newUser); // POST /api/users
       showStep(3);
-      setTimeout(() => window.location.href = 'login.html', 3000);
+      setTimeout(() => window.location.href = 'login.html', 2500);
+    } catch (err) {
+      console.error('Registration error:', err);
+      alert('Registration failed. Check console or try again.');
     }
   });
 
-  // Strength meter
   $('#password').on('input', function () {
-    const strength = isStrongPassword(this.value);
     const meter = $('#strengthMeter');
-    meter.removeClass().addClass('strength-meter');
-
-    if (this.value.length < 4) return;
-    if (!strength) meter.addClass('weak');
-    else if (this.value.length < 10) meter.addClass('medium');
-    else meter.addClass('strong');
+    if (this.value.length < 4) return meter.removeClass().addClass('strength-meter');
+    meter
+      .removeClass()
+      .addClass('strength-meter')
+      .addClass(!isStrongPassword(this.value) ? 'weak' : this.value.length < 10 ? 'medium' : 'strong');
   });
 });

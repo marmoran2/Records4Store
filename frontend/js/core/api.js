@@ -1,70 +1,89 @@
-// js/core/api.js
+export const API_BASE = '/api';
 
-// Always use localhost since you're not deploying to production
-export const API_BASE = 'http://localhost:3000';
-
-/**
- * Returns a full API URL for any endpoint.
- * Usage: apiPath('/products/1') → http://localhost:3000/api/products/1
- */
-export function apiPath(endpoint) {
-  return `${API_BASE}/api${endpoint}`;
+function apiPath(endpoint) {
+  return `${API_BASE}${endpoint}`;
 }
 
-/**
- * Perform a GET request.
- * @param {string} endpoint - API endpoint (e.g. '/products/1')
- * @returns {Promise<any>}
- */
-export async function apiGet(endpoint) {
-  const res = await fetch(apiPath(endpoint));
-  if (!res.ok) throw new Error(`GET ${endpoint} failed: ${res.status}`);
+async function handleResponse(res, method, endpoint) {
+  if (!res.ok) {
+    const error = new Error(`${method} ${endpoint} failed: ${res.status}`);
+    error.status = res.status;
+    throw error;
+  }
   return res.json();
 }
 
-/**
- * Perform a POST request with JSON payload.
- * @param {string} endpoint
- * @param {object} data
- * @returns {Promise<any>}
- */
+export async function apiGet(endpoint) {
+  const res = await fetch(apiPath(endpoint), {
+    method: 'GET',
+    credentials: 'include',
+  });
+  return handleResponse(res, 'GET', endpoint);
+}
+
 export async function apiPost(endpoint, data = {}) {
   const res = await fetch(apiPath(endpoint), {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify(data),
   });
-  if (!res.ok) throw new Error(`POST ${endpoint} failed: ${res.status}`);
-  return res.json();
+  return handleResponse(res, 'POST', endpoint);
 }
 
-/**
- * Perform a PUT request with JSON payload.
- * @param {string} endpoint
- * @param {object} data
- * @returns {Promise<any>}
- */
 export async function apiPut(endpoint, data = {}) {
   const res = await fetch(apiPath(endpoint), {
     method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify(data),
   });
-  if (!res.ok) throw new Error(`PUT ${endpoint} failed: ${res.status}`);
-  return res.json();
+  return handleResponse(res, 'PUT', endpoint);
 }
 
-/**
- * Perform a DELETE request.
- * @param {string} endpoint
- * @returns {Promise<any>}
- */
 export async function apiDelete(endpoint) {
-  const res = await fetch(apiPath(endpoint), { method: 'DELETE' });
-  if (!res.ok) throw new Error(`DELETE ${endpoint} failed: ${res.status}`);
-  return res.json();
+  const res = await fetch(apiPath(endpoint), {
+    method: 'DELETE',
+    credentials: 'include',
+  });
+  return handleResponse(res, 'DELETE', endpoint);
+}
+
+// ──────── AUTH ────────
+export async function login(email, password) {
+  return apiPost('/users/login', { email, password });
+}
+export async function register(userData) {
+  return apiPost('/users/register', userData);
+}
+export async function logout() {
+  return apiPost('/users/logout');
+}
+export async function getLoggedInUser() {
+  return apiGet('/users/loggedIn');
+}
+export async function getCurrentSession() {
+  return apiGet('/users/session');
+}
+
+// ──────── CART ────────
+export async function getCart(userId) {
+  return apiGet(`/orders/cart?userId=${userId}`);
+}
+export async function addToCart(productId, quantity = 1) {
+  return apiPost('/orders/cart', { productId, quantity });
+}
+export async function updateCartItem(cartItemId, quantity) {
+  return apiPut(`/orders/cart/${cartItemId}`, { quantity });
+}
+export async function removeCartItem(cartItemId) {
+  return apiDelete(`/orders/cart/${cartItemId}`);
+}
+export async function emptyCart(userId) {
+  return apiDelete(`/orders/cart?userId=${userId}`);
+}
+
+// ──────── CHECKOUT ────────
+export async function checkout(orderPayload) {
+  return apiPost('/orders/checkout', orderPayload);
 }

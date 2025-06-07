@@ -1,6 +1,22 @@
 @use "../abstracts/variables" as *;
 @use "sass:map";
 
+  .product-details p {
+    margin-bottom: 0.5rem; /* half default spacing */
+  }
+
+  .btn-add-cart {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .product-details {
+    position: relative;
+  }
+
 .product-card {
   border: 2px solid transparent;
   border-radius: $border-radius;

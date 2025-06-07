@@ -1,5 +1,10 @@
+
+// Updated search.js to support multi-select filters
+
 const $results = $('#resultsContainer');
 const $queryText = $('#searchQueryDisplay');
+const $filterTags = $('<div id="activeFilters" class="mb-3"></div>').insertBefore($results);
+
 const filters = ['genre', 'year', 'label', 'country', 'style'];
 const ITEMS_PER_PAGE = 12;
 
@@ -10,10 +15,7 @@ function getURLParams() {
   const params = new URLSearchParams(location.search);
   const query = params.get('query')?.toLowerCase() || '';
   const selected = {};
-  filters.forEach(f => {
-    const value = params.get(f);
-    selected[f] = value ? value.split(',') : [];
-  });
+  filters.forEach(f => selected[f] = params.getAll(f));
   return { query, ...selected };
 }
 
@@ -23,9 +25,7 @@ function updateURLParams(params) {
 
   if (params.query) newParams.set('query', params.query);
   filters.forEach(f => {
-    if (params[f] && params[f].length > 0) {
-      newParams.set(f, params[f].join(','));
-    }
+    params[f].forEach(val => newParams.append(f, val));
   });
 
   url.search = newParams.toString();
@@ -42,15 +42,13 @@ function matchProduct(p, query, filters) {
     String(p.releaseYear).includes(query)
   );
 
-  const fMatch = (
-    (!filters.genre.length || filters.genre.includes(p.genre)) &&
-    (!filters.year.length || filters.year.includes(String(p.releaseYear))) &&
-    (!filters.label.length || filters.label.includes(p.recordLabel)) &&
-    (!filters.country.length || filters.country.includes(p.country)) &&
-    (!filters.style.length || filters.style.includes(p.style))
-  );
+  const fMatch = filters.genre.length === 0 || filters.genre.includes(p.genre);
+  const yMatch = filters.year.length === 0 || filters.year.includes(String(p.releaseYear));
+  const lMatch = filters.label.length === 0 || filters.label.includes(p.recordLabel);
+  const cMatch = filters.country.length === 0 || filters.country.includes(p.country);
+  const sMatch = filters.style.length === 0 || filters.style.includes(p.style);
 
-  return qMatch && fMatch;
+  return qMatch && fMatch && yMatch && lMatch && cMatch && sMatch;
 }
 
 function renderProducts(products) {
@@ -59,34 +57,29 @@ function renderProducts(products) {
   const sliced = products.slice(0, end);
 
   if (!sliced.length) {
-    $results.html(`
+    $results.html(\`
       <p class="text-danger">No products found based on your search criteria.</p>
       <a class="btn btn-outline-secondary mt-3" href="product.html">Browse All</a>
-    `);
+    \`);
     $('#loadMoreBtn').hide();
     return;
   }
 
-  const html = sliced.map(p => `
+  const html = sliced.map(p => \`
     <div class="product-card">
-      <a href="product.html?index=${p.index}">
-        <img src="${p.imageUrl}" alt="${p.trackName}" />
+      <a href="product.html?index=\${p.index}">
+        <img src="\${p.imageUrl}" alt="\${p.trackName}" />
         <div class="card-body">
-          <h5>${p.trackName}</h5>
-          <p>${p.artistName}</p>
-          <p class="text-muted">${p.genre} · ${p.releaseYear}</p>
+          <h5>\${p.trackName}</h5>
+          <p>\${p.artistName}</p>
+          <p class="text-muted">\${p.genre} · \${p.releaseYear}</p>
         </div>
       </a>
     </div>
-  `).join('');
+  \`).join('');
 
   $results.html(html);
-
-  if (end >= products.length) {
-    $('#loadMoreBtn').hide();
-  } else {
-    $('#loadMoreBtn').show();
-  }
+  $('#loadMoreBtn').toggle(end < products.length);
 }
 
 function populateFilters(products) {
@@ -106,55 +99,54 @@ function populateFilters(products) {
     if (p.style) sets.style.add(p.style);
   });
 
-  const current = getURLParams();
-
-    filters.forEach(f => {
-      const list = document.getElementById(f + 'Filter'); // ✅ use UL, not SELECT
-      const sorted = Array.from(sets[f]).sort();
-
-      sorted.forEach(opt => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <label class="dropdown-item form-check-label">
-            <input type="checkbox" class="form-check-input me-2" value="${opt}" ${current[f].includes(opt) ? 'checked' : ''} />
-            ${opt}
-          </label>
-        `;
-        list.appendChild(li);
-      });
-
-      list.addEventListener('input', (e) => {
-        if (e.target.tagName === 'INPUT') {
-          const selectedOptions = Array.from(list.querySelectorAll('input:checked')).map(input => input.value);
-          const updated = getURLParams();
-          updated[f] = selectedOptions;
-          updateURLParams(updated);
-          currentPage = 1;
-          filterAndRender(updated, products);
-        }
-      });
-    });
-  }
-
-function displayQuerySummary(params) {
-  const tags = [];
-
-  if (params.query) tags.push(`<strong>Query:</strong> "${params.query}"`);
-
   filters.forEach(f => {
-    if (params[f] && params[f].length > 0) {
-      tags.push(`<strong>${f.charAt(0).toUpperCase() + f.slice(1)}:</strong> ${params[f].join(', ')}`);
-    }
+    const select = document.getElementById(f + 'Filter');
+    const selected = new URLSearchParams(location.search).getAll(f);
+    const sorted = Array.from(sets[f]).sort();
+
+    sorted.forEach(opt => {
+      const o = document.createElement('option');
+      o.value = opt;
+      o.textContent = opt;
+      if (selected.includes(opt)) o.selected = true;
+      select.appendChild(o);
+    });
+
+    select.addEventListener('change', () => {
+      const current = getURLParams();
+      current[f] = Array.from(select.selectedOptions).map(o => o.value);
+      updateURLParams(current);
+      currentPage = 1;
+      filterAndRender(current, products);
+    });
+  });
+}
+
+function renderFilterTags(params) {
+  $filterTags.empty();
+  filters.forEach(f => {
+    params[f].forEach(val => {
+      const tag = $(\`<span class="badge bg-secondary me-2 mb-2">\${f}: \${val} <button class="btn-close btn-close-white btn-sm ms-2" data-filter="\${f}" data-value="\${val}"></button></span>\`);
+      $filterTags.append(tag);
+    });
   });
 
-  $queryText.html(tags.length ? `Showing results for: ${tags.join(' · ')}` : 'All Results');
+  $('.btn-close').on('click', function () {
+    const f = $(this).data('filter');
+    const v = $(this).data('value');
+    const params = getURLParams();
+    params[f] = params[f].filter(x => x !== v);
+    updateURLParams(params);
+    filterAndRender(params, fullMatchResults);
+  });
 }
 
 function filterAndRender(params, allProducts) {
-  displayQuerySummary(params);
+  $queryText.text(params.query ? \`Showing results for: "\${params.query}"\` : 'All Results');
   fullMatchResults = allProducts.filter(p => matchProduct(p, params.query, params));
   currentPage = 1;
   renderProducts(fullMatchResults);
+  renderFilterTags(params);
 }
 
 $('#loadMoreBtn').on('click', () => {
@@ -177,7 +169,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     genre: p.release?.genre?.name || '',
     country: p.release?.country || '',
     style: Array.isArray(p.release?.styles) ? p.release.styles[0] : '',
-    imageUrl: p.images?.[0]?.url ? `/images/releases/${p.images[0].url.replace('/assets/images/releases/', '')}` : ''
+    imageUrl: p.images?.[0]?.url ? \`/images/releases/\${p.images[0].url.replace('/assets/images/releases/', '')}\` : ''
   }));
 
   populateFilters(allProducts);

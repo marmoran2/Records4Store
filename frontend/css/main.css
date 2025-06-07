@@ -12397,6 +12397,22 @@ body.page-transition {
   overflow-x: auto;
 }
 
+.product-details p {
+  margin-bottom: 0.5rem; /* half default spacing */
+}
+
+.btn-add-cart {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.75rem;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.product-details {
+  position: relative;
+}
+
 .product-card {
   border: 2px solid transparent;
   border-radius: 0.5rem;
@@ -12632,6 +12648,11 @@ body.page-transition {
 .product-container img:hover {
   transform: scale(1.03);
 }
+.product-container .product-container__image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .product-container .product-details {
   flex: 1;
   display: flex;
@@ -12644,6 +12665,34 @@ body.page-transition {
   justify-content: center;
   align-items: flex-start;
   padding-block: 2rem;
+}
+.product-wrapper .product-details p {
+  margin-bottom: 0.5rem;
+}
+.product-wrapper .product-details {
+  position: relative;
+}
+.product-wrapper .product-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.product-wrapper .btn-add-cart,
+.product-wrapper .btn-add-wishlist {
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 0.375rem;
+}
+.product-wrapper .btn-add-cart {
+  background-color: #ff4040;
+  color: #fff;
+  border: none;
+}
+.product-wrapper .btn-add-wishlist {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
 }
 
 @keyframes fadeInUp {

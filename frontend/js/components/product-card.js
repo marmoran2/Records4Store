@@ -21,7 +21,7 @@ export function renderProductCard(product, options = {}) {
   return `
     <div class="product-card" data-index="${product.index}">
       <a href="product.html?index=${product.index}">
-        <img src="../assets/images/album_artworks/artwork-${product.index}-600.webp" alt="${product.trackName}" />
+        <img src="${product.imageUrl}" alt="${product.trackName}" />
         <div class="product-card__body">
           <h5>${product.trackName}</h5>
           <p>${product.artistName}</p>

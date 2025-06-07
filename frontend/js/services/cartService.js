@@ -1,49 +1,41 @@
 export const CART_KEY = 'cartItems';
 export const WISHLIST_KEY = 'wishlistItems';
 
+
 // === CART FUNCTIONS ===
 
-function loadCart() {
-  return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+import {
+  getCart,
+  addToCart as apiAddToCart,
+  updateCartItem,
+  removeCartItem,
+  emptyCart, getLoggedInUser
+} from '../core/api.js';
+
+export async function getCartCount() {
+  const user = await getLoggedInUser();
+  const cart = await getCart(user.id);
+  return cart.reduce((total, item) => total + item.quantity, 0);
 }
 
-function saveCart(cart) {
-  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+export async function getCartItems(userId) {
+  return await getCart(userId);
 }
 
-export function getCartItems() {
-  return loadCart();
+export async function addToCart(productId, quantity = 1) {
+  return await apiAddToCart(productId, quantity);
 }
 
-export function getCartCount() {
-  return loadCart().reduce((sum, item) => sum + item.quantity, 0);
+export async function updateQuantity(cartItemId, quantity) {
+  return await updateCartItem(cartItemId, quantity);
 }
 
-export function addToCart(index, quantity = 1) {
-  const cart = loadCart();
-  const existing = cart.find(item => item.index === index);
-  if (existing) {
-    existing.quantity += quantity;
-  } else {
-    cart.push({ index, quantity });
-  }
-  saveCart(cart);
+export async function removeFromCart(cartItemId) {
+  return await removeCartItem(cartItemId);
 }
 
-export function removeFromCart(index) {
-  const cart = loadCart().filter(item => item.index !== index);
-  saveCart(cart);
-}
-
-export function updateQuantity(index, quantity) {
-  const cart = loadCart().map(item =>
-    item.index === index ? { ...item, quantity } : item
-  );
-  saveCart(cart);
-}
-
-export function clearCart() {
-  localStorage.removeItem(CART_KEY);
+export async function clearCart(userId) {
+  return await emptyCart(userId);
 }
 
 // === WISHLIST FUNCTIONS ===

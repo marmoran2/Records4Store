@@ -8,6 +8,9 @@ const paymentProviderController = require('../controllers/order/paymentProviderC
 const paymentController = require('../controllers/order/paymentController');
 const cartItemController = require('../controllers/order/cartItemController');
 
+const requireLogin = require('../middleware/requireLogin');
+const setUserContext = require('../middleware/setUserContext');
+
 
 // ---- CART ITEM ROUTES ----
 router.get('/cart', cartItemController.getCartItems);

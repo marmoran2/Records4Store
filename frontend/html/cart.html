@@ -24,28 +24,28 @@
 
   <main class="page-container cart-page">
     <h2 class="mb-4">Your Cart</h2>
+          <div id="cartItemsWrapper">
+            <div class="cart-item-template d-none">
+              <div class="product-container">
+                <div class="product-container__image">
+                  <img src="" alt="Artwork" class="product-image" />
+                </div>
+                <div class="product-details animate-on-scroll">
+                  <h2 class="product-title"></h2>
+                  <h4 class="product-subtitle"></h4>
+                  <p><strong>Collection:</strong> <span class="collection-name"></span></p>
+                  <p><strong>Label:</strong> <span class="record-label"></span></p>
+                  <p><strong>Catalog Number:</strong> <span class="catalog-number"></span></p>
+                  <p><strong>Price per Unit:</strong> <span class="price-each"></span></p>
+                  <p><strong>Quantity:</strong> <span class="cart-quantity"></span></p>
+                  <p><strong>Item Total:</strong> <span class="cart-item-total"></span></p>
+                  <button class="btn btn-sm btn-outline-danger remove-item">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+</main>
 
-    <div id="cartItemsWrapper">
-      <!-- Each item slot -->
-      <div class="cart-item-template d-none">
-        <div class="product-container">
-          <div class="product-container__image">
-            <img src="" alt="Artwork" class="product-image" />
-          </div>
-          <div class="product-details animate-on-scroll">
-                <h2 class="product-title"></h2>
-                <h4 class="product-subtitle"></h4>
-                <p><strong>Collection:</strong> <span class="collection-name"></span></p>
-                <p><strong>Label:</strong> <span class="record-label"></span></p>
-                <p><strong>Catalog Number:</strong> <span class="catalog-number"></span></p>
-                <p><strong>Price per Unit:</strong> <span class="price-each"></span></p>
-                <p><strong>Quantity:</strong> <span class="cart-quantity"></span></p>
-                <p><strong>Item Total:</strong> <span class="cart-item-total"></span></p>
-            <button class="btn btn-sm btn-outline-danger remove-item" id="removeFromCart">Remove</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="cart-actions mt-5">
       <button class="btn btn-outline-secondary me-2" id="continueShopping">Continue Shopping</button>

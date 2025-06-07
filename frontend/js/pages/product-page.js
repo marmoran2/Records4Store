@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         return;
       }
 
-      console.log('[DEBUG] product:', product);
-      console.log('[DEBUG] HTML element check:', document.getElementById('productImage'));
 
     // Fill in product details
       document.getElementById('trackName').textContent = product.release.release_title;
@@ -41,11 +39,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
       // Artwork
       const image = document.getElementById('productImage');
-      if (image) {
-        const imagePath = product.images?.[0]?.url || '';
-        const cleanedPath = imagePath.replace(/^\/assets/, ''); // Strip `/assets`
-        image.src = `${API_BASE}${cleanedPath}`;
-        image.alt = product.images?.[0]?.alt_text || 'Artwork';
+      if (image && product.images?.[0]?.url) {
+        // If your DB stores the full path like "ambient/ambient4-albumartwork.webp"
+const imagePath = product.images[0].url.replace('/assets/images/releases/', '');
+image.src = `/images/releases/${imagePath}`;
+        image.alt = product.images[0].alt_text || 'Artwork';
       }
 
       // Tags
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
 
     // Add to Cart interaction (visual + logic)
-    const btn = document.querySelector('.btn-custom');
+    const btn = document.querySelector('.btn-add-cart');
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       addToCart(index);

@@ -1,4 +1,5 @@
 import { getCartCount } from '../services/cartService.js';
+import { renderMegaMenu } from './mega-menu.js';
 
 export function updateCartCount() {
   const count = getCartCount();
@@ -54,7 +55,6 @@ const categoriesData = {
 };
 
 
-
 // --- Render Navbar Sections ---
 function renderMiddleBar() {
   const nav = document.getElementById('middleBar');
@@ -107,9 +107,9 @@ function renderBottomBar() {
           <li class="nav-item">
             <a class="nav-link text-light" href="new-releases.html">New Arrivals</a>
           </li>
-          <li class="nav-item mega-trigger">
-            <a class="nav-link dropdown-toggle text-light" href="#">Catalog</a>
-          </li>
+              <li class="nav-item">
+  <a class="nav-link text-light" href="#" id="megaMenuTrigger">Catalog</a>
+</li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">Sale</a>
             <ul class="dropdown-menu">
@@ -121,72 +121,18 @@ function renderBottomBar() {
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">Help</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="about.html">About Us</a></li>
               <li><a class="dropdown-item" href="returns.html">Returns</a></li>
               <li><a class="dropdown-item" href="faq.html">FAQs</a></li>
               <li><a class="dropdown-item" href="delivery.html">Delivery</a></li>
               <li><a class="dropdown-item" href="contact.html">Contact</a></li>
             </ul>
-
           </li>
-          <a class="nav-link text-light" href="#" data-bs-toggle="dropdown">Account</a>
-            <a class="nav-link text-light" href="#" data-bs-toggle="dropdown">Wishlist</a>
-              <a class="nav-link text-light" href="#" data-bs-toggle="dropdown">Cart</a>
         </ul>
       </div>
     </div>
   `;
-
-  const megaMenu = document.createElement('div');
-  megaMenu.id = 'megaCategoryMenu';
-  megaMenu.className = 'mega-menu';
-  megaMenu.innerHTML = `
-    <div class="mega-menu__content container py-4">
-      <div class="row">
-        <div class="col-md-4">
-          <h6 class="text-uppercase">Genres</h6>
-          <ul class="list-unstyled">
-            ${categoriesData.genres.map(i => `<li><a href="#" class="dropdown-item genre-link" data-genre="${i}">${i}</a></li>`).join('')}
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h6 class="text-uppercase">Styles</h6>
-          <ul class="list-unstyled">
-            ${categoriesData.styles.map(i => `<li><a href="#" class="dropdown-item style-link" data-style="${i}">${i}</a></li>`).join('')}
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h6 class="text-uppercase">Era</h6>
-          <ul class="list-unstyled">
-            ${categoriesData.era.map(i => `<li><a href="#" class="dropdown-item era-link" data-era="${i}">${i}</a></li>`).join('')}
-          </ul>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col">
-          <div class="category-image-cards d-flex flex-wrap gap-3 justify-content-center">
-            <div class="category-card">
-              <img src="../assets/images/background.png" alt="Techno" />
-              <span>Techno</span>
-            </div>
-                        <div class="category-card">
-              <img src="../assets/images/background.png" alt="Techno" />
-              <span>Breaks</span>
-            </div>
-                        <div class="category-card">
-              <img src="../assets/images/background.png" alt="Techno" />
-              <span>House</span>
-            </div>
-                        <div class="category-card">
-              <img src="../assets/images/background.png" alt="Techno" />
-              <span>Ambient</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-  nav.appendChild(megaMenu);
+const megaMenu = renderMegaMenu(categoriesData);
+nav.appendChild(megaMenu);
 
   // Filters to search page
   document.addEventListener('click', (e) => {
@@ -271,7 +217,7 @@ function setupScrollBehavior() {
   });
 
 
-}
+} 
 
 // --- Event Bindings ---
 function setupMegaMenuBehavior() {
