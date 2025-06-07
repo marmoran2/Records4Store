@@ -10,12 +10,10 @@ const cartItemController = require('../controllers/order/cartItemController');
 
 
 // ---- CART ITEM ROUTES ----
-router.get('/all', cartItemController.getAllCartItems);
-router.get('/', cartItemController.getCartItems);
-
-router.post('/', cartItemController.addCartItem);
-
-router.delete('/:cartItemId', cartItemController.deleteCartItem);
+router.get('/cart', cartItemController.getCartItems);
+router.post('/cart', cartItemController.addCartItem);
+router.get('/cart/all', cartItemController.getAllCartItems);
+router.delete('/cart/:cartItemId', cartItemController.deleteCartItem);
 
 // ---- ORDER ROUTES ----
 

@@ -1,6 +1,6 @@
 # Frontend Project Reference — Vinyl Record Store
 
-This is a college-level project to design and deploy the **frontend** of an e-commerce website for a vinyl record store. The project uses a **full Bootstrap 5.3 deployment** (via CDN) with custom SCSS architecture based on the 7-1 pattern. Bootstrap classes are used where helpful, but styling is largely driven by custom SCSS components and variables.
+This is a college-level project to design and deploy the **frontend** of an e-commerce website for a vinyl record store. The project uses a **full Bootstrap 5.3 deployment** with custom SCSS architecture based on the 7-1 pattern. Bootstrap classes are used where helpful, but styling is largely driven by custom SCSS components and variables.
 
 ## Project Goals
 

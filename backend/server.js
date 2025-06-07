@@ -1,17 +1,27 @@
 const express = require('express');
+const cors = require('cors');
+const path = require('path');
 const app = express();
+
 require('dotenv').config();
 const { sequelize } = require('./models');
 const cookieParser = require('cookie-parser');
 const setUserContext = require('./middleware/setUserContext');
 
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
+
+app.use(cors({
+  origin: ['http://localhost:5500', 'http://127.0.0.1:5500'],
+  credentials: true
+}));
 // middleware
 app.use(express.json());
 app.use(cookieParser());
 app.use(setUserContext);
+
+app.use('/images/releases', express.static(path.join(__dirname, 'releases')));
+
 
 // Route Imports
   try {

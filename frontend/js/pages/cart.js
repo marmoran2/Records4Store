@@ -1,151 +1,56 @@
-// File: frontend/js/pages/cart.js
+// cart.js
+import { apiGet } from '../services/api.js';
 
-import {
-  getCartItems,
-  addToCart,
-  removeFromCart,
-  updateQuantity,
-  clearCart
-} from '../services/cartService.js';
+const API_BASE = 'http://localhost:3000'; // Ensure this matches your backend
 
-// Runs when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', async () => {
-  const cart = getCartItems();
-  const container = document.getElementById('cartContent');
-
-  // Display empty cart message if no items in cart
-  if (!cart.length) {
-    container.innerHTML = `<p class="text-muted">Your cart is empty.</p>`;
-    document.getElementById('checkoutBtn').disabled = true;
-    return;
-  }
-
+async function loadCart(userId) {
   try {
-    // Load product metadata to display cart details
-    const res = await fetch('../assets/json/metadata.json');
-    const products = await res.json();
+    const cartItems = await apiGet(`/orders/cart?userId=${userId}`);
+    const cartWrapper = document.getElementById('cartItemsWrapper');
+    const template = document.querySelector('.cart-item-template');
 
-    let subtotal = 0;
+    if (!cartItems || cartItems.length === 0) {
+      cartWrapper.innerHTML = '<p class="text-center mt-5">Your cart is empty.</p>';
+      return;
+    }
 
-    // Generate cart item HTML elements
-    const cartItemsHtml = cart.map(item => {
-      const product = products.find(p => Number(p.index) === Number(item.productIndex));
-      if (!product) return '';
+    cartItems.forEach(async (item) => {
+      const product = item.product;
+      const productDetails = await apiGet(`/products/${product.product_id}`);
+      const release = productDetails.release;
 
-      const itemTotal = item.quantity * (product.price || 20);
-      subtotal += itemTotal;
+      const clone = template.cloneNode(true);
+      clone.classList.remove('d-none');
+      clone.classList.remove('cart-item-template');
+      clone.classList.add('cart-item');
 
-      return `
-        <div class="cart-item" data-index="${product.index}">
-          <img src="../assets/images/album_artworks/artwork-${product.index}-600.webp" alt="${product.trackName}" />
-          <div class="cart-details">
-            <h5>${product.trackName}</h5>
-            <p class="text-muted">${product.artistName}</p>
-            <p>€${(product.price || 20).toFixed(2)} each</p>
-            <div class="quantity-controls">
-              <button class="btn btn-sm btn-outline-secondary minus">–</button>
-              <span class="quantity">${item.quantity}</span>
-              <button class="btn btn-sm btn-outline-secondary plus">+</button>
-            </div>
-            <p class="item-total">€${itemTotal.toFixed(2)}</p>
-            <button class="btn btn-sm btn-link text-danger remove-item">Remove</button>
-          </div>
-        </div>
-      `;
-    }).join('');
+      // Fill in image
+      const img = clone.querySelector('img');
+      const imagePath = productDetails.images?.[0]?.url?.replace(/^\/assets/, '') || '';
+      img.src = `${API_BASE}${imagePath}`;
+      img.alt = productDetails.images?.[0]?.alt_text || 'Artwork';
 
-    // Calculate VAT and total
-    const vat = subtotal * 0.23;
-    const total = subtotal + vat;
+      // Fill in text fields
+      clone.querySelector('#cartTrackName').textContent = release.release_title;
+      clone.querySelector('#cartArtistName').textContent = release.artist.artist_name;
+      clone.querySelector('#cartCollectionName').textContent = release.collection_name || 'N/A';
+      clone.querySelector('#cartRecordLabel').textContent = release.label.name;
+      clone.querySelector('#cartCatalogNumber').textContent = release.catalog_number;
+      clone.querySelector('#cartPriceEach').textContent = `€${parseFloat(product.price).toFixed(2)}`;
+      clone.querySelector('#cartQuantity').textContent = item.quantity;
+      clone.querySelector('#cartItemTotal').textContent = `€${(item.quantity * parseFloat(product.price)).toFixed(2)}`;
 
-    // Populate cart details into DOM
-    container.innerHTML = `
-      <div class="cart-items">${cartItemsHtml}</div>
-      <div class="cart-summary mt-4">
-        <p>Subtotal: <strong>€${subtotal.toFixed(2)}</strong></p>
-        <p>VAT (23%): <strong>€${vat.toFixed(2)}</strong></p>
-        <p class="fs-5">Total: <strong>€${total.toFixed(2)}</strong></p>
-      </div>
-    `;
-
-    // Quantity control logic
-    document.querySelectorAll('.cart-item').forEach(itemEl => {
-      const index = parseInt(itemEl.dataset.index, 10);
-      const minus = itemEl.querySelector('.minus');
-      const plus = itemEl.querySelector('.plus');
-      const quantityDisplay = itemEl.querySelector('.quantity');
-      const remove = itemEl.querySelector('.remove-item');
-
-      // Handle quantity increase
-      plus.addEventListener('click', () => {
-        addToCart(index);
-        quantityDisplay.textContent = Number(quantityDisplay.textContent) + 1;
-        updateCartSummary();
-      });
-
-      // Handle quantity decrease or removal if quantity hits 0
-      minus.addEventListener('click', () => {
-        const currentQuantity = Number(quantityDisplay.textContent);
-        if (currentQuantity > 1) {
-updateQuantity(index, Number(quantityDisplay.textContent) - 1);
-          quantityDisplay.textContent = currentQuantity - 1;
-        } else {
-          removeFromCart(index);
-          itemEl.remove();
-        }
-        updateCartSummary();
-      });
-
-      // Remove item from cart
-      remove.addEventListener('click', () => {
-        removeFromCart(index);
-        itemEl.remove();
-        updateCartSummary();
-      });
+      // Append to cart
+      cartWrapper.appendChild(clone);
     });
-
-  } catch (err) {
-    console.error('Cart failed to load:', err);
-    container.innerHTML = `<p class="text-danger">Failed to load cart data.</p>`;
+  } catch (error) {
+    console.error('Cart failed to load:', error);
   }
+}
 
-  // Checkout button redirect
-  document.getElementById('checkoutBtn').addEventListener('click', () => {
-    if (!getCartItems().length) return;
-    window.location.href = 'checkout-delivery.html';
-  });
-
-  // Continue shopping redirect
-  document.getElementById('continueShopping').addEventListener('click', () => {
-    window.location.href = 'index.html';
-  });
-
-  // Empty cart action
-  document.getElementById('emptyCart').addEventListener('click', () => {
-clearCart();
-    container.innerHTML = `<p class="text-muted">Your cart is empty.</p>`;
-    document.getElementById('checkoutBtn').disabled = true;
-  });
-
-  // Helper function to update cart summary (subtotal, VAT, total)
-  async function updateCartSummary() {
-    const cart = getCartItems();
-    const res = await fetch('../assets/json/metadata.json');
-    const products = await res.json();
-
-    let subtotal = 0;
-    cart.forEach(item => {
-      const product = products.find(p => Number(p.index) === Number(item.productIndex));
-      subtotal += item.quantity * (product.price || 20);
-    });
-
-    const vat = subtotal * 0.23;
-    const total = subtotal + vat;
-
-    document.querySelector('.cart-summary').innerHTML = `
-      <p>Subtotal: <strong>€${subtotal.toFixed(2)}</strong></p>
-      <p>VAT (23%): <strong>€${vat.toFixed(2)}</strong></p>
-      <p class="fs-5">Total: <strong>€${total.toFixed(2)}</strong></p>
-    `;
-  }
-});
+// Parse userId from URL and trigger load
+const params = new URLSearchParams(window.location.search);
+const userId = params.get('userId');
+if (userId) {
+  document.addEventListener('DOMContentLoaded', () => loadCart(userId));
+}

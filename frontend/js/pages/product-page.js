@@ -1,4 +1,5 @@
 import { addToCart, getWishlistItems, toggleWishlist } from '../services/cartService.js';
+import { apiGet, API_BASE } from '../core/api.js';
 
 document.addEventListener('DOMContentLoaded', async function () {
   const urlParams = new URLSearchParams(window.location.search);
@@ -17,27 +18,46 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   try {
-    const res = await fetch('../assets/json/metadata.json');
-    const products = await res.json();
-    const product = products.find(p => p.index === index);
+      const product = await apiGet(`/products/${index}`);
 
-    if (!product) {
-      document.body.innerHTML = '<p class="text-center mt-5">Product not found.</p>';
-      return;
-    }
+      if (!product || !product.product_id) {
+        document.body.innerHTML = '<p class="text-center mt-5">Product not found.</p>';
+        return;
+      }
 
-    // Fill in product details into existing DOM
-    document.getElementById('trackName').textContent = product.trackName;
-    document.getElementById('artistName').textContent = product.artistName;
-    document.getElementById('collectionName').textContent = product.collectionName;
-    document.getElementById('recordLabel').textContent = product.recordLabel;
-    document.getElementById('genre').textContent = product.genre;
-    document.getElementById('releaseYear').textContent = product.releaseYear;
-    document.getElementById('trackLength').textContent = formatTime(product.trackTimeSeconds);
+      console.log('[DEBUG] product:', product);
+      console.log('[DEBUG] HTML element check:', document.getElementById('productImage'));
 
-    const image = document.getElementById('productImage');
-    image.src = `../assets/images/album_artworks/artwork-${product.index}-600.webp`;
-    image.alt = `${product.artistName} - ${product.trackName}`;
+    // Fill in product details
+      document.getElementById('trackName').textContent = product.release.release_title;
+      document.getElementById('artistName').textContent = product.release.artist.artist_name;
+      document.getElementById('recordLabel').textContent = product.release.label.name;
+      document.getElementById('collectionName').textContent = product.release.catalog_number;
+      document.getElementById('releaseYear').textContent = new Date(product.release.released_date).getFullYear();
+      document.getElementById('genre').textContent = product.release.genre.name;
+      document.getElementById('sizeInches').textContent = `${product.size_inches}"`;
+      document.getElementById('price').textContent = `€${product.price}`;
+      document.getElementById('stockQty').textContent = product.stock_qty;
+
+      // Artwork
+      const image = document.getElementById('productImage');
+      if (image) {
+        const imagePath = product.images?.[0]?.url || '';
+        const cleanedPath = imagePath.replace(/^\/assets/, ''); // Strip `/assets`
+        image.src = `${API_BASE}${cleanedPath}`;
+        image.alt = product.images?.[0]?.alt_text || 'Artwork';
+      }
+
+      // Tags
+      document.getElementById('tags').textContent = product.tags.map(t => t.name).join(', ');
+
+      // Tracklist
+      const tracklistDiv = document.getElementById('tracklistContainer');
+      product.release.tracks.forEach(track => {
+        const entry = document.createElement('p');
+        entry.innerHTML = `<strong>${track.side || track.track_number}.</strong> ${track.title}`;
+        tracklistDiv.appendChild(entry);
+      });
 
     // Parallax effect
     window.addEventListener('scroll', () => {

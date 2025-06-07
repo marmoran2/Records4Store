@@ -1,38 +1,38 @@
 {
-  "product_id": 4,
-  "release_id": 108504,
+  "product_id": 1,
+  "release_id": 6531,
   "size_inches": "10",
-  "total_weight": "147",
+  "total_weight": "223",
   "total_dimensions": "12x12in",
-  "price": "5",
-  "stock_qty": 6,
-  "updated_at": "2025-05-24T18:28:29.000Z",
+  "price": "10",
+  "stock_qty": 28,
+  "updated_at": "2025-05-23T18:28:29.000Z",
   "images": [
     {
-      "image_id": 4,
-      "url": "/assets/images/releases/ambient/ambient4-albumartwork.webp",
-      "alt_text": "Behold The Dreamer artwork"
+      "image_id": 1,
+      "url": "/assets/images/releases/ambient/ambient1-albumartwork.webp",
+      "alt_text": "Music For Doubles artwork"
     }
   ],
   "views": [],
   "tags": [
     {
-      "tag_id": 5,
-      "name": "Hardcore"
+      "tag_id": 1,
+      "name": "Tech House"
     },
     {
-      "tag_id": 6,
-      "name": "Speedcore"
+      "tag_id": 2,
+      "name": "Techno"
     }
   ],
   "release": {
-    "release_id": 108504,
-    "catalog_number": "B.E.A.S.T. 004",
-    "release_title": "Behold The Dreamer",
-    "released_date": "1996-02-05T16:55:04.000Z",
+    "release_id": 6531,
+    "catalog_number": "PAL-12",
+    "release_title": "Music For Doubles",
+    "released_date": "2000-08-30T21:23:56.000Z",
     "label": {
-      "label_id": 4,
-      "name": "B.E.A.S.T. Records"
+      "label_id": 1,
+      "name": "Palette Recordings"
     },
     "genre": {
       "genre_id": 1,
@@ -40,53 +40,64 @@
     },
     "tracks": [
       {
-        "track_id": 29,
-        "title": "Behold The Dreamer",
+        "track_id": 1,
+        "title": "Top Side",
         "track_number": 1,
         "duration_secs": null,
-        "side": "A1",
+        "side": "",
         "artist": {
-          "artist_id": 4,
-          "artist_name": "DJ Freak"
+          "artist_id": 1,
+          "artist_name": "John Tejada"
         }
       },
       {
-        "track_id": 30,
-        "title": "Save Your Prayers",
+        "track_id": 2,
+        "title": "Music For Doubles",
         "track_number": 2,
         "duration_secs": null,
-        "side": "A2",
+        "side": "A",
         "artist": {
-          "artist_id": 4,
-          "artist_name": "DJ Freak"
+          "artist_id": 1,
+          "artist_name": "John Tejada"
         }
       },
       {
-        "track_id": 31,
-        "title": "Family",
+        "track_id": 3,
+        "title": "Bottom Side",
         "track_number": 3,
+        "duration_secs": null,
+        "side": "",
+        "artist": {
+          "artist_id": 1,
+          "artist_name": "John Tejada"
+        }
+      },
+      {
+        "track_id": 4,
+        "title": "Bending Circuits",
+        "track_number": 4,
         "duration_secs": null,
         "side": "B1",
         "artist": {
-          "artist_id": 4,
-          "artist_name": "DJ Freak"
+          "artist_id": 1,
+          "artist_name": "John Tejada"
         }
       },
       {
-        "track_id": 32,
-        "title": "Suck Dis Mutha Fucker",
-        "track_number": 4,
+        "track_id": 5,
+        "title": "Mobile",
+        "track_number": 5,
         "duration_secs": null,
         "side": "B2",
         "artist": {
-          "artist_id": 4,
-          "artist_name": "DJ Freak"
+          "artist_id": 1,
+          "artist_name": "John Tejada"
         }
       }
     ],
     "artist": {
-      "artist_id": 4,
-      "artist_name": "DJ Freak"
+      "artist_id": 1,
+      "artist_name": "John Tejada"
     }
   }
 }
