@@ -41,29 +41,19 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(frontendPath, 'html/index.html'));
 });
 
-// ─── API Routes ──────────────────────────────────────
+// ─── Route Mounts ──────────────────────────────────────
 try {
   app.use('/api/products', require('./routes/productRoutes'));
 } catch (err) {
-  console.error('❌ Failed to load productRoutes:', err.message);
+  console.error('Failed to load productRoutes:', err.message);
 }
 
-try {
-  app.use('/api/orders', require('./routes/orderRoutes'));
-} catch (err) {
-  console.error('❌ Failed to load orderRoutes:', err.message);
-}
 
 try {
   app.use('/api/users', require('./routes/userRoutes'));
 } catch (err) {
-  console.error('❌ Failed to load userRoutes:', err.message);
+  console.error('Failed to load userRoutes:', err.message);
 }
-
-// // ─── Fallback to 404 Page ────────────────────────────
-// app.get('*', (req, res) => {
-//   res.status(404).sendFile(path.join(frontendPath, 'html/404.html'));
-// });
 
 // ─── Error Handlers ──────────────────────────────────
 app.use(notFound);
@@ -71,11 +61,11 @@ app.use(errorHandler);
 
 // ─── Start Server & Test DB ──────────────────────────
 app.listen(PORT, async () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
   try {
     await sequelize.authenticate();
-    console.log('✅ DB connected');
+    console.log('DB connected');
   } catch (err) {
-    console.error('❌ DB connection failed:', err);
+    console.error('DB connection failed:', err);
   }
 });

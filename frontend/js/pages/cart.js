@@ -1,79 +1,59 @@
-// cart.js
-import { apiGet, API_BASE, apiDelete } from '../core/api.js';
+import { initSession } from '../core/session.js';
 
-async function loadCart(userId) {
+document.addEventListener('DOMContentLoaded', async () => {
+  const user = await initSession({ requireAuth: true });
+  if (!user) return;
+
+  renderWishlist();
+});
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const user = JSON.parse(localStorage.getItem('authUser'));
+
+  if (!user || !user.user_id) {
+    window.location.href = 'login.html';
+    return;
+  }
+
   try {
-    const cartItems = await apiGet(`/orders/cart?userId=${userId}`);
-    const cartWrapper = document.getElementById('cartItemsWrapper');
-    const template = document.querySelector('.cart-item-template');
-    let cartTotal = 0;
-
-    if (!cartItems || cartItems.length === 0) {
-      cartWrapper.innerHTML = '<p class="text-center mt-5">Your cart is empty.</p>';
-      return;
-    }
-
-    // Clear existing contents
-    cartWrapper.innerHTML = '';
-
-    cartItems.forEach(async (item) => {
-      const { product, quantity, cart_item_id } = item;
-      const productDetails = await apiGet(`/products/${product.product_id}`);
-      const release = productDetails.release;
-
-      const clone = template.cloneNode(true);
-      clone.classList.remove('d-none', 'cart-item-template');
-      clone.classList.add('cart-item');
-
-      // Fill in image
-      const img = clone.querySelector('img');
-      const imagePath = productDetails.images?.[0]?.url || '';
-      const cleanedPath = imagePath.replace(/^\/assets/, '');
-      img.src = `${API_BASE}${cleanedPath}`;
-      img.alt = productDetails.images?.[0]?.alt_text || 'Artwork';
-
-      // Fill in text fields (use classes not IDs)
-      clone.querySelector('.product-title').textContent = release?.release_title || 'Unknown';
-      clone.querySelector('.product-subtitle').textContent = release?.artist?.artist_name || 'Unknown Artist';
-      clone.querySelector('.collection-name').textContent = release?.collection_name || 'N/A';
-      clone.querySelector('.record-label').textContent = release?.label?.name || 'N/A';
-      clone.querySelector('.catalog-number').textContent = release?.catalog_number || 'N/A';
-      clone.querySelector('.price-each').textContent = `€${parseFloat(product.price).toFixed(2)}`;
-      clone.querySelector('.cart-quantity').textContent = quantity;
-      clone.querySelector('.cart-item-total').textContent = `€${(quantity * parseFloat(product.price)).toFixed(2)}`;
-
-      // Add to running total
-      cartTotal += quantity * parseFloat(product.price);
-
-      // Remove button
-      const removeBtn = clone.querySelector('.remove-item');
-      removeBtn.addEventListener('click', async () => {
-        try {
-          await apiDelete(`/orders/cart/${cart_item_id}`);
-          loadCart(userId); // Reload the cart after removal
-        } catch (err) {
-          console.error('Failed to remove item from cart:', err);
-        }
-      });
-
-      // Append to DOM
-      cartWrapper.appendChild(clone);
+    const response = await fetch(`/api/users/${user.user_id}`, {
+      method: 'GET',
+      credentials: 'include'
     });
 
-    // Show total if needed
-    const summaryEl = document.getElementById('cartSummary');
-    if (summaryEl) {
-      summaryEl.textContent = `Total: €${cartTotal.toFixed(2)}`;
-    }
+    if (!response.ok) throw new Error('Fetch failed');
 
-  } catch (error) {
-    console.error('Cart failed to load:', error);
+    const fullUser = await response.json();
+
+    // Summary
+    document.getElementById('summaryName').textContent = `${fullUser.first_name} ${fullUser.last_name}`;
+    document.getElementById('summaryEmail').textContent = fullUser.email;
+
+    // Details
+    document.getElementById('detailEmail').textContent = fullUser.email;
+    document.getElementById('detailUsername').textContent = fullUser.username || '—';
+    document.getElementById('detailFirstName').textContent = fullUser.first_name || '—';
+    document.getElementById('detailLastName').textContent = fullUser.last_name || '—';
+
+    const address = [
+      fullUser.address_line1,
+      fullUser.address_line2,
+      fullUser.city,
+      fullUser.country
+    ].filter(Boolean).join(', ');
+
+    document.getElementById('detailAddress').textContent = address || 'No address saved';
+    document.getElementById('detailCreated').textContent = fullUser.created_at || '—';
+    document.getElementById('detailLastOrder').textContent = fullUser.last_order || '—';
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('authUser');
+      window.location.href = 'login.html';
+    });
+
+  } catch (err) {
+    console.error('Failed to load account:', err);
+    alert('Something went wrong loading your account.');
+    window.location.href = 'login.html';
   }
-}
-
-// Parse userId from URL and trigger load
-const params = new URLSearchParams(window.location.search);
-const userId = params.get('userId');
-if (userId) {
-  document.addEventListener('DOMContentLoaded', () => loadCart(userId));
-}
+});

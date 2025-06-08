@@ -9,45 +9,81 @@ import {
   bindProductCardEvents
 } from '../components/product-card.js';
 
+import { initSession } from '../core/session.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  console.log('[Wishlist] DOMContentLoaded');
+
+  const user = await initSession({ requireAuth: true });
+  console.log('[Wishlist] Session user:', user);
+  if (!user) return;
+
+  renderWishlist();
+});
+
 const $results = document.getElementById('resultsContainer');
 
-function renderWishlist() {
-  const wishlist = getWishlistItems();
+async function renderWishlist() {
+  console.log('[Wishlist] Rendering wishlist');
 
-  if (!wishlist.length) {
-    $results.innerHTML = `
-      <p class="text-muted">Looks like your wishlist is empty, browse our catalog to find your next record.</p>
-      <a class="btn btn-outline-secondary mt-3" href="search.html">Browse All</a>
-    `;
-    return;
-  }
+  try {
+    const wishlist = await getWishlistItems();
+    console.log('[Wishlist] Raw wishlist response:', wishlist);
 
-  fetch('../assets/json/metadata.json')
-    .then(res => res.json())
-    .then(data => {
-      const html = wishlist.map((productIndex) => {
-        const product = data.find(p => p.index === productIndex);
-        if (!product) return '';
-        return renderProductCard(product, {
-          showAddToCart: true,
-          showWishlist: true
-        });
-      }).join('');
+    if (!wishlist.length) {
+      $results.innerHTML = `
+        <p class="text-muted">Looks like your wishlist is empty, browse our catalog to find your next record.</p>
+        <a class="btn btn-outline-secondary mt-3" href="search.html">Browse All</a>
+      `;
+      return;
+    }
 
-      $results.innerHTML = html;
+    const html = wishlist.map(item => {
+      const product = item.product;
+      if (!product || !product.product_id) {
+        console.warn('[Wishlist] Invalid product:', item);
+        return '';
+      }
 
-      // Attach wishlist & cart logic after DOM render
-      bindProductCardEvents({
-        onAddToCart: (index) => {
-          addToCart(index);
-          alert('Added to cart');
-        },
-        onWishlistToggle: (index) => {
-          toggleWishlist(index);
-          renderWishlist(); // refresh UI after toggle
-        }
+      // Patch with fallbacks for UI compatibility
+      const patchedProduct = {
+        ...product,
+        index: product.product_id,
+        id: product.product_id,
+        trackName: product.trackName || 'Untitled Track',
+        artistName: product.artistName || 'Unknown Artist',
+        genre: product.genre || 'Unknown Genre',
+        releaseYear: product.releaseYear || '—',
+        imageUrl: product.imageUrl
+          ? `/images/releases/${product.imageUrl.replace(/^.*?releases\//, '')}`
+          : '../assets/img/default.jpg',
+      };
+
+      console.log('[Wishlist] Rendering product:', patchedProduct);
+
+      return renderProductCard(patchedProduct, {
+        showAddToCart: true,
+        showWishlist: true
       });
-    });
-}
+    }).join('');
 
-renderWishlist();
+    $results.innerHTML = html;
+
+    bindProductCardEvents({
+      onAddToCart: (productId) => {
+        console.log('[Wishlist] Add to cart:', productId);
+        addToCart(productId);
+        alert('Added to cart');
+      },
+      onWishlistToggle: async (productId) => {
+        console.log('[Wishlist] Toggle wishlist for:', productId);
+        await toggleWishlist(productId);
+        renderWishlist(); // refresh UI
+      }
+    });
+
+  } catch (err) {
+    console.error('[Wishlist] Failed to load:', err);
+    $results.innerHTML = `<p class="text-danger">Error loading wishlist.</p>`;
+  }
+}

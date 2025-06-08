@@ -9,7 +9,7 @@ const getAllTags = async (req, res) => {
     });
     res.status(200).json(tags);
   } catch (error) {
-    console.error('❌ Error fetching tags:', error);
+    console.error('Error fetching tags:', error);
     res.status(500).json({ message: 'Failed to retrieve tags' });
   }
 };
@@ -30,7 +30,7 @@ const getTagById = async (req, res) => {
 
     res.status(200).json(tag);
   } catch (error) {
-    console.error(`❌ Error fetching tag ${req.params.id}:`, error);
+    console.error(` Error fetching tag ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to retrieve tag' });
   }
 };

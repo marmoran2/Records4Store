@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(`.form-step[data-step="${stepNum}"]`).classList.add('active');
   }
 
-  // Step 1: Send Email
+  // Email Set
   $('#sendReset').on('click', async () => {
     const emailInput = $('#resetEmail')[0];
     const email = emailInput.value.trim();
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startResendTimer();
   });
 
-  // Step 2: Resend Logic
+  // Resend
   $('#resendBtn').on('click', () => {
     if (secondsLeft > 0 || resendAttempts >= 5) return;
 
@@ -71,11 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 1000);
 
-    // Simulate receiving link → proceed after delay
     setTimeout(() => showStep(3), 3000);
   }
 
-  // Step 3: Reset Password
+  // Rexet Password
   $('#forgotForm').on('submit', e => {
     e.preventDefault();
     const newPw = $('#newPassword').val();

@@ -14,7 +14,6 @@ const requireGuestOrUserSession = require('../middleware/requireGuestOrUserSessi
 
 router.get('/session', setUserContext, (req, res) => {
   const user = res.locals.user;
-
   if (user) {
     res.json(user);
   } else {
@@ -28,6 +27,15 @@ router.use(setUserContext);
 
 // ─── USER ─────────────────────────────────────────────
 router.get('/', requireLogin, userController.getAllUsers);
+router.get('/loggedIn', (req, res) => {
+  const user = res.locals.user;
+  if (user) {
+    return res.json(user);
+  } else {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
+});
+
 router.get('/:id', requireLogin, userController.getUserById);
 router.post('/', userController.createUser); // registration
 

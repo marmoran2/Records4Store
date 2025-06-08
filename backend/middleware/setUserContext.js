@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
   const sessionId = req.cookies?.session_id;
 
   if (!sessionId) {
-    console.debug('[setUserContext] ❌ No session_id cookie');
+    console.debug('[setUserContext] No session_id cookie');
     return next();
   }
 
@@ -28,12 +28,12 @@ module.exports = async (req, res, next) => {
     });
 
     if (!session) {
-      console.debug(`[setUserContext] ❌ No matching session for ID ${sessionId}`);
+      console.debug(`[setUserContext] No matching session for ID ${sessionId}`);
       return next();
     }
 
     if (!session.user) {
-      console.debug(`[setUserContext] ❌ Session found, but no associated user. Check alias.`);
+      console.debug(`[setUserContext] Session found, but no associated user. Check alias.`);
       return next();
     }
 
@@ -44,10 +44,10 @@ module.exports = async (req, res, next) => {
       role: session.user.user_role || 'Customer'
     };
 
-    console.debug('[setUserContext] ✅ User context set:', res.locals.user);
+    console.debug('[setUserContext] User context set:', res.locals.user);
 
   } catch (err) {
-    console.error('❌ setUserContext error:', err.message);
+    console.error('setUserContext error:', err.message);
   }
 
   return next();

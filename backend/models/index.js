@@ -9,7 +9,7 @@ const db = {};
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-// Recursively load all model files
+// Load all model files
 function loadModels(dirPath) {
   fs.readdirSync(dirPath).forEach(file => {
     const fullPath = path.join(dirPath, file);
@@ -28,7 +28,7 @@ function loadModels(dirPath) {
 
 loadModels(__dirname);
 
-// Call .associate(db) for any model that defines it
+// Call associate(db)
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);

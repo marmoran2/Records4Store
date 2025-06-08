@@ -9,7 +9,7 @@ const getAllGenres = async (req, res) => {
     });
     res.status(200).json(genres);
   } catch (error) {
-    console.error('❌ Error fetching genres:', error);
+    console.error('Error fetching genres:', error);
     res.status(500).json({ message: 'Failed to retrieve genres' });
   }
 };
@@ -29,7 +29,7 @@ const getGenreById = async (req, res) => {
 
     res.status(200).json(genre);
   } catch (error) {
-    console.error(`❌ Error fetching genre ${req.params.id}:`, error);
+    console.error(`Error fetching genre ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to retrieve genre' });
   }
 };

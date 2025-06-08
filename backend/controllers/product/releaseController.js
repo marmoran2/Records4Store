@@ -14,7 +14,7 @@ const getAllReleases = async (req, res) => {
     });
     res.status(200).json(releases);
   } catch (error) {
-    console.error('❌ Error fetching releases:', error);
+    console.error('Error fetching releases:', error);
     res.status(500).json({ message: 'Failed to retrieve releases' });
   }
 };
@@ -44,7 +44,7 @@ const getReleaseById = async (req, res) => {
 
     res.status(200).json(release);
   } catch (error) {
-    console.error(`❌ Error fetching release ${req.params.id}:`, error);
+    console.error(`Error fetching release ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to retrieve release' });
   }
 };

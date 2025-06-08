@@ -1,30 +1,7 @@
-import { getCartCount } from '../services/cartService.js';
+
 import { renderMegaMenu } from './mega-menu.js';
 
-export function updateCartCount() {
-  const count = getCartCount();
-  const el = document.getElementById('cartCount');
-  if (!el) return;
 
-  if (count > 0) {
-    el.textContent = count;
-    el.style.display = 'inline-block';
-  } else {
-    el.textContent = '';
-    el.style.display = 'none';
-  }
-}
-console.log("Cart count updated:", getCartCount);
-
-document.addEventListener('DOMContentLoaded', () => {
-  localStorage.setItem('cartItems', JSON.stringify([
-    { index: 3, quantity: 2 }
-  ]));
-  updateCartCount();
-});
-
-document.addEventListener('DOMContentLoaded', updateCartCount);
-// --- Navigation Data ---
 const productNav = [
   { name: 'New Releases', href: '#' },
   { name: 'Pre-Orders', href: '#' },
@@ -49,9 +26,32 @@ const productNav = [
 ];
 
 const categoriesData = {
-  genres: ['Techno', 'House', 'Jungle', 'Hard House', 'Trance', 'Drum n Bass', 'Ambient'],
-  styles: ['Funky', 'Emotive', 'Soulful', 'Hard as Nails', 'Groove', 'Deep', 'Esoteric'],
-  era: ['70s', '80s', '90s', '00s', '10s', 'Detroit', 'Chicago', 'New Age']
+  genres: [
+    'ambient',
+    'breakbeat',
+    'electro',
+    'hard-house',
+    'hardcore',
+    'techno',
+    'trance',
+    'uk-garage'
+  ],
+  styles: [
+    'funky',
+    'emotive',
+    'soulful',
+    'hard as nails',
+    'groove',
+    'deep',
+    'esoteric'
+  ],
+  era: [
+    '70s',
+    '80s',
+    '90s',
+    '00s',
+    '10s',
+  ]
 };
 
 
@@ -82,7 +82,6 @@ function renderMiddleBar() {
         <a href="../html/account.html" class="me-3" title="Account"><span class="material-icons">account_circle</span></a>
           <a href="../html/cart.html" title="Cart" class="nav-icon-link">
             <span class="material-icons">shopping_cart</span>
-            <span id="cartCount" class="cart-count-badge"></span>
           </a>
       </div>
     </div>
@@ -102,35 +101,25 @@ function renderBottomBar() {
       <div class="navbar-links collapse navbar-collapse justify-content-center" id="prodNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-light" href="pre-orders.html">Pre-Orders</a>
+            <a class="nav-link text-light" href="#" id="megaMenuTrigger">Catalog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="new-releases.html">New Arrivals</a>
+            <a class="nav-link text-light" href="faq.html">FAQ</a>
           </li>
-              <li class="nav-item">
-  <a class="nav-link text-light" href="#" id="megaMenuTrigger">Catalog</a>
-</li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">Sale</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item sale-link" data-sale="under-10" href="#">Under €10</a></li>
-              <li><a class="dropdown-item sale-link" data-sale="2for1" href="#">2 for 1</a></li>
-              <li><a class="dropdown-item sale-link" data-sale="final-stock" href="#">Final Stock</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="delivery.html">Delivery</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">Help</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="returns.html">Returns</a></li>
-              <li><a class="dropdown-item" href="faq.html">FAQs</a></li>
-              <li><a class="dropdown-item" href="delivery.html">Delivery</a></li>
-              <li><a class="dropdown-item" href="contact.html">Contact</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="returns.html">Returns</a>
           </li>
         </ul>
       </div>
     </div>
   `;
+
 const megaMenu = renderMegaMenu(categoriesData);
 nav.appendChild(megaMenu);
 

@@ -1,6 +1,15 @@
 // File: js/pages/checkout.js
 import { getCartItems, saveCartItems } from '../services/cartService.js';
 
+import { initSession } from '../core/session.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const user = await initSession({ requireAuth: true });
+  if (!user) return;
+
+  renderWishlist();
+});
+
 let currentStep = 1;
 let user = null;
 
@@ -9,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginStatus = document.getElementById('loginStatus');
   localStorage.setItem('authUser', JSON.stringify({ email: 'test@example.com' }));
 
-  // Show user info or guest prompt
   if (user?.email) {
     loginStatus.innerHTML = `
       <p class="text-success">You are logged in as <strong>${user.email}</strong>.</p>
@@ -24,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('checkoutAsGuest').classList.remove('d-none');
   }
 
-  // Step logic
   document.getElementById('continueToDelivery')?.addEventListener('click', () => nextStep());
   document.getElementById('checkoutAsGuest')?.addEventListener('click', () => nextStep());
 

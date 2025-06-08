@@ -1,7 +1,7 @@
 import { isValidEmail, markInvalid, clearValidation } from '../components/form-validation.js';
 import { login } from '../core/api.js'; // uses apiPost('/users/login', ...)
 
-// SHA-256 hashing function (same as in register.js)
+// Password Hash
 async function hashPassword(password) {
   const encoder = new TextEncoder();
   const data = encoder.encode(password);
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const hashedPassword = await hashPassword(password);
-      const result = await login(email, hashedPassword); // backend expects hashed password
+      const result = await login(email, hashedPassword); 
 
       // Save basic session info to localStorage (customize as needed)
       localStorage.setItem('authUser', JSON.stringify({

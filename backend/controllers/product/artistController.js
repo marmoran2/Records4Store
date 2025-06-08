@@ -9,7 +9,7 @@ const getAllArtists = async (req, res) => {
     });
     res.status(200).json(artists);
   } catch (error) {
-    console.error('❌ Error fetching artists:', error);
+    console.error('Error fetching artists:', error);
     res.status(500).json({ message: 'Failed to retrieve artists' });
   }
 };
@@ -29,7 +29,7 @@ const getArtistById = async (req, res) => {
 
     res.status(200).json(artist);
   } catch (error) {
-    console.error(`❌ Error fetching artist ${req.params.id}:`, error);
+    console.error(`Error fetching artist ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to retrieve artist' });
   }
 };

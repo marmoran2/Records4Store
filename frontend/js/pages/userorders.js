@@ -1,4 +1,4 @@
-// orders.js — Order History Page
+
 
 const ordersKey = 'orders';
 const $results = document.getElementById('ordersContainer');

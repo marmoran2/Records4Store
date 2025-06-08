@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       const image = document.getElementById('productImage');
       if (image && product.images?.[0]?.url) {
         // If your DB stores the full path like "ambient/ambient4-albumartwork.webp"
-const imagePath = product.images[0].url.replace('/assets/images/releases/', '');
-image.src = `/images/releases/${imagePath}`;
+        const imagePath = product.images[0].url.replace('/assets/images/releases/', '');
+        image.src = `/images/releases/${imagePath}`;
         image.alt = product.images[0].alt_text || 'Artwork';
       }
 
@@ -57,12 +57,10 @@ image.src = `/images/releases/${imagePath}`;
         tracklistDiv.appendChild(entry);
       });
 
-    // Parallax effect
     window.addEventListener('scroll', () => {
       image.style.transform = `translateY(${window.scrollY * 0.1}px)`;
     });
-
-    // Add to Cart interaction (visual + logic)
+    
     const btn = document.querySelector('.btn-add-cart');
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -74,8 +72,6 @@ image.src = `/images/releases/${imagePath}`;
         btn.classList.remove('added');
       }, 1500);
     });
-
-    // Wishlist interaction (toggle + icon state)
     const heartBtn = document.getElementById('wishlistBtn');
     if (heartBtn) {
       updateWishlistIcon(heartBtn, index);

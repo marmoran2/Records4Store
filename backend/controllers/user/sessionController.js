@@ -14,7 +14,7 @@ const getSessionsByUser = async (req, res) => {
     });
     res.status(200).json(sessions);
   } catch (error) {
-    console.error(`❌ Error fetching sessions for user ${req.params.userId}:`, error);
+    console.error(`Error fetching sessions for user ${req.params.userId}:`, error);
     res.status(500).json({ message: 'Failed to retrieve sessions' });
   }
 };
@@ -34,7 +34,7 @@ const getSessionById = async (req, res) => {
 
     res.status(200).json(session);
   } catch (error) {
-    console.error(`❌ Error fetching session ${req.params.id}:`, error);
+    console.error(`Error fetching session ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to retrieve session' });
   }
 };
@@ -56,7 +56,7 @@ const createSession = async (req, res) => {
 
     res.status(201).json(session);
   } catch (error) {
-    console.error(`❌ Error creating session for user ${user_id}:`, error);
+    console.error(` Error creating session for user ${user_id}:`, error);
     res.status(500).json({ message: 'Failed to create session' });
   }
 };

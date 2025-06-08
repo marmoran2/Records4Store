@@ -90,7 +90,7 @@ const getProductById = async (req, res) => {
 
     res.status(200).json(product);
   } catch (error) {
-    console.error(`❌ Error fetching product ${req.params.id}:`, error);
+    console.error(`Error fetching product ${req.params.id}:`, error);
     res.status(500).json({ error: 'Failed to retrieve product' });
   }
 };

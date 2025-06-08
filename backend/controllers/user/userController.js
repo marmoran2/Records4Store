@@ -1,6 +1,5 @@
 // controllers/user/userController.js
 const { User, Address, Wishlist, ProductView, Session, Order } = require('../../models');
-
 // GET /api/users → list all users (for admin/debug use)
 const getAllUsers = async (req, res) => {
   try {
@@ -12,7 +11,7 @@ const getAllUsers = async (req, res) => {
     });
     res.status(200).json(users);
   } catch (error) {
-    console.error('❌ Error fetching users:', error);
+    console.error('Error fetching users:', error);
     res.status(500).json({ message: 'Failed to retrieve users' });
   }
 };
@@ -37,11 +36,10 @@ const getUserById = async (req, res) => {
 
     res.status(200).json(user);
   } catch (error) {
-    console.error(`❌ Error fetching user ${req.params.id}:`, error);
+    console.error(`Error fetching user ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to retrieve user' });
   }
 };
-
 // POST /api/users → create guest or registered user (basic stub)
 const createUser = async (req, res) => {
   const {
@@ -63,7 +61,7 @@ const createUser = async (req, res) => {
 
     res.status(201).json(user);
   } catch (error) {
-    console.error('❌ Error creating user:', error);
+    console.error('Error creating user:', error);
     res.status(500).json({ message: 'Failed to create user' });
   }
 };

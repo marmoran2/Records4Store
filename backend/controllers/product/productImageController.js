@@ -33,7 +33,7 @@ const getImageById = async (req, res) => {
 
     res.status(200).json(image);
   } catch (error) {
-    console.error(`❌ Error fetching image ${req.params.id}:`, error);
+    console.error(`Error fetching image ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to retrieve image' });
   }
 };

@@ -1,55 +1,49 @@
-// File: frontend/js/pages/account.js
+import { apiGet, getCurrentSession } from '../core/api.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const user = JSON.parse(localStorage.getItem('authUser'));
-  
-    if (!user || !user.email) {
-      window.location.href = 'login.html';
-      return;
+  try {
+    const session = await getCurrentSession();
+    if (!session?.id && !session?.user_id) {
+      throw new Error('Invalid session response');
     }
-  
-    try {
-      const res = await fetch('../assets/json/users.json');
-      const users = await res.json();
-      const fullUser = users.find(u => u.email === user.email);
-  
-      if (!fullUser) {
-        window.location.href = 'login.html';
-        return;
-      }
-  
-      // Summary
-      document.getElementById('summaryName').textContent = `${fullUser.firstName} ${fullUser.lastName}`;
-      document.getElementById('summaryEmail').textContent = fullUser.email;
-  
-      // Details
-      document.getElementById('detailEmail').textContent = fullUser.email;
-      document.getElementById('detailUsername').textContent = fullUser.username || '—';
-      document.getElementById('detailFirstName').textContent = fullUser.firstName || '—';
-      document.getElementById('detailLastName').textContent = fullUser.lastName || '—';
-  
-      const address = [
-        fullUser.addressLine1,
-        fullUser.addressLine2,
-        fullUser.city,
-        fullUser.country
-      ].filter(Boolean).join(', ');
-  
-      document.getElementById('detailAddress').textContent = address || 'No address saved';
-  
-      document.getElementById('detailCreated').textContent = fullUser.createdAt || '—';
-      document.getElementById('detailLastOrder').textContent = fullUser.lastOrder || '—';
-  
-      // Logout button
-      document.getElementById('logoutBtn').addEventListener('click', () => {
-        localStorage.removeItem('authUser');
-        window.location.href = 'login.html';
-      });
-  
-    } catch (err) {
-      console.error('Failed to load account:', err);
-      alert('Something went wrong loading your account. Please try again later.');
+
+    const userId = session.user_id || session.id;
+    const fullUser = await apiGet(`/users/${userId}`);
+    console.log('[Account] Loaded user:', fullUser);
+
+    // Handle missing/null fields gracefully
+    const firstName = fullUser.first_name || '';
+    const lastName = fullUser.last_name || '';
+    const email = fullUser.email || 'Not available';
+
+    document.getElementById('summaryName').textContent = `${firstName} ${lastName}`.trim();
+    document.getElementById('summaryEmail').textContent = email;
+
+    document.getElementById('detailEmail').textContent = email;
+    document.getElementById('detailUsername').textContent = fullUser.username || '—';
+    document.getElementById('detailFirstName').textContent = firstName || '—';
+    document.getElementById('detailLastName').textContent = lastName || '—';
+
+    const address = [
+      fullUser.address_line1,
+      fullUser.address_line2,
+      fullUser.city,
+      fullUser.country
+    ].filter(Boolean).join(', ');
+
+    document.getElementById('detailAddress').textContent = address || 'No address saved';
+    document.getElementById('detailCreated').textContent = fullUser.created_at || '—';
+    document.getElementById('detailLastOrder').textContent = fullUser.last_order || '—';
+
+    document.getElementById('logoutBtn')?.addEventListener('click', () => {
+      document.cookie = 'session_id=; Max-Age=0; path=/';
+      localStorage.removeItem('authUser');
       window.location.href = 'login.html';
-    }
-  });
-  
+    });
+
+  } catch (err) {
+    console.error('[Account] Failed to load account info:', err?.message || err);
+    alert('Could not load your account. Please log in again.');
+    window.location.href = 'login.html';
+  }
+});

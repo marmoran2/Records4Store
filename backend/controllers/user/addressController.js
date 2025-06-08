@@ -10,7 +10,7 @@ const getAddressesByUser = async (req, res) => {
     });
     res.status(200).json(addresses);
   } catch (error) {
-    console.error(`❌ Error fetching addresses for user ${req.params.userId}:`, error);
+    console.error(`Error fetching addresses for user ${req.params.userId}:`, error);
     res.status(500).json({ message: 'Failed to retrieve addresses' });
   }
 };
@@ -30,7 +30,7 @@ const getAddressById = async (req, res) => {
 
     res.status(200).json(address);
   } catch (error) {
-    console.error(`❌ Error fetching address ${req.params.id}:`, error);
+    console.error(`Error fetching address ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to retrieve address' });
   }
 };
@@ -53,7 +53,7 @@ const createAddress = async (req, res) => {
 
     res.status(201).json(newAddress);
   } catch (error) {
-    console.error(`❌ Error creating address for user ${req.params.userId}:`, error);
+    console.error(`Error creating address for user ${req.params.userId}:`, error);
     res.status(500).json({ message: 'Failed to create address' });
   }
 };
@@ -66,7 +66,7 @@ const deleteAddress = async (req, res) => {
 
     res.status(200).json({ message: 'Address deleted' });
   } catch (error) {
-    console.error(`❌ Error deleting address ${req.params.id}:`, error);
+    console.error(`Error deleting address ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to delete address' });
   }
 };

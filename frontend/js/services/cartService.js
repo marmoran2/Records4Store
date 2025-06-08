@@ -4,19 +4,24 @@ export const WISHLIST_KEY = 'wishlistItems';
 
 // === CART FUNCTIONS ===
 
-import {
-  getCart,
-  addToCart as apiAddToCart,
-  updateCartItem,
-  removeCartItem,
-  emptyCart, getLoggedInUser
-} from '../core/api.js';
+import { apiGet, apiPost, apiDelete, getCurrentSession } from '../core/api.js';
 
-export async function getCartCount() {
-  const user = await getLoggedInUser();
-  const cart = await getCart(user.id);
-  return cart.reduce((total, item) => total + item.quantity, 0);
+let cachedUserId = null;
+
+async function ensureUserSession() {
+  if (cachedUserId) return cachedUserId;
+
+  const session = await getCurrentSession();
+  const userId = session?.user_id || session?.id;
+
+  if (!userId) {
+    throw new Error('User session not found');
+  }
+
+  cachedUserId = userId;
+  return userId;
 }
+
 
 export async function getCartItems(userId) {
   return await getCart(userId);
@@ -38,16 +43,26 @@ export async function clearCart(userId) {
   return await emptyCart(userId);
 }
 
-// === WISHLIST FUNCTIONS ===
 
-export function getWishlistItems() {
-  return JSON.parse(localStorage.getItem(WISHLIST_KEY)) || [];
+// === WISHLIST FUNCTIONS (Backend-based) ===
+
+export async function getWishlistItems() {
+  const userId = await ensureUserSession();
+  return apiGet(`/users/${userId}/wishlist`);
 }
 
-export function toggleWishlist(index) {
-  const wishlist = getWishlistItems();
-  const pos = wishlist.indexOf(index);
-  if (pos > -1) wishlist.splice(pos, 1);
-  else wishlist.push(index);
-  localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+export async function toggleWishlist(productId) {
+  const userId = await ensureUserSession();
+
+  try {
+    await apiDelete(`/users/${userId}/wishlist/${productId}`);
+    console.log(`Removed product ${productId} from wishlist`);
+  } catch (err) {
+    if (err.status === 404) {
+      await apiPost(`/users/${userId}/wishlist`, { product_id: productId });
+      console.log(`Added product ${productId} to wishlist`);
+    } else {
+      throw err;
+    }
+  }
 }

@@ -14,7 +14,7 @@ const getAllViews = async (req, res) => {
     });
     res.status(200).json(views);
   } catch (error) {
-    console.error('❌ Error fetching product views:', error);
+    console.error('Error fetching product views:', error);
     res.status(500).json({ message: 'Failed to retrieve views' });
   }
 };

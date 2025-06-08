@@ -59,11 +59,12 @@ export async function register(userData) {
 export async function logout() {
   return apiPost('/users/logout');
 }
-export async function getLoggedInUser() {
-  return apiGet('/users/loggedIn');
-}
+
 export async function getCurrentSession() {
-  return apiGet('/users/session');
+  console.log('[Session Check] Calling /users/loggedIn');
+  const user = await apiGet('/users/loggedIn');
+  console.log('[Session Check] Response:', user);
+  return user;
 }
 
 // ──────── CART ────────

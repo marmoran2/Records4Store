@@ -14,7 +14,7 @@ const getAllViews = async (req, res) => {
     });
     res.status(200).json(views);
   } catch (error) {
-    console.error('❌ Error fetching product views:', error);
+    console.error('Error fetching product views:', error);
     res.status(500).json({ message: 'Failed to retrieve views' });
   }
 };
@@ -33,7 +33,7 @@ const logProductView = async (req, res) => {
     });
     res.status(201).json(view);
   } catch (error) {
-    console.error('❌ Error logging view:', error);
+    console.error('Error logging view:', error);
     res.status(500).json({ message: 'Failed to log view' });
   }
 };
@@ -52,7 +52,7 @@ const getViewsByProduct = async (req, res) => {
     });
     res.status(200).json(views);
   } catch (error) {
-    console.error(`❌ Error fetching views for product ${productId}:`, error);
+    console.error(`Error fetching views for product ${productId}:`, error);
     res.status(500).json({ message: 'Failed to retrieve views' });
   }
 };

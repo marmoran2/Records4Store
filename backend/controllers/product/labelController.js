@@ -29,7 +29,7 @@ const getLabelById = async (req, res) => {
 
     res.status(200).json(label);
   } catch (error) {
-    console.error(`❌ Error fetching label ${req.params.id}:`, error);
+    console.error(`Error fetching label ${req.params.id}:`, error);
     res.status(500).json({ message: 'Failed to retrieve label' });
   }
 };
